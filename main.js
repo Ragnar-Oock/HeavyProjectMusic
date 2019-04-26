@@ -91,9 +91,6 @@ function playlistProcessing(result) {
       for (var i = 0; i < newResult.length; i++) {
         let item = new Music(newResult[i], i);
         item.htmlPrint();
-        // setTimeout(function() {
-        //   $('#id'+item.id).removeClass('playlist_item_hidden');
-        // }, 10);
       }
     }
     // else (ie : not first execution)
@@ -113,9 +110,6 @@ function playlistProcessing(result) {
             let item = new Music(newResult[i], i);
             item.htmlPrint();
             item.log();
-            // setTimeout(function() {
-            //   $('#id'+item.id).removeClass('playlist_item_hidden');
-            // }, 10);
           }
         }
 
