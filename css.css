@@ -77,11 +77,6 @@ footer p{
   opacity: 0;
   height: 0;
 }
-.playlist_item_moving{
-  position: absolute;
-  opacity: 50%;
-  top: attr(data-top)px;
-}
 .playlist_item__tags{
   grid-area: tags;
   display: flex;
