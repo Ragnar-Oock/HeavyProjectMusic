@@ -29,7 +29,9 @@ function ajaxd() {
     type: 'GET',
     cache: false,
     crossDomain: true,
-    success: playlistProcessing(result),
+    success: function(result){
+      playlistProcessing(result);
+    },
     error: function(error){
       console.error(error);
     }
