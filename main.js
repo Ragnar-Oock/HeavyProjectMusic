@@ -50,9 +50,18 @@ function playlistProcessing(result) {
       /*on enregistre l'index de la musique dans la nouvelle et l'ancienne requete*/
       // store the index of the current item of the last result in the new one
       let newIndex = isIn(lastResult[i].id, newResult);
+      /*si la musique n'est plus dans la liste on la supprime*/
+      // if the index found in the new result is -1, the item is not anymore in the playlist, remove it
+      if (newIndex===-1) {
+        let selector = '#id'+lastResult[i].id;
+        $(selector).addClass('playlist_item_hidden');
+        setTimeout(function() {
+          $(selector).remove();
+        }, 300)
+      }
       /*si l'index n'est pas le meme on la deplace*/
-      // if the indexes are differents move the item to the correct position
-      if (newIndex!==i) {
+      // else if the indexes are differents move the item to the correct position
+      else if (newIndex!==i) {
         target = $('#id'+lastResult[i].id).first()[0];
         let newLocation = (10.66 * (newIndex - i)) + 'em';
         anime({
@@ -70,15 +79,6 @@ function playlistProcessing(result) {
             translateY: 0,
           });
         }, 1000, lastResult, target, i, newIndex);
-      }
-      /*sinon la musique n'est plus dans la liste on la supprime*/
-      // else if the index found in the new result is -1, the item is not anymore in the playlist, remove it
-      else if (newIndex===-1) {
-        let selector = '#id'+lastResult[i].id;
-        $(selector).addClass('playlist_item_hidden');
-        setTimeout(function() {
-          $(selector).remove();
-        }, 300)
       }
     }
 
