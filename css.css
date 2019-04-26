@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body{
+  display:block;
+  font-family: Roboto;
+  width:100%;
+  max-width:600px;
+  min-height: 100vh;
+}
+body{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+footer p{
+  text-align: center;
+}
+.badge{
+  display: inline;
+  width: 18px;
+  height: 18px;
+  border: 0;
+  vertical-align: text-bottom;
+}
+.tag{
+  display: inline-block;
+  padding: 0 3px;
+  background: #41da89;
+}
+.playlist_item.VIP{
+  background-color: #b33ff080;
+}
+
+/* style de la playlist */
+#playlist{
+  display: flex;
+  width:100%;
+  height: 100%;
+  flex-direction: column;
+}
+.playlist_length{
+  display: block;
+  padding: .5em;
+  text-align: right;
+}
+.playlist_item{
+  display: inline-grid;
+  position: relative;
+  grid-template: 1em 1.5em 1em 3em 1em / repeat(2, 1fr);
+  grid-template-areas:
+  "tags tags"
+  "titre artiste"
+  "album ."
+  "info info"
+  "id requester";
+  grid-gap: 5px;
+  padding: .25em 10px .6em;
+  background: #d2d2d2;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  width:100%;
+  height: 155px;
+  opacity: 1;
+  transition: 300ms ease;
+  transition-property: opacity, height;
+  overflow: hidden;
+}
+.playlist_item_hidden{
+  opacity: 0;
+  height: 0;
+}
+.playlist_item_moving{
+  position: absolute;
+  opacity: 50%;
+  top: attr(data-top)px;
+}
+.playlist_item__tags{
+  grid-area: tags;
+  display: flex;
+}
+.playlist_item__tag{
+  width: auto;
+  display: flex;
+  margin: 0 3px
+}
+.playlist_item__tags figure {
+  height: 18px;
+  padding: 0 3px
+}
+.playlist_item__titre{
+  grid-area: titre;
+  font-size: 1.5em;
+}
+.playlist_item__album{
+  grid-area: album;
+}
+.playlist_item__artiste{
+  grid-area: artiste;
+  text-align: right;
+  height: 100%;
+}
+.playlist_item__artiste p{
+    vertical-align: middle;
+}
+.playlist_item__info{
+  grid-area: info;
+}
+.playlist_item__requester{
+  grid-area: requester;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.playlist_item__requester img,
+.playlist_item__requester span{
+  margin: 0 3px;
+}
+.playlist_item__id{
+  grid-area: id;
+  font-size: .8em
+}
