@@ -109,30 +109,18 @@ function playlistProcessing(result) {
           if (oldIndex===-1) {
             let item = new Music(newResult[i], i);
             item.htmlPrint();
-            item.log();
           }
         }
-
-        // DEBUG: test si cette partie est importe (normalement non car redondante (ligne 76))
-        // // else the current song is not in the last result, remove it
-        // else {
-        //   let musique = new Music(newResult[i]);
-        //   musique.htmlPrint();
-        //   setTimeout(function() {
-        //     $('#id'+musique.id).removeClass('playlist_item_hidden');
-        //   }, 10);
-        // }
       }
     }
   }
-  // $('#playlist_length_displayed').html(newResult.length);
   // update the length indicator
   $('#playlist_length_total').html(newResult.length);
 }
 
 /**
 * return the position into the array of an object with an id [id]
-* @param  {int}  id       id of the music to find in the array
+* @param  {int}    id     id of the music to find in the array
 * @param  {array}  array  array to search in
 * @return {int}           index of the object for the id id
 */
