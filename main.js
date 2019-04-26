@@ -89,13 +89,14 @@ function playlistProcessing(result) {
     if (typeof(lastResult[0])=='undefined') {
       // run throught the new result and add all the item to the list
       for (var i = 0; i < newResult.length; i++) {
-        let musique = new Musique(newResult[i], i);
+        let musique = new Music(newResult[i], i);
         musique.htmlPrint();
         setTimeout(function() {
           $('#id'+musique.id).removeClass('playlist_item_hidden');
         }, 10);
       }
     }
+    // else (ie : not first execution)
     else {
       i=0;
       /*on parcourt la nouvelle requete*/
@@ -109,7 +110,7 @@ function playlistProcessing(result) {
           /*si la musique n'etait pas dans l'ancienne requete on l'ajoute*/
           // if the item isn't in the last result, add it to the list
           if (oldIndex===-1) {
-            let musique = new Musique(newResult[i]);
+            let musique = new Music(newResult[i]);
             musique.htmlPrint();
             setTimeout(function() {
               $('#id'+musique.id).removeClass('playlist_item_hidden');
@@ -120,7 +121,7 @@ function playlistProcessing(result) {
         // DEBUG: test si cette partie est importe (normalement non car redondante (ligne 76))
         // // else the current song is not in the last result, remove it
         // else {
-        //   let musique = new Musique(newResult[i]);
+        //   let musique = new Music(newResult[i]);
         //   musique.htmlPrint();
         //   setTimeout(function() {
         //     $('#id'+musique.id).removeClass('playlist_item_hidden');

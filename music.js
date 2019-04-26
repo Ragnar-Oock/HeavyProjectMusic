@@ -1,4 +1,4 @@
-class Musique {
+class Music {
   /**
    * construct the object with the information of the parsed JSON
    * @param {object} obj anonymous object from parsed JSON
