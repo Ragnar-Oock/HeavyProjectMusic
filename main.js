@@ -110,10 +110,10 @@ function playlistProcessing(result) {
           /*si la musique n'etait pas dans l'ancienne requete on l'ajoute*/
           // if the item isn't in the last result, add it to the list
           if (oldIndex===-1) {
-            let musique = new Music(newResult[i]);
-            musique.htmlPrint();
+            let item = new Music(newResult[i], i);
+            item.htmlPrint();
             setTimeout(function() {
-              $('#id'+musique.id).removeClass('playlist_item_hidden');
+              $('#id'+item.id).removeClass('playlist_item_hidden');
             }, 10);
           }
         }
