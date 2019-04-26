@@ -54,7 +54,7 @@ class Music {
       }
     }
     $('#playlist>div').eq(this.index).after(`
-      <div id="id${this.id}" class="playlist_item${vip} ">
+      <div id="id${this.id}" class="playlist_item${vip} playlist_item_hidden">
         <div class="playlist_item__tags">
           ${this.htmlTags()}
         </div>
