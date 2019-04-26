@@ -89,11 +89,11 @@ function playlistProcessing(result) {
     if (typeof(lastResult[0])=='undefined') {
       // run throught the new result and add all the item to the list
       for (var i = 0; i < newResult.length; i++) {
-        let musique = new Music(newResult[i], i);
-        musique.htmlPrint();
-        setTimeout(function() {
-          $('#id'+musique.id).removeClass('playlist_item_hidden');
-        }, 10);
+        let item = new Music(newResult[i], i);
+        item.htmlPrint();
+        // setTimeout(function() {
+        //   $('#id'+musique.id).removeClass('playlist_item_hidden');
+        // }, 10);
       }
     }
     // else (ie : not first execution)
@@ -112,9 +112,10 @@ function playlistProcessing(result) {
           if (oldIndex===-1) {
             let item = new Music(newResult[i], i);
             item.htmlPrint();
-            setTimeout(function() {
-              $('#id'+item.id).removeClass('playlist_item_hidden');
-            }, 10);
+            item.log();
+            // setTimeout(function() {
+            //   $('#id'+item.id).removeClass('playlist_item_hidden');
+            // }, 10);
           }
         }
 
