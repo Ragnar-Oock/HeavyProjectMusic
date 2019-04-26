@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="css.css">
 </head>
 <body>
-  <!-- <button type="button" name="button" class="btn">AJAX!</button> -->
+  <button type="button" name="button" class="btn">AJAX!</button>
   <noscript>
     <?php
       echo constant("NOSCRIPT")

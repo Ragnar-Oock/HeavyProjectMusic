@@ -15,9 +15,9 @@ $(document).ready(function() {
   setInterval(ajaxd, pingDelay);
 
   // for debug purpose only
-  // $('.btn').click(function(){
-  //   ajaxd();
-  // })
+  $('.btn').click(function(){
+    ajaxd();
+  })
 });
 
 /**
