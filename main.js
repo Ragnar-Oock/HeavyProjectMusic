@@ -92,7 +92,7 @@ function playlistProcessing(result) {
         let item = new Music(newResult[i], i);
         item.htmlPrint();
         // setTimeout(function() {
-        //   $('#id'+musique.id).removeClass('playlist_item_hidden');
+        //   $('#id'+item.id).removeClass('playlist_item_hidden');
         // }, 10);
       }
     }
