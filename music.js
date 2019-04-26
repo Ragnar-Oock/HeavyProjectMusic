@@ -19,7 +19,7 @@ class Music {
    * @return {none} methode without return value
    */
   log() {
-    console.log(num, titre, album, artiste, infos, tags, requester, index);
+    console.log(this.id, this.titre, this.album, this.artiste, this.infos, this.tags, this.requester, this.index);
   }
 
   /**
