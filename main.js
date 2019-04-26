@@ -16,7 +16,7 @@ $(document).ready(function() {
 
   // for debug purpose only
   $('.btn').click(function(){
-    ajaxd(); 
+    ajaxd();
   })
 });
 
@@ -29,7 +29,7 @@ function ajaxd() {
     type: 'GET',
     cache: false,
     crossDomain: true,
-    success: playlistProcessing(result){,
+    success: playlistProcessing(result),
     error: function(error){
       console.error(error);
     }
