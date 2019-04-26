@@ -78,7 +78,7 @@ class Music {
         </div>
       </div>`);
       setTimeout(function() {
-        $('#'+this.id).removeClass('playlist_item_hidden');
+        $('#id'+this.id).removeClass('playlist_item_hidden');
       }, 10);
   }
 }
