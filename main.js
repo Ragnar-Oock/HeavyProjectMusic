@@ -16,7 +16,7 @@ $(document).ready(function() {
 
   // for debug purpose only
   $('.btn').click(function(){
-    ajaxd();
+    ajaxd(); 
   })
 });
 
