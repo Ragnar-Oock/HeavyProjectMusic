@@ -54,7 +54,7 @@ class Music {
       }
     }
     $('#playlist').append(`
-      <div id="id${this.id}" class="playlist_item${vip} playlist_item_hidden">
+      <div id="id${this.id}" class="playlist_item${vip} ">
         <div class="playlist_item__tags">
           ${this.htmlTags()}
         </div>
