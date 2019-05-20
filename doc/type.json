@@ -1,0 +1,27 @@
+[
+  "list of all the songs of the playlist : Song"
+  {
+    "id": "id of the song : int",
+    "title": "title of the song : string",
+    "album": "title of the album  : string",
+    "artiste": "name of all the artistes  : string ",
+    "infos": "further informations  about the song, must be less than 140ch : string ",
+    "tags": [ "list of all the tag  for the song, optional : Tag"
+      {
+        "text": "label of the tag, must be as short as possible : string",
+        "icon": "URL of the icon to be displayed aside of the text, optional : string",
+        "color": "background color of the tag in hex : string"
+      }
+    ],
+    "requester": {
+      "displayName": "name of the chatter who've requested the song : string",
+      "color": "font color of the requester's name in hex : string",
+      "badges": [ "list of all the badges to be displayed aside of the requester name, optional : Badges"
+        {
+          "icon": "URL of the badge : string",
+          "alttext": "alternative text displayed if the image don't load or on hover : string"
+        }
+      ]
+    }
+  }
+]
