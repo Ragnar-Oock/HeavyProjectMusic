@@ -72,8 +72,10 @@ function playlistProcessing(result) {
       while (typeof(newResult[i])!=='undefined') {
         // store the index of the current item in the last result
         let oldIndex = isIn(newResult[i].id, lastResult);
-        // if the item isn't in the last result, add it to the list
+        // if the item isn't in the last result,
+        // add it visualy and in the lastResult (simplfy the animation)
         if (oldIndex===-1) {
+          lastResult.splice(i, 0, newResult[i]);
           let item = new Music(newResult[i], i);
           item.htmlPrint();
         }
