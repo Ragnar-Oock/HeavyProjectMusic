@@ -1,6 +1,6 @@
 // variable declaration
 // AJAX parameters
-const Url = 'http://91.161.139.103:50000/HeavyChatMusique/sampleMusique.json';
+const url = 'http://91.161.139.103:50000/HeavyChatMusique/sampleMusique.json';
 const pingDelay = 1000;
 
 // define the AJAX result storage
@@ -9,6 +9,9 @@ let newResult = [];
 
 // instenciate the storage of the element to animate (for order change)
 let target;
+
+// end of variables declaration
+// on document ready
 
 $(document).ready(function() {
   ajaxd();
@@ -20,12 +23,15 @@ $(document).ready(function() {
   })
 });
 
+// end of on document ready
+// fonction declaration
+
 /**
 * perform the AJAX request and trigger the needed fonction
 */
 function ajaxd() {
   $.ajax({
-    url: Url,
+    url: url,
     type: 'GET',
     cache: false,
     crossDomain: true,
@@ -45,25 +51,53 @@ function ajaxd() {
 function playlistProcessing(result) {
   lastResult = newResult;
   newResult = result;
-  // if two request are differentes => delete, add or move the incriminated items
+  // if two request are differentes => add, move or delete the incriminated items
   if (newResult!==lastResult) {
+
+    // the last result is empty (i.e. : first execution)
+    if (typeof(lastResult[0])=='undefined') {
+      // run throught the new result and add all the item to the list
+      for (var i = 0; i < newResult.length; i++) {
+        let item = new Music(newResult[i], i);
+        item.htmlPrint();
+      }
+    }
+    // (i.e. : not first execution)
+    else {
+      // reset the counter
+      i=0;
+      // run throught the new result
+      while (typeof(lastResult[i])!=='undefined') {
+        // store the index of the current item in the last result
+        let oldIndex = isIn(newResult[i].id, lastResult);
+        // if the item isn't in the last result, add it to the list
+        if (oldIndex===-1) {
+          let item = new Music(newResult[i], i);
+          item.htmlPrint();
+        }
+        // next item
+        i++;
+      }
+    }
+
     // run throught the precedent result
     for (var i = 0; i < lastResult.length; i++) {
-      /*on enregistre l'index de la musique dans la nouvelle et l'ancienne requete*/
-      // store the index of the current item of the last result in the new one
+      // store the index of the current item from the last result in the new one
       let newIndex = isIn(lastResult[i].id, newResult);
-      /*si la musique n'est plus dans la liste on la supprime*/
-      // if the index found in the new result is -1, the item is not anymore in the playlist, remove it
+      // if the index found in the new result is -1, the item is not in the playlist anymore, remove it
       if (newIndex===-1) {
+        // delete the item in the last result (simplify the animation)
+        lastResult.splice(i, 1);
+        // animate the deletion
         let selector = '#id'+lastResult[i].id;
         $(selector).addClass('playlist_item_hidden');
         setTimeout(function() {
           $(selector).remove();
         }, 300)
       }
-      /*si l'index n'est pas le meme on la deplace*/
       // else if the indexes are differents move the item to the correct position
       else if (newIndex!==i) {
+        // move the item around visualy
         target = $('#id'+lastResult[i].id).first()[0];
         let newLocation = (10.66 * (newIndex - i)) + 'em';
         anime({
@@ -72,6 +106,7 @@ function playlistProcessing(result) {
           duration: 300,
           easing: 'easeInOutQuad'
         });
+        // move the item in the DOM
         setTimeout(function(lastResult, target, i, newIndex) {
           let destination = $('#playlist>div:nth-child('+(newIndex+1)+')');
           $('#id'+lastResult[i].id).first().insertAfter(destination);
@@ -80,37 +115,7 @@ function playlistProcessing(result) {
             duration: 0,
             translateY: 0,
           });
-        }, 1000, lastResult, target, i, newIndex);
-      }
-    }
-
-    /*si l'ancienne requete est vide*/
-    // if the last result is empty (ie : first execution)
-    if (typeof(lastResult[0])=='undefined') {
-      // run throught the new result and add all the item to the list
-      for (var i = 0; i < newResult.length; i++) {
-        let item = new Music(newResult[i], i);
-        item.htmlPrint();
-      }
-    }
-    // else (ie : not first execution)
-    else {
-      i=0;
-      /*on parcourt la nouvelle requete*/
-      // run throught the new result
-      for (var i = 0; i < newResult.length; i++) {
-        // if the current song is in the last result
-        if (typeof(lastResult[i])!=='undefined') {
-          /*on enregistre l'index de la musique dans l'ancienne requete*/
-          // store the index of the item current in the last result
-          let oldIndex = isIn(newResult[i].id, lastResult);
-          /*si la musique n'etait pas dans l'ancienne requete on l'ajoute*/
-          // if the item isn't in the last result, add it to the list
-          if (oldIndex===-1) {
-            let item = new Music(newResult[i], i);
-            item.htmlPrint();
-          }
-        }
+        }, 305, lastResult, target, i, newIndex);
       }
     }
   }
@@ -131,3 +136,5 @@ function isIn(id, array) {
   }
   return i-1;
 }
+
+// end of function declaration
