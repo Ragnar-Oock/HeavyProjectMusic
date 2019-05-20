@@ -67,7 +67,7 @@ function playlistProcessing(result) {
     // (i.e. : not first execution)
     else {
       // reset the counter
-      let i = 0;
+      let i = 0; 
       // run throught the new result
       while (typeof(lastResult[i])!=='undefined') {
         // store the index of the current item in the last result
