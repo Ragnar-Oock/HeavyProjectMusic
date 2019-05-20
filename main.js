@@ -67,9 +67,9 @@ function playlistProcessing(result) {
     // (i.e. : not first execution)
     else {
       // reset the counter
-      let i = 0; 
+      let i = 0;
       // run throught the new result
-      while (typeof(lastResult[i])!=='undefined') {
+      while (typeof(newResult[i])!=='undefined') {
         // store the index of the current item in the last result
         let oldIndex = isIn(newResult[i].id, lastResult);
         // if the item isn't in the last result, add it to the list
