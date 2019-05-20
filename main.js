@@ -75,7 +75,9 @@ function playlistProcessing(result) {
         // if the item isn't in the last result,
         // add it visualy and in the lastResult (simplfy the animation)
         if (oldIndex===-1) {
+          console.log(lastResult);
           lastResult.splice(i, 0, newResult[i]);
+          console.log(lastResult);
           let item = new Music(newResult[i], i);
           item.htmlPrint();
         }
