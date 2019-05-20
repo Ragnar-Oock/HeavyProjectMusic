@@ -49,8 +49,10 @@ function ajaxd() {
  * @param  {object} result JSON object from the AJAX request
  */
 function playlistProcessing(result) {
+
   lastResult = newResult;
   newResult = result;
+
   // if two request are differentes => add, move or delete the incriminated items
   if (newResult!==lastResult) {
 
@@ -65,7 +67,7 @@ function playlistProcessing(result) {
     // (i.e. : not first execution)
     else {
       // reset the counter
-      i=0;
+      let i = 0;
       // run throught the new result
       while (typeof(lastResult[i])!=='undefined') {
         // store the index of the current item in the last result
@@ -81,9 +83,11 @@ function playlistProcessing(result) {
     }
 
     // run throught the precedent result
-    for (var i = 0; i < lastResult.length; i++) {
+    for (let i = 0; i < lastResult.length; i++) {
+
       // store the index of the current item from the last result in the new one
       let newIndex = isIn(lastResult[i].id, newResult);
+
       // if the index found in the new result is -1, the item is not in the playlist anymore, remove it
       if (newIndex===-1) {
         // delete the item in the last result (simplify the animation)
@@ -118,6 +122,7 @@ function playlistProcessing(result) {
         }, 305, lastResult, target, i, newIndex);
       }
     }
+
   }
   // update the length indicator
   $('#playlist_length_total').html(newResult.length);
@@ -130,8 +135,8 @@ function playlistProcessing(result) {
 * @return {int}           index of the object for the id id
 */
 function isIn(id, array) {
-  let i=array.length;
-  while (typeof(array[i-1])!=='undefined' && array[i-1].id!==id) {
+  let i = array.length;
+  while (typeof(array[i-1]) !== 'undefined' && array[i-1].id !== id) {
     i--;
   }
   return i-1;
