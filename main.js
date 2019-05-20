@@ -75,9 +75,7 @@ function playlistProcessing(result) {
         // if the item isn't in the last result,
         // add it visualy and in the lastResult (simplfy the animation)
         if (oldIndex===-1) {
-          console.log(lastResult);
           lastResult.splice(i, 0, newResult[i]);
-          console.log(lastResult);
           let item = new Music(newResult[i], i);
           item.htmlPrint();
         }
@@ -96,10 +94,8 @@ function playlistProcessing(result) {
       if (newIndex===-1) {
         // delete the item in the last result (simplify the animation)
         let deleted = lastResult.splice(i, 1);
-        console.log(deleted);
         // animate the deletion
         let selector = '#id'+deleted[0].id;
-        console.log(selector);
         $(selector).addClass('playlist_item_hidden');
         setTimeout(function() {
           $(selector).remove();
