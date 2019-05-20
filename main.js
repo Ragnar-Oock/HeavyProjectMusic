@@ -94,7 +94,7 @@ function playlistProcessing(result) {
         let deleted = lastResult.splice(i, 1);
         console.log(deleted);
         // animate the deletion
-        let selector = '#id'+deleted.id;
+        let selector = '#id'+deleted[0].id;
         console.log(selector);
         $(selector).addClass('playlist_item_hidden');
         setTimeout(function() {
