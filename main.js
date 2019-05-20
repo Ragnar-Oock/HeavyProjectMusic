@@ -91,9 +91,10 @@ function playlistProcessing(result) {
       // if the index found in the new result is -1, the item is not in the playlist anymore, remove it
       if (newIndex===-1) {
         // delete the item in the last result (simplify the animation)
-        lastResult.splice(i, 1);
+        let deleted = lastResult.splice(i, 1);
+        console.log(deleted);
         // animate the deletion
-        let selector = '#id'+lastResult[i].id;
+        let selector = '#id'+deleted.id;
         $(selector).addClass('playlist_item_hidden');
         setTimeout(function() {
           $(selector).remove();
