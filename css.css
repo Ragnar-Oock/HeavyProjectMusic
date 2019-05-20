@@ -57,7 +57,7 @@ footer p{
   grid-template: 1em 1.5em 1em 3em 1em / repeat(2, 1fr);
   grid-template-areas:
   "tags tags"
-  "titre artiste"
+  "title artiste"
   "album ."
   "info info"
   "id requester";
@@ -90,8 +90,8 @@ footer p{
   height: 18px;
   padding: 0 3px
 }
-.playlist_item__titre{
-  grid-area: titre;
+.playlist_item__title{
+  grid-area: title;
   font-size: 1.5em;
 }
 .playlist_item__album{

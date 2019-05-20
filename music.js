@@ -5,11 +5,21 @@ class Music {
    */
   constructor(obj, index) {
     this.id = obj.id;
-    this.titre = obj.titre;
+    this.title = obj.title;
     this.album = obj.album;
     this.artiste = obj.artiste;
-    this.infos = obj.infos;
-    this.tags = obj.tags;
+    if (typeof(obj.infos) !== "undefined") {
+      this.infos = obj.infos;
+    }
+    else {
+      this.infos = "";
+    }
+    if (typeof(obj.tags) !== "undefined") {
+      this.tags = obj.tags;
+    }
+    else {
+      this.tags = {};
+    }
     this.requester = new Requester(obj.requester);
     this.index = index;
   }
@@ -19,7 +29,7 @@ class Music {
    * @return {none} methode without return value
    */
   log() {
-    console.log(this.id, this.titre, this.album, this.artiste, this.infos, this.tags, this.requester, this.index);
+    console.log(this.id, this.title, this.album, this.artiste, this.infos, this.tags, this.requester, this.index);
   }
 
   /**
@@ -30,7 +40,7 @@ class Music {
     let html = "";
     for (var i = 0; i < this.tags.length; i++) {
       let img = "";
-      if (this.tags[i].icon !==" ") {
+      if (typeof(this.tags[i].icon) !== "undefined") {
         img = `<img class="badge" src="${this.tags[i].icon}">`
       }
       html += `
@@ -58,8 +68,8 @@ class Music {
         <div class="playlist_item__tags">
           ${this.htmlTags()}
         </div>
-        <div class="playlist_item__titre">
-          <p>${this.titre}</p>
+        <div class="playlist_item__title">
+          <p>${this.title}</p>
         </div>
         <div class="playlist_item__album">
           <p>${this.album}</p>
