@@ -1,4 +1,6 @@
 <?php
+  define('AUTO_REFRESH', 'Auto refresh');
+  define('DARK_MODE', 'Dark mode');
   define('NOSCRIPT', 'Please turn JavaScript on');
   define("PLAYLIST_LENGTH_DISPLAY_LABEL_PRE", "");
   define("PLAYLIST_LENGTH_DISPLAY_LABEL_POST", " displayed ");

@@ -5,7 +5,7 @@
 <html lang="fr" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title>HeavyBot</title>
+  <title>HeavyChatMusic</title>
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="lib/anime.min.js"></script>
   <script src="requester.js"></script>
@@ -14,10 +14,38 @@
   <link rel="stylesheet" href="css.css">
 </head>
 <body>
+  <input type="checkbox" id="menu" class="menu_checkbox">
+  <header class="header">
+    <label for="menu" class="menu__icon">
+      <div class="menu__icon_bar bar1"></div>
+      <div class="menu__icon_bar bar2"></div>
+      <div class="menu__icon_bar bar3"></div>
+    </label>
+  </header>
+  <nav class="menu">
+    <div class="menu__item">
+      <input type="checkbox" class="menu__item_checkbox" id="AJAX" checked>
+      <label for="AJAX" class="menu__item_label checkbox">
+        <div class="checkbox_icon"></div>
+        <span><?php
+        echo constant("AUTO_REFRESH");
+        ?></span>
+      </label>
+    </div>
+    <div class="menu__item">
+      <input type="checkbox" class="menu__item_checkbox" id="dark_mode">
+      <label for="dark_mode" class="menu__item_label checkbox">
+        <div class="checkbox_icon"></div>
+        <span><?php
+        echo constant("DARK_MODE");
+        ?></span>
+      </label>
+    </div>
+  </nav>
   <!-- <button type="button" name="button" class="btn">AJAX!</button> -->
   <noscript>
     <?php
-      echo constant("NOSCRIPT")
+      echo constant("NOSCRIPT");
     ?>
   </noscript>
   <div id="playlist">
