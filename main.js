@@ -21,7 +21,11 @@ $(document).ready(function() {
   $('#AJAX').change(() => {
     autoRefresh = !autoRefresh;
     $('#refresh').toggleClass('hidden');
-  })
+  });
+
+  $('#dark_mode').change(() => {
+    $('body').toggleClass('dark');
+  });
 });
 
 // end of on document ready
