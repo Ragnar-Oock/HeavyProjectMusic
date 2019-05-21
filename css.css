@@ -197,7 +197,7 @@ main {
   background-blend-mode: screen;
   background-position: center;
   background-repeat: repeat;
-  background-size: 15%;
+  background-size: 20%;
 }
 .playlist_item_hidden{
   opacity: 0;
