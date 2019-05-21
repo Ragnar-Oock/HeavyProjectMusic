@@ -335,7 +335,8 @@ main {
       "album"
       "info"
       "requester"
-      "id"
+      "id";
+    height: 11.5em
   }
 }
 
