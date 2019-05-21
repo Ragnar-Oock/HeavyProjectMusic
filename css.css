@@ -163,6 +163,7 @@ main {
 .playlist_head{
   display: grid;
   grid-template-columns: auto 1fr;
+  padding: 1em 0;
 }
 .playlist_length{
   display: block;
