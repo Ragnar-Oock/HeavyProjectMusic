@@ -176,7 +176,7 @@ main {
 .playlist_head{
   display: grid;
   grid-template-columns: auto 1fr;
-  padding: 1em 0;
+  padding: 0 0 1em 0;
 }
 .playlist_length{
   display: block;
@@ -193,7 +193,7 @@ main {
   "album album"
   "info info"
   "id requester";
-  grid-gap: 5px;
+  grid-gap: .25em;
   padding: .25em 10px .6em;
   background: #d2d2d2;
   border-radius: 5px;
@@ -243,7 +243,7 @@ main {
   height: 100%;
 }
 .playlist_item__artiste p{
-    vertical-align: middle;
+  vertical-align: middle;
 }
 .playlist_item__info{
   grid-area: info;
@@ -275,15 +275,16 @@ main {
   background-color: #636363;
   background-blend-mode: multiply;
 }
-.playlist_head {
-  padding: 0 0 1em 0;
-}
 .dark button {
   color: black;
   background-color: #8380ff;
 }
 
 @media only screen and (prefers-reduced-motion:no-preference) {
+  .dark{
+    transition: 300ms ease-in-out;
+    transition-property: background-color, color;
+  }
   .menu__icon *{
     transition: background-color 300ms ease-in-out
   }
@@ -297,8 +298,16 @@ main {
   .checkbox_icon::after{
     transition: opacity 300ms ease-in-out
   }
+  .playlist_item{
+    transition: 300ms ease-in-out;
+    transition-property: background-color, color;
+  }
   .playlist_item.VIP{
     animation: vip linear infinite 20s;
+  }
+  button{
+    transition: 300ms ease-in-out;
+    transition-property: background-color, color;
   }
   button:not(:active){
     animation: button 600ms ease-in-out;
