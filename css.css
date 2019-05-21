@@ -206,9 +206,9 @@ main {
   overflow: hidden;
 }
 .playlist_item.VIP{
-  background-color: #754a32;
+  background-color: #f8eba7;
   background-image: url('./images/background_VIP.jpg');
-  background-blend-mode: screen;
+  background-blend-mode: multiply;
   background-position: center;
   background-repeat: repeat;
   background-size: 20%;
@@ -273,7 +273,6 @@ main {
 }
 .dark .playlist_item.VIP {
   background-color: #636363;
-  background-blend-mode: multiply;
 }
 .dark button {
   color: black;
