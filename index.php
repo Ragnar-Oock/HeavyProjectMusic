@@ -42,24 +42,26 @@
       </label>
     </div>
   </nav>
-  <!-- <button type="button" name="button" class="btn">AJAX!</button> -->
-  <noscript>
-    <?php
+  <main>
+    <!-- <button type="button" name="button" class="btn">AJAX!</button> -->
+    <noscript>
+      <?php
       echo constant("NOSCRIPT");
-    ?>
-  </noscript>
-  <div id="playlist">
-    <div class="playlist_length">
-      <?php
-      echo constant("PLAYLIST_LENGTH_DISPLAY_LABEL_PRE");
       ?>
-      <!-- <span id="playlist_length_displayed">0</span> -->
-      <?php
-      // echo constant("PLAYLIST_LENGTH_DISPLAY_LABEL_POST");
-      // echo constant("PLAYLIST_LENGTH_CEPARATOR");
-      echo constant("PLAYLIST_LENGTH_TOTAL_PRE");?><span id="playlist_length_total">0</span><?php echo constant("PLAYLIST_LENGTH_TOTAL_POST"); ?>
+    </noscript>
+    <div id="playlist">
+      <div class="playlist_length">
+        <?php
+        echo constant("PLAYLIST_LENGTH_DISPLAY_LABEL_PRE");
+        ?>
+        <!-- <span id="playlist_length_displayed">0</span> -->
+        <?php
+        // echo constant("PLAYLIST_LENGTH_DISPLAY_LABEL_POST");
+        // echo constant("PLAYLIST_LENGTH_CEPARATOR");
+        echo constant("PLAYLIST_LENGTH_TOTAL_PRE");?><span id="playlist_length_total">0</span><?php echo constant("PLAYLIST_LENGTH_TOTAL_POST"); ?>
+      </div>
     </div>
-  </div>
+  </main>
 
   <footer>
     <p><?php echo constant("FOOTER_AUTOR"); ?>Rägnar O'ock</p>
