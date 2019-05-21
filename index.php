@@ -43,7 +43,7 @@
     </div>
   </nav>
   <main>
-    <button type="button" name="ajax" onclick="ajaxd();"><?php
+    <button type="button" onclick="ajaxd();" id="refresh"><?php
     echo constant("REFRESH_BUTTON");
     ?></button>
     <noscript>
