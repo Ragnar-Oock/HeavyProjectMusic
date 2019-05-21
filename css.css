@@ -33,7 +33,12 @@ footer p{
   background: #41da89;
 }
 .playlist_item.VIP{
-  background-color: #b33ff080;
+  background-color: #aeaeae;
+background-image: url(https://static.vecteezy.com/system/resources/previews/000/006/451/original/vector-free-damask-seamless-pattern.jpg);
+background-blend-mode: exclusion;
+background-position: center;
+background-repeat: repeat;
+background-size: 10%;
 }
 input[type="checkbox"] {
   position: absolute;
