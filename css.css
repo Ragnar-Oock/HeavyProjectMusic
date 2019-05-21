@@ -39,7 +39,7 @@ footer p{
   background-position: center;
   background-repeat: repeat;
   background-size: 15%;
-  animation: vip linear infinite 5s
+  animation: vip linear infinite 20s
 }
 input[type="checkbox"] {
   position: absolute;
