@@ -34,11 +34,11 @@ footer p{
 }
 .playlist_item.VIP{
   background-color: #aeaeae;
-background-image: url('/images/background_VIP.jpg');
-background-blend-mode: exclusion;
-background-position: center;
-background-repeat: repeat;
-background-size: 10%;
+  background-image: url('/images/background_VIP.jpg');
+  background-blend-mode: screen;
+  background-position: center;
+  background-repeat: repeat;
+  background-size: 10%;
 }
 input[type="checkbox"] {
   position: absolute;
