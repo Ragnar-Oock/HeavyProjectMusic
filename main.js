@@ -2,6 +2,7 @@
 // AJAX parameters
 const url = 'http://91.161.139.103:50000/HeavyChatMusique/sampleMusique.json';
 const pingDelay = 1000;
+let autoRefresh = true;
 
 // define the AJAX result storage
 let lastResult = [];
@@ -17,9 +18,8 @@ $(document).ready(function() {
   ajaxd();
   setInterval(ajaxd, pingDelay);
 
-  // for debug purpose only
-  $('.btn').click(function(){
-    ajaxd();
+  $('#AJAX').change(() => {
+    autoRefresh = !autoRefresh;
   })
 });
 
@@ -30,18 +30,20 @@ $(document).ready(function() {
 * perform the AJAX request and trigger the needed fonction
 */
 function ajaxd() {
-  $.ajax({
-    url: url,
-    type: 'GET',
-    cache: false,
-    crossDomain: true,
-    success: function(result){
-      playlistProcessing(result);
-    },
-    error: function(error){
-      console.error(error);
-    }
-  });
+  if (autoRefresh) {
+    $.ajax({
+      url: url,
+      type: 'GET',
+      cache: false,
+      crossDomain: true,
+      success: function(result){
+        playlistProcessing(result);
+      },
+      error: function(error){
+        console.error(error);
+      }
+    });
+  }
 }
 
 /**

@@ -1,10 +1,9 @@
-<?php
-  include './lang/FR_fr.php';
-?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>HeavyChatMusic</title>
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="lib/anime.min.js"></script>
@@ -27,46 +26,30 @@
       <input type="checkbox" class="menu__item_checkbox" id="AJAX" checked>
       <label for="AJAX" class="menu__item_label checkbox">
         <div class="checkbox_icon"></div>
-        <span><?php
-        echo constant("AUTO_REFRESH");
-        ?></span>
+        <span>Rafraîchissement automatique</span>
       </label>
     </div>
     <div class="menu__item">
       <input type="checkbox" class="menu__item_checkbox" id="dark_mode">
       <label for="dark_mode" class="menu__item_label checkbox">
         <div class="checkbox_icon"></div>
-        <span><?php
-        echo constant("DARK_MODE");
-        ?></span>
+        <span>Mode sombre</span>
       </label>
     </div>
   </nav>
+  <noscript>
+    Merci d'activer JavaScript
+  </noscript>
   <main>
-    <button type="button" name="ajax" onclick="ajaxd();"><?php
-    echo constant("REFRESH_BUTTON");
-    ?></button>
-    <noscript>
-      <?php
-      echo constant("NOSCRIPT");
-      ?>
-    </noscript>
+    <button type="button" name="ajax" onclick="ajaxd();">AJAX!</button>
     <div id="playlist">
       <div class="playlist_length">
-        <?php
-        echo constant("PLAYLIST_LENGTH_DISPLAY_LABEL_PRE");
-        ?>
-        <!-- <span id="playlist_length_displayed">0</span> -->
-        <?php
-        // echo constant("PLAYLIST_LENGTH_DISPLAY_LABEL_POST");
-        // echo constant("PLAYLIST_LENGTH_CEPARATOR");
-        echo constant("PLAYLIST_LENGTH_TOTAL_PRE");?><span id="playlist_length_total">0</span><?php echo constant("PLAYLIST_LENGTH_TOTAL_POST"); ?>
+        il y a <span id="playlist_length_total">0</span> musique(s) dans la playlist    </div>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <footer>
-    <p><?php echo constant("FOOTER_AUTOR"); ?>Rägnar O'ock</p>
-  </footer>
-</body>
-</html>
+    <footer>
+      <p>Fait avec ❤️, par Rägnar O'ock</p>
+    </footer>
+  </body>
+  </html>
