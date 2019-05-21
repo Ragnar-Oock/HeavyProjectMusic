@@ -19,14 +19,8 @@ $(document).ready(function() {
   setInterval(ajaxd, pingDelay);
 
   $('#AJAX').change(() => {
-    if (autoRefresh) {
-      autoRefresh = false;
-      $('#refresh').css('display:block;');
-    }
-    else {
-      autoRefresh = true;
-      $('#refresh').css('display:none');
-    }
+    autoRefresh = !autoRefresh;
+    $('#refresh').toggleClass('hidden');
   })
 });
 

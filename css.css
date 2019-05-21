@@ -54,6 +54,9 @@ button {
   font-weight: bold;
   letter-spacing: 0.5px;
 }
+.hidden{
+  display: none;
+}
 /*header style*/
 .menu {
   transform: scaleY(0);
