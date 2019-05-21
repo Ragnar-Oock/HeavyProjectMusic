@@ -33,12 +33,13 @@ footer p{
   background: #41da89;
 }
 .playlist_item.VIP{
-  background-color: #ff823e;
+  background-color: #754a32;
   background-image: url('./images/background_VIP.jpg');
-  background-blend-mode: darken;
+  background-blend-mode: screen;
   background-position: center;
   background-repeat: repeat;
   background-size: 15%;
+  animation: vip linear infinite 5s
 }
 input[type="checkbox"] {
   position: absolute;
@@ -245,5 +246,14 @@ main {
   }
   .checkbox_icon::after{
     transition: opacity 300ms ease-in-out
+  }
+}
+
+@keyframes vip {
+  0%{
+    background-position-X: 0%;
+  }
+  100%{
+    background-position-X: 100%
   }
 }
