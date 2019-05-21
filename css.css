@@ -249,6 +249,19 @@ main {
   font-size: .8em
 }
 
+/* dark mode */
+.dark .playlist_item.VIP {
+  background-color: #636363;
+  background-blend-mode: multiply;
+}
+.playlist_head {
+  padding: 0 0 1em 0;
+}
+.dark button {
+  color: black;
+  background-color: #8380ff;
+}
+
 @media only screen and (prefers-reduced-motion:no-preference) {
   .menu__icon *{
     transition: background-color 300ms ease-in-out
@@ -294,9 +307,5 @@ main {
   66%{
     background-color: #8380ff;
     color: black;
-  }
-  100%{
-    background-color: #333;
-    color: white;
   }
 }
