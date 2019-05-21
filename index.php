@@ -43,24 +43,26 @@
     </div>
   </nav>
   <main>
-    <button type="button" onclick="ajaxd();" id="refresh" class="hidden"><?php
-    echo constant("REFRESH_BUTTON");
-    ?></button>
     <noscript>
       <?php
       echo constant("NOSCRIPT");
       ?>
     </noscript>
     <div id="playlist">
-      <div class="playlist_length">
-        <?php
-        echo constant("PLAYLIST_LENGTH_DISPLAY_LABEL_PRE");
-        ?>
-        <!-- <span id="playlist_length_displayed">0</span> -->
-        <?php
-        // echo constant("PLAYLIST_LENGTH_DISPLAY_LABEL_POST");
-        // echo constant("PLAYLIST_LENGTH_CEPARATOR");
-        echo constant("PLAYLIST_LENGTH_TOTAL_PRE");?><span id="playlist_length_total">0</span><?php echo constant("PLAYLIST_LENGTH_TOTAL_POST"); ?>
+      <div class="playlist_head">
+        <button type="button" onclick="ajaxd();" id="refresh" class="hidden"><?php
+        echo constant("REFRESH_BUTTON");
+        ?></button>
+        <div class="playlist_length">
+          <?php
+          echo constant("PLAYLIST_LENGTH_DISPLAY_LABEL_PRE");
+          ?>
+          <!-- <span id="playlist_length_displayed">0</span> -->
+          <?php
+          // echo constant("PLAYLIST_LENGTH_DISPLAY_LABEL_POST");
+          // echo constant("PLAYLIST_LENGTH_CEPARATOR");
+          echo constant("PLAYLIST_LENGTH_TOTAL_PRE");?><span id="playlist_length_total">0</span><?php echo constant("PLAYLIST_LENGTH_TOTAL_POST"); ?>
+        </div>
       </div>
     </div>
   </main>

@@ -41,10 +41,12 @@
     Merci d'activer JavaScript
   </noscript>
   <main>
-    <button type="button" name="ajax" onclick="ajaxd();">AJAX!</button>
     <div id="playlist">
-      <div class="playlist_length">
-        il y a <span id="playlist_length_total">0</span> musique(s) dans la playlist    </div>
+      <div class="playlist_head">
+        <button type="button" onclick="ajaxd();" id="refresh" class="hidden">refresh</button>
+        <div class="playlist_length">
+          il y a <span id="playlist_length_total">0</span> musique(s) dans la playlist    </div>
+        </div>
       </div>
     </main>
 
