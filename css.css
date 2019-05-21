@@ -250,6 +250,14 @@ main {
 }
 
 /* dark mode */
+.dark{
+  background-color: #555555;
+  color: white;
+}
+.dark .playlist_item {
+  background-color: #262626;
+  color: white;
+}
 .dark .playlist_item.VIP {
   background-color: #636363;
   background-blend-mode: multiply;
