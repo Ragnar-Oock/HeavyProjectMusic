@@ -39,7 +39,6 @@ footer p{
   background-position: center;
   background-repeat: repeat;
   background-size: 15%;
-  animation: vip linear infinite 20s
 }
 input[type="checkbox"] {
   position: absolute;
@@ -246,6 +245,9 @@ main {
   }
   .checkbox_icon::after{
     transition: opacity 300ms ease-in-out
+  }
+  .playlist_item.VIP{
+    animation: vip linear infinite 20s;
   }
 }
 
