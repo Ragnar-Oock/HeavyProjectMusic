@@ -34,7 +34,7 @@ footer p{
 }
 .playlist_item.VIP{
   background-color: #aeaeae;
-background-image: url(https://static.vecteezy.com/system/resources/previews/000/006/451/original/vector-free-damask-seamless-pattern.jpg);
+background-image: url('/images/background_VIP.jpg');
 background-blend-mode: exclusion;
 background-position: center;
 background-repeat: repeat;
