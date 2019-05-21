@@ -1,7 +1,7 @@
 // variable declaration
 // AJAX parameters
 const url = 'http://91.161.139.103:50000/HeavyChatMusique/sampleMusique.json';
-const pingDelay = 1000;
+const pingDelay = 10000;
 let autoRefresh = true;
 
 // define the AJAX result storage
