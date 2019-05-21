@@ -159,10 +159,9 @@ button {
 }
 main {
   position: relative;
-  top: 5em;
   left: 50%;
   transform: translateX(-50%);
-  padding: 0 0.5em;
+  padding: 5em 0.5em 0;
   max-width: 100ch;
   width: 100%;
 }
@@ -191,7 +190,7 @@ main {
   grid-template-areas:
   "tags tags"
   "title artiste"
-  "album ."
+  "album album"
   "info info"
   "id requester";
   grid-gap: 5px;
@@ -326,6 +325,17 @@ main {
   }
   .menu::before{
     content: none;
+  }
+  .playlist_item{
+    grid-template: 1em 1.5em 1em 1em 3em 1em 1em / 100%;
+    grid-template-areas:
+      "tags"
+      "title"
+      "artiste"
+      "album"
+      "info"
+      "requester"
+      "id"
   }
 }
 
