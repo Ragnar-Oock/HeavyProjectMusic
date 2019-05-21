@@ -249,6 +249,12 @@ main {
   }
 }
 
+@media only screen and (max-width: 1920px){
+  .playlist_item.VIP{
+    background-image: url('./images/background_VIP_LQ.jpg');
+  }
+}
+
 @keyframes vip {
   0%{
     background-position-X: 0%;
