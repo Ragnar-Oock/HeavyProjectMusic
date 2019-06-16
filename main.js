@@ -15,20 +15,23 @@ let target;
 // on document ready
 
 $(document).ready(function() {
-  ajaxd();
+  // init
   setInterval(ajaxd, pingDelay);
 
+  // toggle refresh button display
   $('#AJAX').change(() => {
     autoRefresh = !autoRefresh;
     $('#refresh').toggleClass('hidden');
   });
 
+  // toggle dark mode
   $('#dark_mode').change(() => {
     $('body').toggleClass('dark');
   });
 
+  // on blur of the option menu, hide it
   $('.screen').click(() => {
-    $('#menu').prop('checked', 'false');
+    $('#menu').prop('checked', !1);
   });
 });
 
