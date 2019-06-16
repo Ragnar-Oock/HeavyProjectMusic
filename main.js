@@ -26,7 +26,7 @@ $(document).ready(function() {
     $('#dark_mode').prop('checked', true);
   }
   // if autoRefresh was deactiveted on previus visite get it down and show refresh button
-  if (window.localStorage.getItem(autoRefresh) == "false") {
+  if (window.localStorage.getItem("autoRefresh") == "false") {
     // disable autoRefresh
     autoRefresh = false;
     // show refresh button
