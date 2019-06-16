@@ -6,14 +6,7 @@ class Music {
   constructor(obj, index) {
     this.id = obj.id;
     this.title = obj.title;
-    this.album = obj.album;
     this.artiste = obj.artiste;
-    if (typeof(obj.infos) !== "undefined") {
-      this.infos = obj.infos;
-    }
-    else {
-      this.infos = "";
-    }
     if (typeof(obj.tags) !== "undefined") {
       this.tags = obj.tags;
     }
@@ -29,7 +22,7 @@ class Music {
    * @return {none} methode without return value
    */
   log() {
-    console.log(this.id, this.title, this.album, this.artiste, this.infos, this.tags, this.requester, this.index);
+    console.log(this.id, this.title, this.artiste, this.tags, this.requester, this.index);
   }
 
   /**
@@ -71,14 +64,8 @@ class Music {
         <div class="playlist_item__title">
           <p>${this.title}</p>
         </div>
-        <div class="playlist_item__album">
-          <p>${this.album}</p>
-        </div>
         <div class="playlist_item__artiste">
           <p>${this.artiste}</p>
-        </div>
-        <div class="playlist_item__info">
-          <p>${this.infos}</p>
         </div>
         <div class="playlist_item__id">
           <p>[${this.id}]</p>
