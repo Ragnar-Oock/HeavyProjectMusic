@@ -59,6 +59,10 @@ button {
   left: 0;
   background-color: #00000040;
   z-index: 9;
+  opacity: 1
+}
+#menu:checked+.screen{
+  opacity: 0;
 }
 .menu {
   position: absolute;
@@ -292,7 +296,10 @@ main {
 @media only screen and (prefers-reduced-motion:no-preference) {
   .dark{
     transition: 300ms ease-in-out;
-    transition-property: background-color, color;
+    transition-property: background-color, color
+  }
+  .screen{
+    transition: background-color 300ms ease-in-out
   }
   .menu__icon *{
     transition: background-color 300ms ease-in-out
@@ -309,23 +316,23 @@ main {
   }
   .playlist_item{
     transition: 300ms ease-in-out;
-    transition-property: background-color, color;
+    transition-property: background-color, color
   }
   .playlist_item.VIP{
     animation: vip linear infinite 20s;
   }
   button{
     transition: 300ms ease-in-out;
-    transition-property: background-color, color;
+    transition-property: background-color, color
   }
   button:not(:active){
-    animation: button 600ms ease-in-out;
+    animation: button 600ms ease-in-out
   }
 }
 
 @media only screen and (max-width: 1920px){
   .playlist_item.VIP{
-    background-image: url('./images/background_VIP_LQ.jpg');
+    background-image: url('./images/background_VIP_LQ.jpg')
   }
 }
 
