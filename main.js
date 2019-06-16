@@ -17,6 +17,16 @@ let target;
 $(document).ready(function() {
   // init
   ajaxd();
+  if (window.getItem('dark')) {
+    $('body').toggleClass('dark');
+  }
+  if (window.getItem(autoRefresh) === true) {
+    autoRefresh = true;
+    $('#refresh').toggleClass('hidden');
+  }
+  else {
+    autoRefresh = false;
+  }
   setInterval(ajaxd, pingDelay);
 
   // toggle refresh button display
