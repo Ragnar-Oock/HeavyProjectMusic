@@ -25,8 +25,8 @@
   </header>
   <nav class="menu">
     <div class="menu__item">
-      <input type="checkbox" class="menu__item_checkbox" id="AJAX" checked>
-      <label for="AJAX" class="menu__item_label checkbox">
+      <input type="checkbox" class="menu__item_checkbox" id="autoRefresh" checked>
+      <label for="autoRefresh" class="menu__item_label checkbox">
         <div class="checkbox_icon"></div>
         <span><?php
         echo constant("AUTO_REFRESH");
