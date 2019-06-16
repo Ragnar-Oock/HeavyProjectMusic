@@ -19,15 +19,20 @@ $(document).ready(function() {
   // first API call
   ajaxd();
   // if dark mode was activated on previus visite get it up
-  if (window.localStorage.getItem('dark')) {
-    $('body').toggleClass('dark');
-    $('#dark_mode').prop('checked', 'true');
+  if (window.localStorage.getItem('dark') == "true") {
+    // set dark mode to true
+    $('body').toggleClass('dark', true);
+    // check option checkbox
+    $('#dark_mode').prop('checked', true);
   }
   // if autoRefresh was deactiveted on previus visite get it down and show refresh button
-  if (!window.localStorage.getItem(autoRefresh)) {
+  if (window.localStorage.getItem(autoRefresh) == "false") {
+    // disable autoRefresh
     autoRefresh = false;
-    $('#refresh').toggleClass('hidden');
-    $('#autoRefresh').prop('checked', 'false');
+    // show refresh button
+    $('#refresh').toggleClass('hidden', true);
+    // unckeck option checkbox
+    $('#autoRefresh').prop('checked', false);
   }
   // set API call delay to pingDelay [default 10000]
   setInterval(ajaxd, pingDelay);
@@ -52,7 +57,7 @@ $(document).ready(function() {
     // toggle dark mode
     $('body').toggleClass('dark');
     // store the seting localy
-    if (window.localStorage.getItem('dark') == "true") {
+    if (window.localStorage.getItem('dark') == "true" ) {
       window.localStorage.setItem('dark', false);
     }
     else {
