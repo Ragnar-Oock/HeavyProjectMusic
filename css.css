@@ -303,7 +303,7 @@ main {
     transition: opacity 300ms ease-in-out;
   }
   #menu:checked+.screen{
-    transition: opacity 300ms ease-in-out, z-index 0 300ms;
+    transition: opacity 300ms ease-in-out, z-index 0s 300ms;
   }
   .menu__icon *{
     transition: background-color 300ms ease-in-out
