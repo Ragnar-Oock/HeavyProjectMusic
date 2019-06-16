@@ -25,7 +25,7 @@
   </header>
   <nav class="menu">
     <div class="menu__item">
-      <input type="checkbox" class="menu__item_checkbox" id="autoRefresh" checked>
+      <input type="checkbox" class="menu__item_checkbox" id="autoRefresh" checked> 
       <label for="autoRefresh" class="menu__item_label checkbox">
         <div class="checkbox_icon"></div>
         <span><?php
