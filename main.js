@@ -32,7 +32,7 @@ $(document).ready(function() {
 
   // on blur of the option menu, hide it
   $('.screen').click(() => {
-    $('#menu').prop('checked', !1);
+    $('#menu').removeAttr('checked');
   });
 });
 
