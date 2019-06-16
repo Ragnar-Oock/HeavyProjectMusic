@@ -2,7 +2,6 @@
 // AJAX parameters
 const url = 'http://91.161.139.103:50000/HeavyChatMusique/sampleMusique.json';
 const pingDelay = 10000; //default : 10000
-let autoRefresh = true; //default : true
 
 // define the AJAX result storage
 let lastResult = [];
@@ -16,8 +15,6 @@ let target;
 // on document ready
 $(document).ready(function() {
   // init
-  // first API call
-  ajaxd();
   // if dark mode was activated on previus visite get it up
   if (window.localStorage.getItem('dark') == "true") {
     // set dark mode to true
@@ -26,14 +23,19 @@ $(document).ready(function() {
     $('#dark_mode').prop('checked', true);
   }
   // if autoRefresh was deactiveted on previus visite get it down and show refresh button
-  if (window.localStorage.getItem("autoRefresh") == "false") {
+  if (window.localStorage.getItem("autoRefresh") == "true") {
     // disable autoRefresh
-    autoRefresh = false;
+    autoRefresh = true;
     // show refresh button
-    $('#refresh').toggleClass('hidden', true);
+    $('#refresh').toggleClass('hidden', false);
     // unckeck option checkbox
-    $('#autoRefresh').prop('checked', false);
+    $('#autoRefresh').prop('checked', true);
   }
+  else {
+    autoRefresh = false;
+  }
+  // first API call
+  ajaxd();
   // set API call delay to pingDelay [default 10000]
   setInterval(ajaxd, pingDelay);
 

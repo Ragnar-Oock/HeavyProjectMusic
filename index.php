@@ -25,7 +25,7 @@
   </header>
   <nav class="menu">
     <div class="menu__item">
-      <input type="checkbox" class="menu__item_checkbox" id="autoRefresh" checked> 
+      <input type="checkbox" class="menu__item_checkbox" id="autoRefresh">
       <label for="autoRefresh" class="menu__item_label checkbox">
         <div class="checkbox_icon"></div>
         <span><?php
@@ -51,7 +51,7 @@
     </noscript>
     <div id="playlist">
       <div class="playlist_head">
-        <button type="button" onclick="ajaxd();" id="refresh" class="hidden"><?php
+        <button type="button" onclick="ajaxd();" id="refresh"><?php
         echo constant("REFRESH_BUTTON");
         ?></button>
         <div class="playlist_length">
