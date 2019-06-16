@@ -39,7 +39,7 @@ $(document).ready(function() {
     // toggle refresh button visibility
     $('#refresh').toggleClass('hidden');
     // store the setting localy
-    if (window.localStorage.getItem('autoRefresh')) {
+    if (window.localStorage.getItem('autoRefresh') == "true") {
       window.localStorage.setItem('autoRefresh', false);
     }
     else {
@@ -52,7 +52,7 @@ $(document).ready(function() {
     // toggle dark mode
     $('body').toggleClass('dark');
     // store the seting localy
-    if (window.localStorage.getItem('dark')) {
+    if (window.localStorage.getItem('dark') == "true") {
       window.localStorage.setItem('dark', false);
     }
     else {
