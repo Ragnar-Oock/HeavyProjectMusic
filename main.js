@@ -23,12 +23,13 @@ $(document).ready(function() {
     $('#dark_mode').prop('checked', true);
   }
   // if autoRefresh was deactiveted on previus visite get it down and show refresh button
-  if (window.localStorage.getItem("autoRefresh") == "true") {
+  let locAutoRefresh = window.localStorage.getItem("autoRefresh")
+  if (locAutoRefresh == "true" || locAutoRefresh == null || locAutoRefresh == undefined) {
     // disable autoRefresh
     autoRefresh = true;
-    // show refresh button
-    $('#refresh').toggleClass('hidden', false);
-    // unckeck option checkbox
+    // hide refresh button
+    $('#refresh').toggleClass('hidden', true);
+    // ckeck option checkbox
     $('#autoRefresh').prop('checked', true);
   }
   else {
