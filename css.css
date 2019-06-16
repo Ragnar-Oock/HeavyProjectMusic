@@ -273,7 +273,7 @@ main {
 }
 .playlist_item__id p {
   display: block;
-  border: solid 1px #505050;
+  border: solid 1px #a8a8a8;
   border-radius: .5em;
   padding: 0.1em .5em;
   min-width: 8ch;
@@ -294,6 +294,9 @@ main {
 .dark button {
   color: black;
   background-color: #8380ff;
+}
+.dark .playlist_item__id p {
+  border-color: #505050;
 }
 
 @media only screen and (prefers-reduced-motion:no-preference) {
