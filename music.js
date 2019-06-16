@@ -68,7 +68,7 @@ class Music {
           <p>${this.artist}</p>
         </div>
         <div class="playlist_item__id">
-          <p>[${this.id}]</p>
+          <p>${this.id}</p>
         </div>
         <div class="playlist_item__requester">
           ${this.requester.toHTML()}
