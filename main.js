@@ -16,6 +16,7 @@ let target;
 
 $(document).ready(function() {
   // init
+  ajaxd();
   setInterval(ajaxd, pingDelay);
 
   // toggle refresh button display
