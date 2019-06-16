@@ -1,8 +1,8 @@
 // variable declaration
 // AJAX parameters
 const url = 'http://91.161.139.103:50000/HeavyChatMusique/sampleMusique.json';
-const pingDelay = 10000;
-let autoRefresh = true;
+const pingDelay = 10000; //default : 10000
+let autoRefresh = true; //default : true
 
 // define the AJAX result storage
 let lastResult = [];
@@ -12,27 +12,33 @@ let newResult = [];
 let target;
 
 // end of variables declaration
-// on document ready
 
+// on document ready
 $(document).ready(function() {
   // init
+  // first API call
   ajaxd();
-  if (window.getItem('dark')) {
+  // if dark mode was activated on previus visite get it up
+  if (window.localStorage.getItem('dark')) {
     $('body').toggleClass('dark');
+    $('#dark_mode').prop('checked', 'true');
   }
-  if (window.getItem(autoRefresh) === true) {
-    autoRefresh = true;
-    $('#refresh').toggleClass('hidden');
-  }
-  else {
+  // if autoRefresh was deactiveted on previus visite get it down and show refresh button
+  if (window.localStorage.getItem(autoRefresh) === false) {
     autoRefresh = false;
+    $('#refresh').toggleClass('hidden');
+    $('#autoRefresh').prop('checked', 'false');
   }
+  // set API call delay to pingDelay [default 10000]
   setInterval(ajaxd, pingDelay);
 
   // toggle refresh button display
-  $('#AJAX').change(() => {
+  $('#autoRefresh').change(() => {
+    // toggle autoRefresh
     autoRefresh = !autoRefresh;
+    // toggle refresh button visibility
     $('#refresh').toggleClass('hidden');
+    // store the setting localy
     if (window.localStorage.getItem('autoRefresh')) {
       window.localStorage.setItem('autoRefresh', true);
     }
@@ -43,7 +49,9 @@ $(document).ready(function() {
 
   // toggle dark mode
   $('#dark_mode').change(() => {
+    // toggle dark mode
     $('body').toggleClass('dark');
+    // store the seting localy
     if (window.localStorage.getItem('dark')) {
       window.localStorage.setItem('dark', true);
     }
@@ -57,10 +65,9 @@ $(document).ready(function() {
     $('#menu').prop('checked', !1);
   });
 });
-
 // end of on document ready
-// fonction declaration
 
+// fonction declaration
 /**
 * perform the AJAX request and trigger the needed fonction
 */
@@ -180,5 +187,4 @@ function isIn(id, array) {
   }
   return i-1;
 }
-
 // end of function declaration
