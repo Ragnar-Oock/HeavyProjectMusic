@@ -24,7 +24,7 @@ $(document).ready(function() {
     $('#dark_mode').prop('checked', 'true');
   }
   // if autoRefresh was deactiveted on previus visite get it down and show refresh button
-  if (window.localStorage.getItem(autoRefresh) === false) {
+  if (!window.localStorage.getItem(autoRefresh)) {
     autoRefresh = false;
     $('#refresh').toggleClass('hidden');
     $('#autoRefresh').prop('checked', 'false');
@@ -40,10 +40,10 @@ $(document).ready(function() {
     $('#refresh').toggleClass('hidden');
     // store the setting localy
     if (window.localStorage.getItem('autoRefresh')) {
-      window.localStorage.setItem('autoRefresh', true);
+      window.localStorage.setItem('autoRefresh', false);
     }
     else {
-      window.localStorage.setItem('autoRefresh', false);
+      window.localStorage.setItem('autoRefresh', true);
     }
   });
 
@@ -53,10 +53,10 @@ $(document).ready(function() {
     $('body').toggleClass('dark');
     // store the seting localy
     if (window.localStorage.getItem('dark')) {
-      window.localStorage.setItem('dark', true);
+      window.localStorage.setItem('dark', false);
     }
     else {
-      window.localStorage.setItem('dark', false);
+      window.localStorage.setItem('dark', true);
     }
   });
 
