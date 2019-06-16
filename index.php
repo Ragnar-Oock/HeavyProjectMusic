@@ -15,6 +15,7 @@
 </head>
 <body>
   <input type="checkbox" id="menu" class="menu_checkbox">
+  <div class="screen"></div>
   <header class="header">
     <label for="menu" class="menu__icon">
       <div class="menu__icon_bar bar1"></div>

@@ -26,6 +26,10 @@ $(document).ready(function() {
   $('#dark_mode').change(() => {
     $('body').toggleClass('dark');
   });
+
+  $('.screen').click(() => {
+    $('#menu').prop('checked', 'false');
+  });
 });
 
 // end of on document ready
