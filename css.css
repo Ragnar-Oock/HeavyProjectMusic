@@ -248,7 +248,7 @@ main {
   grid-area: album;
 }
 .playlist_item__artiste{
-  grid-area: artiste;
+  grid-area: artist;
   text-align: right;
   height: 100%;
 }
@@ -362,7 +362,7 @@ main {
     grid-template-areas:
     "tags"
     "title"
-    "artiste"
+    "artist"
     "album"
     "info"
     "requester"

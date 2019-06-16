@@ -4,7 +4,7 @@
     "id": "id of the song : int",
     "title": "title of the song : string",
     "album": "title of the album  : string",
-    "artiste": "name of all the artistes  : string ",
+    "artist": "name of all the artistes  : string ",
     "infos": "further informations  about the song, must be less than 140ch : string ",
     "tags": [ "list of all the tag  for the song, optional : Tag"
       {
