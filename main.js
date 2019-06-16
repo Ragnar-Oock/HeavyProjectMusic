@@ -23,11 +23,23 @@ $(document).ready(function() {
   $('#AJAX').change(() => {
     autoRefresh = !autoRefresh;
     $('#refresh').toggleClass('hidden');
+    if (window.localStorage.getItem('autoRefresh')) {
+      window.localStorage.setItem('autoRefresh', true);
+    }
+    else {
+      window.localStorage.setItem('autoRefresh', false);
+    }
   });
 
   // toggle dark mode
   $('#dark_mode').change(() => {
     $('body').toggleClass('dark');
+    if (window.localStorage.getItem('dark')) {
+      window.localStorage.setItem('dark', true);
+    }
+    else {
+      window.localStorage.setItem('dark', false);
+    }
   });
 
   // on blur of the option menu, hide it
