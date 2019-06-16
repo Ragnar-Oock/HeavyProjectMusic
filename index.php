@@ -51,7 +51,7 @@
     </noscript>
     <div id="playlist">
       <div class="playlist_head">
-        <button type="button" onclick="ajaxd();" id="refresh"><?php
+        <button type="button" onclick="ajaxd(true);" id="refresh"><?php
         echo constant("REFRESH_BUTTON");
         ?></button>
         <div class="playlist_length">

@@ -36,7 +36,7 @@ $(document).ready(function() {
     autoRefresh = false;
   }
   // first API call
-  ajaxd();
+  ajaxd(true);
   // set API call delay to pingDelay [default 10000]
   setInterval(ajaxd, pingDelay);
 
@@ -79,8 +79,8 @@ $(document).ready(function() {
 /**
 * perform the AJAX request and trigger the needed fonction
 */
-function ajaxd() {
-  if (autoRefresh) {
+function ajaxd(force = false) {
+  if (autoRefresh || force) {
     $.ajax({
       url: url,
       type: 'GET',
