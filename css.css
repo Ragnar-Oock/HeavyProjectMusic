@@ -299,7 +299,7 @@ main {
     transition-property: background-color, color
   }
   .screen{
-    transition: background-color 300ms ease-in-out
+    transition: opacity 300ms ease-in-out
   }
   .menu__icon *{
     transition: background-color 300ms ease-in-out
