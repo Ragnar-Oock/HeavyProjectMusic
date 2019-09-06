@@ -145,35 +145,37 @@ function playlistProcessing(result) {
       // if the index found in the new result is -1, the item is not in the playlist anymore, remove it
       if (newIndex===-1) {
         // delete the item in the last result (simplify the animation)
-        let deleted = lastResult.splice(i, 1);
-        // animate the deletion
-        let selector = '#id'+deleted[0].id;
-        $(selector).addClass('playlist_item_hidden');
-        setTimeout(function() {
-          $(selector).remove();
-        }, 300)
+        delete(i);
       }
-      // else if the indexes are differents move the item to the correct position
-      else if (newIndex!==i) {
-        // move the item around visualy
-        target = $('#id'+lastResult[i].id).first()[0];
-        let newLocation = (7.5 * (newIndex - i)) + 'em';
-        anime({
-          targets: target,
-          translateY: newLocation,
-          duration: 300,
-          easing: 'easeInOutQuad'
-        });
-        // move the item in the DOM
-        setTimeout(function(lastResult, target, i, newIndex) {
-          let destination = $('#playlist>div:nth-child('+(newIndex+1)+')');
-          $('#id'+lastResult[i].id).first().insertAfter(destination);
+      else {
+        // if the titles didn't match (i.e. the request has bein edited)
+        if (newResult[i]['title'] != lastResult[i]['title']) {
+          delete(i);
+          let item = new Music(newResult[i], i);
+          item.htmlPrint();
+        }
+        // if the indexes are differents move the item to the correct position
+        if (newIndex!==i) {
+          // move the item around visualy
+          target = $('#id'+lastResult[i].id).first()[0];
+          let newLocation = (7.5 * (newIndex - i)) + 'em';
           anime({
             targets: target,
-            duration: 0,
-            translateY: 0,
+            translateY: newLocation,
+            duration: 300,
+            easing: 'easeInOutQuad'
           });
-        }, 305, lastResult, target, i, newIndex);
+          // move the item in the DOM
+          setTimeout(function(lastResult, target, i, newIndex) {
+            let destination = $('#playlist>div:nth-child('+(newIndex+1)+')');
+            $('#id'+lastResult[i].id).first().insertAfter(destination);
+            anime({
+              targets: target,
+              duration: 0,
+              translateY: 0,
+            });
+          }, 305, lastResult, target, i, newIndex);
+        }
       }
     }
 
