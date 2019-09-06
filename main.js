@@ -195,4 +195,18 @@ function isIn(id, array) {
   }
   return i-1;
 }
+
+/**
+ * delete the item at the designited index
+ * @param  {int} i index of the item to delete
+ */
+function delete(i) {
+  let deleted = lastResult.splice(i, 1);
+  // animate the deletion
+  let selector = '#id'+deleted[0].id;
+  $(selector).addClass('playlist_item_hidden');
+  setTimeout(function() {
+    $(selector).remove();
+  }, 300)
+}
 // end of function declaration
