@@ -145,7 +145,7 @@ function playlistProcessing(result) {
       }
       else {
         // if the titles didn't match (i.e. the request has bein edited)
-        if (newResult[i]['title'] != lastResult[i]['title']) {
+        if (newResult[i]['title'] != lastResult[i]['title'] || newResult[i]['artist'] != lastResult[i]['artist']) {
           suppr(i);
           let item = new Music(newResult[i], i);
           item.htmlPrint();
