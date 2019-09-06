@@ -300,7 +300,10 @@ main {
 }
 
 @media only screen and (prefers-reduced-motion:no-preference) {
-  .dark{
+  .dark,
+  body,
+  .menu__item_label,
+  button{
     transition: 300ms ease-in-out;
     transition-property: background-color, color
   }
@@ -313,10 +316,6 @@ main {
   .menu__icon *{
     transition: background-color 300ms ease-in-out
   }
-  .menu__item_label{
-    transition: 300ms ease-in-out;
-    transition-property: background-color, color;
-  }
   .checkbox_icon{
     transition: background-color 300ms ease-in-out
   }
@@ -325,14 +324,10 @@ main {
   }
   .playlist_item{
     transition: 300ms ease-in-out;
-    transition-property: background-color, color
+    transition-property: background-color, color, opacity, height
   }
   .playlist_item.VIP{
     animation: vip linear infinite 20s;
-  }
-  button{
-    transition: 300ms ease-in-out;
-    transition-property: background-color, color
   }
   button:not(:active){
     animation: button 600ms ease-in-out
