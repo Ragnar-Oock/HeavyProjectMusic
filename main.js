@@ -13,7 +13,7 @@ let target;
 // end of variables declaration
 
 // on document ready
-$(document).ready(function() {
+$(document).ready(() => {
   // init
   // if dark mode was activated on previus visite get it up
   if (window.localStorage.getItem('dark') == "true") {
@@ -86,12 +86,8 @@ function ajaxd(force = false) {
       type: 'GET',
       cache: false,
       crossDomain: true,
-      success: function(result){
-        playlistProcessing(result);
-      },
-      error: function(error){
-        console.error(error);
-      }
+      success: playlistProcessing(result),
+      error: console.error(error)
     });
   }
 }
@@ -166,7 +162,7 @@ function playlistProcessing(result) {
             easing: 'easeInOutQuad'
           });
           // move the item in the DOM
-          setTimeout(function(lastResult, target, i, newIndex) {
+          setTimeout((lastResult, target, i, newIndex) => {
             let destination = $('#playlist>div:nth-child('+(newIndex+1)+')');
             $('#id'+lastResult[i].id).first().insertAfter(destination);
             anime({
@@ -207,7 +203,7 @@ function delete(i) {
   // animate the deletion
   let selector = '#id'+deleted[0].id;
   $(selector).addClass('playlist_item_hidden');
-  setTimeout(function() {
+  setTimeout(() => {
     $(selector).remove();
   }, 300)
 }
