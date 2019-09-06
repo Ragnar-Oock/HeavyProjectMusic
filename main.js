@@ -86,8 +86,12 @@ function ajaxd(force = false) {
       type: 'GET',
       cache: false,
       crossDomain: true,
-      success: playlistProcessing(result),
-      error: console.error(error)
+      success: function(result){
+        playlistProcessing(result);
+      },
+      error: function(error){
+        console.error(error);
+      }
     });
   }
 }
