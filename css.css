@@ -58,7 +58,7 @@ button {
   bottom: 0;
   left: 0;
   background-color: #00000080;
-  z-index: 0;
+  z-index: -5;
   opacity: 0;
 }
 #menu:checked+.screen{
