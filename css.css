@@ -226,6 +226,8 @@ main {
 .playlist_item_hidden{
   opacity: 0;
   height: 0;
+  padding: 0;
+  margin: 0
 }
 .playlist_item__tags{
   grid-area: tags;
@@ -324,7 +326,7 @@ main {
   }
   .playlist_item{
     transition: 300ms ease-in-out;
-    transition-property: background-color, color, opacity, height
+    transition-property: background-color, color, opacity, height, padding, margin
   }
   .playlist_item.VIP{
     animation: vip linear infinite 20s;
