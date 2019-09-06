@@ -141,12 +141,12 @@ function playlistProcessing(result) {
       // if the index found in the new result is -1, the item is not in the playlist anymore, remove it
       if (newIndex===-1) {
         // delete the item in the last result (simplify the animation)
-        delete(i);
+        suppr(i);
       }
       else {
         // if the titles didn't match (i.e. the request has bein edited)
         if (newResult[i]['title'] != lastResult[i]['title']) {
-          delete(i);
+          suppr(i);
           let item = new Music(newResult[i], i);
           item.htmlPrint();
         }
@@ -198,7 +198,7 @@ function isIn(id, array) {
  * delete the item at the designited index
  * @param  {int} i index of the item to delete
  */
-function delete(i) {
+function suppr(i) {
   let deleted = lastResult.splice(i, 1);
   // animate the deletion
   let selector = '#id'+deleted[0].id;
