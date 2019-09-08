@@ -33,12 +33,12 @@ footer p{
   padding: 0 3px;
   background: #41da89;
 }
-input[type="checkbox"] {
+input[type="checkbox"]{
   position: absolute;
   opacity: 0;
   z-index: -32000;
 }
-button {
+button{
   padding: .5em 1em;
   border: none;
   border-radius: .2em;
@@ -66,7 +66,7 @@ button {
   opacity: 1;
   z-index: 10
 }
-.menu {
+.menu{
   position: absolute;
   display: flex;
   top: 3em;
@@ -79,7 +79,7 @@ button {
   transform: scaleY(0);
   z-index: 10;
 }
-.menu::before {
+.menu::before{
   content: '';
   display: block;
   width: 1em;
@@ -93,10 +93,10 @@ button {
   color: inherit;
   background-color: transparent;
 }
-#menu:checked ~ .menu {
+#menu:checked ~ .menu{
   transform: scaleY(1);
 }
-.menu__icon {
+.menu__icon{
   display: block;
 }
 .bar1,
@@ -113,12 +113,12 @@ button {
 .menu__icon:hover>.menu__icon_bar{
   background-color: gray
 }
-.menu__item {
+.menu__item{
   margin: .25em 0;
   border-radius: 0.5em;
   overflow: hidden;
 }
-.header {
+.header{
   background-color: #333;
   position: absolute;
   left: 0;
@@ -127,7 +127,7 @@ button {
   top: 0;
   padding: 0 1em
 }
-.menu__item_label {
+.menu__item_label{
   position: relative;
   display: flex;
   padding: .5em;
@@ -135,7 +135,7 @@ button {
   background-color: #8886;
   color: white;
 }
-.menu__item_checkbox:checked ~ .menu__item_label {
+.menu__item_checkbox:checked ~ .menu__item_label{
   background-color: #8380ff;
   color: black
 }
@@ -150,7 +150,7 @@ button {
 .menu__item_checkbox:checked ~ .menu__item_label>.checkbox_icon{
   background-color: white;
 }
-.checkbox_icon::after {
+.checkbox_icon::after{
   content: '';
   display: block;
   height: 0.7em;
@@ -163,17 +163,17 @@ button {
   left: 0;
   opacity: 0;
 }
-.menu__item_checkbox:checked ~ .menu__item_label > .checkbox_icon::after {
+.menu__item_checkbox:checked ~ .menu__item_label > .checkbox_icon::after{
   opacity: 1;
 }
-.menu__item_checkbox:indeterminate ~ .menu__item_label > .checkbox_icon {
+.menu__item_checkbox:indeterminate ~ .menu__item_label > .checkbox_icon{
   border: 0.5em solid white;
   background: none;
 }
-.menu__item_checkbox:indeterminate ~ .menu__item_label > .checkbox_icon::after {
+.menu__item_checkbox:indeterminate ~ .menu__item_label > .checkbox_icon::after{
   opacity: 0;
 }
-main {
+main{
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -287,7 +287,7 @@ main {
   grid-area: id;
   font-size: .8em
 }
-.playlist_item__id p {
+.playlist_item__id p{
   display: block;
   border: solid 1px #a8a8a8;
   border-radius: .5em;
@@ -300,22 +300,22 @@ main {
   background-color: #555555;
   color: white;
 }
-.dark .playlist_item {
+.dark .playlist_item{
   background-color: #262626;
   color: white;
 }
-.dark .playlist_item.VIP {
+.dark .playlist_item.VIP{
   background-color: #636363;
 }
-.dark button {
+.dark button{
   color: black;
   background-color: #8380ff;
 }
-.dark .playlist_item__id p {
+.dark .playlist_item__id p{
   border-color: #505050;
 }
 
-@media only screen and (prefers-reduced-motion:no-preference) {
+@media only screen and (prefers-reduced-motion:no-preference){
   .dark,
   body,
   .menu__item_label,
@@ -356,8 +356,8 @@ main {
   }
 }
 
-@media only screen and (max-width: 60ch) {
-  .menu {
+@media only screen and (max-width: 60ch){
+  .menu{
     top: 2.1em;
     padding: .5em;
     background-color: #333;
@@ -383,7 +383,7 @@ main {
   }
 }
 
-@keyframes vip {
+@keyframes vip{
   0%{
     background-position-X: 0%;
   }
@@ -392,7 +392,7 @@ main {
   }
 }
 
-@keyframes button {
+@keyframes button{
   0%{
     background-color: #333;
     color: white;
