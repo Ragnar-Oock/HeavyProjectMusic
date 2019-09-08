@@ -196,20 +196,19 @@ main {
 .playlist_length{
   display: block;
   padding: .5em;
-  text-align: right;
 }
 .playlist_item{
   display: inline-grid;
   position: relative;
-  grid-template: 1em 1.5em 1em 1em / auto 1fr;
+  grid-template: 1.3em 1.5em 1.7em 1em / auto 1fr;
   grid-template-areas: "tags tags" "title title" "artist artist" "id requester";
   grid-gap: .25em;
   padding: .5em 0.5em 0.75em;
   background: #d2d2d2;
-  border-radius: 5px;
+  border-radius: .5em;
   margin-bottom: 1em;
   width: 100%;
-  height: 6.5em;
+  height: 7.5em;
   opacity: 1;
   transition: 300ms ease;
   transition-property: opacity, height;
@@ -239,7 +238,7 @@ main {
   margin: 0 3px
 }
 .playlist_item__tags figure {
-  height: 18px;
+  height: 1.5em;
   padding: 0 3px
 }
 .playlist_item__title{
@@ -264,6 +263,8 @@ main {
   grid-area: requester;
   display: flex;
   flex-direction: row-reverse;
+  font-weight: bold;
+  text-shadow: 0px 0px 2px #FFF;
 }
 .playlist_item__requester img,
 .playlist_item__requester span{
@@ -358,16 +359,14 @@ main {
     content: none;
   }
   .playlist_item{
-    grid-template: 1em 1.5em 1em 1em 3em 1em 1em / 100%;
+    grid-template: 1em 1.5em 1em 1em 1em / 100%;
     grid-template-areas:
     "tags"
     "title"
     "artist"
-    "album"
-    "info"
     "requester"
     "id";
-    height: 11.5em
+    height: 8.5em
   }
 }
 

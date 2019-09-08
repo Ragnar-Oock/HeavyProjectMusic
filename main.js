@@ -158,7 +158,7 @@ function playlistProcessing(result) {
         if (newIndex!==i) {
           // move the item around visualy
           target = $('#id'+lastResult[i].id).first()[0];
-          let newLocation = (7.5 * (newIndex - i)) + 'em';
+          let newLocation = (8.5 * (newIndex - i)) + 'em';
           anime({
             targets: target,
             translateY: newLocation,
