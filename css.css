@@ -197,6 +197,7 @@ main{
 .playlist_length{
   display: block;
   padding: .5em;
+  text-align: right;
 }
 .playlist_item{
   display: inline-grid;
@@ -235,11 +236,12 @@ main{
 .playlist_item__tag{
   width: auto;
   display: flex;
-  margin: 0 3px
+  margin: 0 .2em;
+  border-radius: .2em
 }
-.playlist_item__tags figure {
-  height: 1.5em;
-  padding: 0 3px
+.playlist_item__tags figure{
+  height: 100%;
+  padding: 0 .2em
 }
 .playlist_item__title{
   /* needed for the auto ellipsis */
