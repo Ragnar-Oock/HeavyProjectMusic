@@ -314,6 +314,14 @@ main{
 .dark .playlist_item__id p{
   border-color: #505050;
 }
+/* stream mode */
+.stream .playlist_item{
+  background-color: #00000080;
+  color: white
+}
+.stream .playlist_item.VIP{
+  animation: vip linear infinite 20s;
+}
 
 @media only screen and (prefers-reduced-motion:no-preference){
   .dark,

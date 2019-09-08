@@ -1,6 +1,7 @@
 <?php
   define('AUTO_REFRESH', 'Rafraîchissement automatique');
   define('DARK_MODE', 'Mode sombre');
+  define('STREAM_MODE', 'Mode streamer');
   define('REFRESH_BUTTON', 'Rafraîchir la liste');
   define('NOSCRIPT', 'Merci d\'activer JavaScript');
   define("PLAYLIST_LENGTH_DISPLAY_LABEL_PRE", "");
