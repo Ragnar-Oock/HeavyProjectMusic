@@ -278,7 +278,7 @@ main {
   display: flex;
   flex-direction: row-reverse;
   font-weight: bold;
-  text-shadow: 0px 0px 2px #FFF;
+	text-shadow: 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
 }
 .playlist_item__requester img,
 .playlist_item__requester span{
