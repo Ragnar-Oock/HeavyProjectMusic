@@ -22,6 +22,13 @@ $(document).ready(() => {
     // check option checkbox
     $('#dark_mode').prop('checked', true);
   }
+  // if streaming mode was activated on previus visite get it up
+  if (window.localStorage.getItem('stream') == "true" || $('#stream_mode').prop('checked', true)) {
+    // set dark mode to true
+    $('body').toggleClass('stream', true);
+    // check option checkbox
+    $('#stream_mode').prop('checked', true);
+  }
   // if autoRefresh was deactiveted on previus visite get it down and show refresh button
   let locAutoRefresh = window.localStorage.getItem("autoRefresh")
   if (locAutoRefresh == "true" || locAutoRefresh == null || locAutoRefresh == undefined) {
