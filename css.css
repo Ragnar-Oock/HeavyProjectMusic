@@ -22,9 +22,10 @@ footer p{
 }
 .badge{
   display: inline;
-  width: 18px;
-  height: 18px;
+  width: 1.125em;
+  height: 1.125em;
   border: 0;
+  margin-right: 0.1em;
   vertical-align: text-bottom;
 }
 .tag{
