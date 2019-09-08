@@ -243,19 +243,32 @@ main {
   padding: 0 3px
 }
 .playlist_item__title{
+  /* needed for the auto ellipsis */
+  width: 100%;
   grid-area: title;
   font-size: 1.5em;
 }
-.playlist_item__album{
-  grid-area: album;
+.playlist_item__title p{
+  /* auto ellipsis */
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .playlist_item__artiste{
   grid-area: artist;
-  text-align: right;
+  font-size: 1.2em;
   height: 100%;
+  /* needed for ellipsis */
+  width: 100%;
 }
 .playlist_item__artiste p{
   vertical-align: middle;
+  /* auto ellipsis */
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .playlist_item__info{
   grid-area: info;
