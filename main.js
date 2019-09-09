@@ -15,21 +15,21 @@ let target;
 // on document ready
 $(document).ready(() => {
   // init
-  // if dark mode was activated on previus visite get it up
+  // if dark mode was activated on previous visite get it up
   if (window.localStorage.getItem('dark') == "true") {
     // set dark mode to true
     $('body').toggleClass('dark', true);
     // check option checkbox
     $('#dark_mode').prop('checked', true);
   }
-  // if streaming mode was activated on previus visite get it up
-  if (window.localStorage.getItem('stream') == "true" || $('#stream_mode').prop('checked', true)) {
+  // if streaming mode was activated on previous visite get it up
+  if (window.localStorage.getItem('stream') == "true"/* || $('#stream_mode').prop('checked', true)*/) {
     // set dark mode to true
     $('body').toggleClass('stream', true);
     // check option checkbox
     $('#stream_mode').prop('checked', true);
   }
-  // if autoRefresh was deactiveted on previus visite get it down and show refresh button
+  // if autoRefresh was deactiveted on previous visite get it down and show refresh button
   let locAutoRefresh = window.localStorage.getItem("autoRefresh")
   if (locAutoRefresh == "true" || locAutoRefresh == null || locAutoRefresh == undefined) {
     // disable autoRefresh
@@ -41,6 +41,13 @@ $(document).ready(() => {
   }
   else {
     autoRefresh = false;
+  }
+  // if the ids was shown on previous visite get it up
+  if (window.localStorage.getItem('show_id') == "true" || $('#show_id').prop('checked', true)) {
+    // set dark mode to true
+    $('body').toggleClass('show_id', true);
+    // check option checkbox
+    $('#show_id').prop('checked', true);
   }
   // first API call
   ajaxd(true);

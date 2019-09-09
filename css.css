@@ -288,11 +288,11 @@ main{
 .playlist_item__requester span{
   margin: 0 3px;
 }
-.playlist_item__id{
+.show_id .playlist_item__id{
   grid-area: id;
   font-size: .8em
 }
-.playlist_item__id p{
+.show_id .playlist_item__id p{
   display: block;
   border: solid 1px #a8a8a8;
   border-radius: .5em;

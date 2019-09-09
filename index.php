@@ -52,6 +52,15 @@
         ?></span>
       </label>
     </div>
+    <div class="menu__item">
+      <input type="checkbox" class="menu__item_checkbox" id="show_id">
+      <label for="show_id" class="menu__item_label checkbox">
+        <div class="checkbox_icon"></div>
+        <span><?php
+        echo constant("SHOW_ID");
+        ?></span>
+      </label>
+    </div>
   </nav>
   <main>
     <noscript>
