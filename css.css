@@ -325,6 +325,9 @@ main{
   animation: vip linear infinite 20s;
   background-color: #f8eba780
 }
+.stream footer{
+  display: none;
+}
 
 @media only screen and (prefers-reduced-motion:no-preference){
   .dark,
