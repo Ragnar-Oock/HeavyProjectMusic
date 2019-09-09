@@ -23,7 +23,7 @@ $(document).ready(() => {
     $('#dark_mode').prop('checked', true);
   }
   // if streaming mode was activated on previous visite get it up
-  if (window.localStorage.getItem('stream') == "true"/* || $('#stream_mode').prop('checked', true)*/) {
+  if (window.localStorage.getItem('stream') == "true" || $('#stream_mode').prop('checked')) {
     // set dark mode to true
     $('body').toggleClass('stream', true);
     // check option checkbox
