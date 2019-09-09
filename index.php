@@ -93,6 +93,7 @@
 
   <footer>
     <p><?php echo constant("FOOTER_AUTOR"); ?>Rägnar O'ock</p>
+    <p><?php echo constant("FOOTER_ISSUE") ?></p> <a href="#"></a>
   </footer>
 </body>
 </html>

@@ -11,4 +11,5 @@
   define("PLAYLIST_LENGTH_TOTAL_PRE", "il y a ");
   define("PLAYLIST_LENGTH_TOTAL_POST", " musique(s) dans la playlist");
   define("FOOTER_AUTOR", "Fait avec ❤️, par ");
+  define("FOOTER_ISSUE", "Une erreure ou un bug? Rapporte le sur <a href='https://discord.gg/warths'>Discord</a> ou sur <a href='https://github.com/Ragnar-Oock/HeavyProjectMusic/issues'>Github</a>");
 ?>
