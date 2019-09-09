@@ -323,6 +323,7 @@ main{
 }
 .stream .playlist_item.VIP{
   animation: vip linear infinite 20s;
+  background-color: #f8eba780
 }
 
 @media only screen and (prefers-reduced-motion:no-preference){
