@@ -1,6 +1,6 @@
 // variable declaration
 // AJAX parameters
-const url = 'http://91.161.139.103:50000/HeavyChatMusique/sampleMusique.json';
+const url = window.location.hostname + '/HeavyChatMusique/sampleMusique.json';
 const pingDelay = 10000; //default : 10000
 
 // define the AJAX result storage
