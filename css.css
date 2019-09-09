@@ -415,9 +415,11 @@ main{
   0%{
     background-color: #333;
     color: white;
+    transform: rotate(0deg);
   }
   66%{
     background-color: #8380ff;
     color: black;
+    transform: rotate(180deg);
   }
 }
