@@ -201,6 +201,7 @@ main{
   display: block;
   padding: .5em;
   text-align: right;
+  grid-column: 2
 }
 .playlist_item{
   display: inline-grid;
