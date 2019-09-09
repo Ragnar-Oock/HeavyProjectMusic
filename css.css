@@ -322,6 +322,7 @@ main{
   color: white
 }
 .stream .playlist_item.VIP{
+  /* force animation on stream mode (webkit compatibility issue) */
   animation: vip linear infinite 20s;
   background-color: #b9884752
 }
