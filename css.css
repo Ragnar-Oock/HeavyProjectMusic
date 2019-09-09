@@ -274,9 +274,6 @@ main{
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.playlist_item__info{
-  grid-area: info;
-}
 .playlist_item__requester{
   grid-area: requester;
   display: flex;
