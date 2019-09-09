@@ -75,6 +75,19 @@ $(document).ready(() => {
     }
   });
 
+  // toggle stream mode
+  $('#stream_mode').change(() => {
+    // toggle dark mode
+    $('body').toggleClass('stream');
+    // store the seting localy
+    if (window.localStorage.getItem('stream') == "true" ) {
+      window.localStorage.setItem('stream', false);
+    }
+    else {
+      window.localStorage.setItem('stream', true);
+    }
+  });
+
   // on blur of the option menu, hide it
   $('.screen').click(() => {
     $('#menu').prop('checked', !1);
