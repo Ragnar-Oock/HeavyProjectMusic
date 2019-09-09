@@ -370,7 +370,7 @@ main{
     animation: vip linear infinite 20s;
   }
   button:not(:active){
-    animation: button 600ms ease-in-out
+    animation: button 1000ms cubic-bezier(.23,1,.32,1)
   }
   button:not(:active)>.btn_icon{
     animation: btn_icon 600ms ease-in
