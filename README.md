@@ -15,7 +15,7 @@ Dynamically display a playlist from a JSON file
 - the list gets messed up when editing a request but not changing the id
 - the list gets messed up over time
 
-## Dependencies
+## External ressources used (included)
 anime.js for the slide animation  
 - [github page](https://github.com/juliangarnier/anime/)
 - [web site](https://animejs.com/)
