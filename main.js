@@ -24,7 +24,7 @@ $(document).ready(() => {
   }
   // if streaming mode was activated on previous visite get it up
   if (window.localStorage.getItem('stream') == "true" || $('#stream_mode').prop('checked')) {
-    // set dark mode to true
+    // set stream mode to true
     $('body').toggleClass('stream', true);
     // check option checkbox
     $('#stream_mode').prop('checked', true);
@@ -44,7 +44,7 @@ $(document).ready(() => {
   }
   // if the ids was shown on previous visite get it up
   if (window.localStorage.getItem('show_id') == "true" || $('#show_id').prop('checked')) {
-    // set dark mode to true
+    // set show id to true
     $('body').toggleClass('show_id', true);
     // check option checkbox
     $('#show_id').prop('checked', true);
