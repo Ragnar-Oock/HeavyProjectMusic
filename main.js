@@ -95,6 +95,19 @@ $(document).ready(() => {
     }
   });
 
+  // toggle show id
+  $('#show_id').change(() => {
+    // toggle dark mode
+    $('body').toggleClass('show_id');
+    // store the seting localy
+    if (window.localStorage.getItem('show_id') == "true" ) {
+      window.localStorage.setItem('show_id', false);
+    }
+    else {
+      window.localStorage.setItem('show_id', true);
+    }
+  });
+
   // on blur of the option menu, hide it
   $('.screen').click(() => {
     $('#menu').prop('checked', !1);
