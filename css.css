@@ -48,7 +48,7 @@ button{
   letter-spacing: 0.5px;
 }
 button>span {
-  margin-right: 0.5em;
+  margin-left: 0.5em;
 }
 .hidden{
   opacity: 0;
