@@ -43,7 +43,7 @@ $(document).ready(() => {
     autoRefresh = false;
   }
   // if the ids was shown on previous visite get it up
-  if (window.localStorage.getItem('show_id') == "true" || $('#show_id').prop('checked', true)) {
+  if (window.localStorage.getItem('show_id') == "true" || $('#show_id').prop('checked')) {
     // set dark mode to true
     $('body').toggleClass('show_id', true);
     // check option checkbox
