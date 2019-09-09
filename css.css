@@ -1,4 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+:root{
+  --accent: #8380ff;
+  --primary: #333;
+  --secondary: #555555;
+  --screen50: #00000080;
+  --screen25: #00000040;
+  --VIP: #f8eba7;
+  --VIPstream: #b9884752;
+}
 
 *,
 *::before,
@@ -28,11 +37,6 @@ footer p{
   margin-right: 0.1em;
   vertical-align: text-bottom;
 }
-.tag{
-  display: inline-block;
-  padding: 0 3px;
-  background: #41da89;
-}
 input[type="checkbox"]{
   position: absolute;
   opacity: 0;
@@ -42,7 +46,7 @@ button{
   padding: .5em 1em;
   border: none;
   border-radius: .2em;
-  background-color: #333;
+  background-color: var(--primary);
   color: white;
   font-weight: bold;
   letter-spacing: 0.5px;
@@ -61,7 +65,7 @@ button>span {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: #00000080;
+  background-color: var(--screen);
   z-index: -5;
   opacity: 0;
 }
@@ -78,7 +82,7 @@ button>span {
   width: 35ch;
   flex-direction: column;
   border-radius: 0.2em;
-  background-color: #333;
+  background-color: var(--primary);
   transform: scaleY(0);
   z-index: 10;
 }
@@ -90,7 +94,7 @@ button>span {
   position: absolute;
   top: -.5em;
   transform: translateX(0.5em) rotate(-45deg);
-  background-color: #333;
+  background-color: var(--primary);
 }
 .menu *::selection{
   color: inherit;
@@ -122,7 +126,7 @@ button>span {
   overflow: hidden;
 }
 .header{
-  background-color: #333;
+  background-color: var(--primary);
   position: fixed;
   left: 0;
   right: 0;
@@ -135,11 +139,11 @@ button>span {
   display: flex;
   padding: .5em;
   align-items: center;
-  background-color: #8886;
+  background-color: var(--secondary);
   color: white;
 }
 .menu__item_checkbox:checked ~ .menu__item_label{
-  background-color: #8380ff;
+  background-color: var(--accent);
   color: black
 }
 .checkbox_icon{
@@ -158,8 +162,8 @@ button>span {
   display: block;
   height: 0.7em;
   width: 1.2em;
-  border-bottom: solid #8380ff 0.3em;
-  border-left: solid #8380ff 0.3em;
+  border-bottom: solid var(--accent) 0.3em;
+  border-left: solid var(--accent) 0.3em;
   transform: translateY(19%) rotate(-45deg);
   top: 0;
   position: relative;
@@ -210,7 +214,7 @@ main{
   grid-template-areas: "tags tags" "title title" "artist artist" "id requester";
   grid-gap: .25em;
   padding: .5em 0.5em 0.75em;
-  background-color: #00000080;
+  background-color: var(--screen);
   border-radius: .5em;
   margin-bottom: 1em;
   width: 100%;
@@ -220,7 +224,7 @@ main{
   overflow: hidden;
 }
 .playlist_item.VIP{
-  background-color: #f8eba7;
+  background-color: var(--VIP);
   background-image: url('./images/background_VIP_Alpha.png');
   background-blend-mode: multiply;
   background-position: center;
@@ -296,7 +300,7 @@ main{
 }
 .show_id .playlist_item__id p{
   display: block;
-  border: solid 1px #a8a8a8;
+  border: solid 1px #fff;
   border-radius: .5em;
   padding: 0.1em .5em;
   min-width: 8ch;
@@ -304,32 +308,32 @@ main{
 }
 /* dark mode */
 .dark{
-  background-color: #555555;
+  background-color: var(--secondary);
   color: white;
 }
 .dark .playlist_item{
-  background-color: #262626;
+  background-color: var(--primary);
   color: white;
 }
 .dark .playlist_item.VIP{
-  background-color: #636363;
+  background-color: var(--primary);
 }
 .dark button{
   color: black;
-  background-color: #8380ff;
+  background-color: var(--accent);
 }
 .dark .playlist_item__id p{
-  border-color: #505050;
+  border-color: var(--secondary);
 }
 /* stream mode */
 .stream .playlist_item{
-  background-color: #00000080;
+  background-color: var(--screen50);
   color: white
 }
 .stream .playlist_item.VIP{
   /* force animation on stream mode (webkit compatibility issue) */
   animation: vip linear infinite 20s;
-  background-color: #b9884752
+  background-color: var(--VIPstream)
 }
 .stream footer{
   display: none;
@@ -383,7 +387,7 @@ main{
   .menu{
     top: 2.1em;
     padding: .5em;
-    background-color: #333;
+    background-color: var(--primary);
     flex-direction: column;
     transform: scaleY(0);
     z-index: 10;
@@ -416,11 +420,11 @@ main{
 
 @keyframes button{
   0%{
-    background-color: #333;
+    background-color: var(--primary);
     color: white;
   }
   66%{
-    background-color: #8380ff;
+    background-color: var(--accent);
     color: black;
   }
 }
