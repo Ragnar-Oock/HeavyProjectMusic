@@ -65,7 +65,7 @@ button>span {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: var(--screen);
+  background-color: var(--screen50);
   z-index: -5;
   opacity: 0;
 }
