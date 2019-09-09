@@ -251,6 +251,9 @@ main{
   height: 100%;
   padding: 0 .2em
 }
+.playlist_item__tag figcaption {
+  margin-top: 0.05em
+}
 .playlist_item__title{
   /* needed for the auto ellipsis */
   width: 100%;
