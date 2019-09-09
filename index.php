@@ -45,7 +45,7 @@
     </div>
     <div class="menu__item">
       <input type="checkbox" class="menu__item_checkbox" id="stream_mode" <?php if (isset($__GET['stream'])) {
-        echo "checked="true"";
+        echo "checked='true'";
       } ?>>
       <label for="stream_mode" class="menu__item_label checkbox">
         <div class="checkbox_icon"></div>
@@ -56,7 +56,7 @@
     </div>
     <div class="menu__item">
       <input type="checkbox" class="menu__item_checkbox" id="show_id" <?php if (isset($__GET['show_id'])) {
-        echo "checked="true"";
+        echo "checked='true'";
       } ?>>
       <label for="show_id" class="menu__item_label checkbox">
         <div class="checkbox_icon"></div>
