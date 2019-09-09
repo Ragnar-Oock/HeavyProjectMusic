@@ -368,6 +368,9 @@ main{
   button:not(:active){
     animation: button 600ms ease-in-out
   }
+  button:not(:active)>.btn_icon{
+    animation: btn_icon 600ms ease-in
+  }
 }
 
 @media only screen and (max-width: 1920px){
@@ -415,11 +418,18 @@ main{
   0%{
     background-color: #333;
     color: white;
-    transform: rotate(0deg);
   }
   66%{
     background-color: #8380ff;
     color: black;
+  }
+}
+
+@keyframes btn_icon {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
     transform: rotate(180deg);
   }
 }

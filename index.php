@@ -75,7 +75,7 @@
     <div id="playlist">
       <div class="playlist_head">
         <button type="button" onclick="ajaxd(true);" id="refresh" title="<?php echo constant("REFRESH_BUTTON"); ?>">
-          <i class="fas fa-sync-alt"></i><span><?php echo constant("REFRESH_BUTTON"); ?></span>
+          <i class="btn_icon fas fa-sync-alt"></i><span class="btn_txt"><?php echo constant("REFRESH_BUTTON"); ?></span>
         </button>
         <div class="playlist_length">
           <?php
