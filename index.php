@@ -1,5 +1,8 @@
 <?php
   include './lang/FR_fr.php';
+  if (isset($__GET['stream'])) {
+    echo "checked='true'";
+  }
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
