@@ -318,7 +318,7 @@ main{
 }
 /* stream mode */
 .stream .playlist_item{
-  background-color: #00000080;
+  background-color: #f8eba780;
   color: white
 }
 .stream .playlist_item.VIP{
