@@ -286,7 +286,11 @@ main{
 .playlist_item__requester span{
   margin: 0 3px;
 }
+.playlist_item__id{
+  display: none
+}
 .show_id .playlist_item__id{
+  display: block;
   grid-area: id;
   font-size: .8em
 }
