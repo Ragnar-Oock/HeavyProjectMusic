@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <title>HeavyChatMusic</title>
-  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="lib/anime.min.js"></script>
   <script src="requester.js"></script>
   <script src="music.js"></script>
@@ -93,7 +93,7 @@
 
   <footer>
     <p><?php echo constant("FOOTER_AUTOR"); ?>Rägnar O'ock</p>
-    <p><?php echo constant("FOOTER_ISSUE") ?></p> <a href="#"></a>
+    <p><?php echo constant("FOOTER_ISSUE") ?></p>
   </footer>
 </body>
 </html>
