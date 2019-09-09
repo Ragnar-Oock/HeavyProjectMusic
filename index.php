@@ -12,6 +12,7 @@
   <script src="music.js"></script>
   <script src="main.js"></script>
   <link rel="stylesheet" href="css.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
 </head>
 <body>
   <input type="checkbox" id="menu" class="menu_checkbox">
@@ -60,9 +61,9 @@
     </noscript>
     <div id="playlist">
       <div class="playlist_head">
-        <button type="button" onclick="ajaxd(true);" id="refresh"><?php
-        echo constant("REFRESH_BUTTON");
-        ?></button>
+        <button type="button" onclick="ajaxd(true);" id="refresh" title="<?php echo constant("REFRESH_BUTTON"); ?>">
+          <i class="fas fa-sync-alt"></i><span><?php echo constant("REFRESH_BUTTON"); ?></span>
+        </button>
         <div class="playlist_length">
           <?php
           echo constant("PLAYLIST_LENGTH_DISPLAY_LABEL_PRE");
