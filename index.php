@@ -1,6 +1,6 @@
 <?php
   include './lang/FR_fr.php';
-  if (isset($__GET['stream'])) {
+  if (isset($_GET['stream'])) {
     echo "checked='true'";
   }
 ?>
@@ -47,7 +47,7 @@
       </label>
     </div>
     <div class="menu__item">
-      <input type="checkbox" class="menu__item_checkbox" id="stream_mode" <?php if (isset($__GET['stream'])) {
+      <input type="checkbox" class="menu__item_checkbox" id="stream_mode" <?php if (isset($_GET['stream'])) {
         echo "checked='true'";
       } ?>>
       <label for="stream_mode" class="menu__item_label checkbox">
@@ -58,7 +58,7 @@
       </label>
     </div>
     <div class="menu__item">
-      <input type="checkbox" class="menu__item_checkbox" id="show_id" <?php if (isset($__GET['show_id'])) {
+      <input type="checkbox" class="menu__item_checkbox" id="show_id" <?php if (isset($_GET['show_id'])) {
         echo "checked='true'";
       } ?>>
       <label for="show_id" class="menu__item_label checkbox">
