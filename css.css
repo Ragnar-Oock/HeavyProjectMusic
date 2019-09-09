@@ -214,7 +214,7 @@ main{
   grid-template-areas: "tags tags" "title title" "artist artist" "id requester";
   grid-gap: .25em;
   padding: .5em 0.5em 0.75em;
-  background-color: var(--screen);
+  background-color: var(--screen50);
   border-radius: .5em;
   margin-bottom: 1em;
   width: 100%;
