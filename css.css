@@ -323,7 +323,7 @@ main{
 }
 .stream .playlist_item.VIP{
   animation: vip linear infinite 20s;
-  background-color: #f8eba780
+  background-color: #b9884752
 }
 .stream footer{
   display: none;
@@ -399,10 +399,10 @@ main{
 
 @keyframes vip{
   0%{
-    background-position-X: 0%;
+    background-position: 0% 0%
   }
   100%{
-    background-position-X: 100%
+    background-position: 100% 100%
   }
 }
 
