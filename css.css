@@ -34,7 +34,7 @@ footer p{
   width: 1.125em;
   height: 1.125em;
   border: 0;
-  margin-right: 0.1em;
+  margin: auto 0.1em auto 0;
   vertical-align: text-bottom;
 }
 input[type="checkbox"]{
