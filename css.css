@@ -217,7 +217,7 @@ main{
 }
 .playlist_item.VIP{
   background-color: #f8eba7;
-  background-image: url('./images/background_VIP.jpg');
+  background-image: url('./images/background_VIP_Alpha.png');
   background-blend-mode: multiply;
   background-position: center;
   background-repeat: repeat;
@@ -366,7 +366,7 @@ main{
 
 @media only screen and (max-width: 1920px){
   .playlist_item.VIP{
-    background-image: url('./images/background_VIP_LQ.jpg')
+    background-image: url('./images/background_VIP_Alpha.png')
   }
 }
 
