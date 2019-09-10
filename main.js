@@ -211,7 +211,7 @@ function playlistProcessing(result) {
             $('#id'+lastResult[i].id).first().insertAfter(destination);
             anime({
               targets: target,
-              duration: 0,
+              duration: 10,
               translateY: 0,
             });
           }, 305, lastResult, target, i, newIndex);
