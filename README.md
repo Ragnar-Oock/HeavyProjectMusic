@@ -1,5 +1,7 @@
 # HeavyProjectMusic
-Dynamically display a playlist from a JSON file
+Dynamically display a playlist from a JSON file.
+
+If your using this tool with a custom lang file, please add it to the repo for everyone to enjoy using it in this language.
 
 ## Currents functionalities
 - parse and display the playlist from the specified JSON files (default: sampleMusique.json)
