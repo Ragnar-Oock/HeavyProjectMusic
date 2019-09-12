@@ -1,5 +1,7 @@
 # HeavyProjectMusic
-Dynamically display a playlist from a JSON file
+Dynamically display a playlist from a JSON file.
+
+If your using this tool with a custom lang file, please add it to the repo for everyone to enjoy using it in this language.
 
 ## Currents functionalities
 - parse and display the playlist from the specified JSON files (default: sampleMusique.json)
@@ -9,11 +11,6 @@ Dynamically display a playlist from a JSON file
 - switch on/off requests id display
 - settings are stored locally
 - preload settings using PHP args (available only for stream mode and id display)
-
-## Known issues
-- RAM overload when used for too long (>7h)
-- the list gets messed up when editing a request but not changing the id
-- the list gets messed up over time
 
 ## External ressources used (included)
 anime.js for the slide animation  
