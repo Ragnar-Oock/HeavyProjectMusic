@@ -17,7 +17,7 @@ $(document).ready(() => {
   // init
 
   // initiate the processing
-  playlist = playlistProcessing()
+  playlist = new playlistProcessing()
 
   // if dark mode was activated on previous visite get it up
   if (window.localStorage.getItem('dark') == "true") {
