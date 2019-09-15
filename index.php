@@ -10,6 +10,7 @@
   <script src="lib/anime.min.js"></script>
   <script src="requester.js"></script>
   <script src="music.js"></script>
+  <script src="processing.js"></script>
   <script src="main.js"></script>
   <link rel="stylesheet" href="css.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
