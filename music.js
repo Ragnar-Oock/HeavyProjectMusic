@@ -15,11 +15,12 @@ class Music {
     }
     this.requester = new Requester(obj.requester);
     this.index = index;
+
+    this.htmlPrint();
   }
 
   /**
    * log all the properties of the object, debug purpose only
-   * @return {none} methode without return value
    */
   log() {
     console.log(this.id, this.title, this.artist, this.tags, this.requester, this.index);
@@ -47,7 +48,6 @@ class Music {
 
   /**
    * append the object to the wrapper
-   * @return {none} method without return value
    */
   htmlPrint() {
     let vip = "";
@@ -56,8 +56,8 @@ class Music {
         vip = " VIP";
       }
     }
-    $('#playlist>div').eq(this.index).after(`
-      <div id="id${this.id}" class="playlist_item${vip} playlist_item_hidden">
+    $('.playlist_list').eq(this.index).after(`
+      <div id="id${this.id}" class="playlist_item${vip} playlist_item_hidden" style="transform: translateY(${this.index * 8.5}em)">
         <div class="playlist_item__tags">
           ${this.htmlTags()}
         </div>
@@ -77,5 +77,12 @@ class Music {
       setTimeout(function(item) {
         $('#id'+item.id).removeClass('playlist_item_hidden');
       }, 10, this);
+  }
+
+  /**
+   * remove the item
+   */
+  remove() {
+    $('#id' + this.id).first()[0].remove();
   }
 }

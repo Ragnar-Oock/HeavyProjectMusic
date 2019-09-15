@@ -74,19 +74,16 @@
     </noscript>
     <div id="playlist">
       <div class="playlist_head">
-        <button type="button" onclick="ajaxd(true);" id="refresh" title="<?php echo constant("REFRESH_BUTTON"); ?>">
+        <button type="button" onclick="playlist.process();" id="refresh" title="<?php echo constant("REFRESH_BUTTON"); ?>">
           <i class="btn_icon fas fa-sync-alt"></i><span class="btn_txt"><?php echo constant("REFRESH_BUTTON"); ?></span>
         </button>
         <div class="playlist_length">
           <?php
-          echo constant("PLAYLIST_LENGTH_DISPLAY_LABEL_PRE");
-          ?>
-          <!-- <span id="playlist_length_displayed">0</span> -->
-          <?php
-          // echo constant("PLAYLIST_LENGTH_DISPLAY_LABEL_POST");
-          // echo constant("PLAYLIST_LENGTH_CEPARATOR");
           echo constant("PLAYLIST_LENGTH_TOTAL_PRE");?><span id="playlist_length_total">0</span><?php echo constant("PLAYLIST_LENGTH_TOTAL_POST"); ?>
         </div>
+      </div>
+      <div class="playlist_list">
+
       </div>
     </div>
   </main>

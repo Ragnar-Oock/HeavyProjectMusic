@@ -207,9 +207,12 @@ main{
   text-align: right;
   grid-column: 2
 }
+.playlist_list{
+  position: relative;
+}
 .playlist_item{
   display: inline-grid;
-  position: relative;
+  position: absolute;
   grid-template: 1.3em 1.5em 1.7em 1em / auto 1fr;
   grid-template-areas: "tags tags" "title title" "artist artist" "id requester";
   grid-gap: .25em;
