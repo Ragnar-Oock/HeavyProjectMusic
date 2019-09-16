@@ -23,7 +23,6 @@ class playlistProcessing {
         success: function(result){
           this.last = this.mod;
           this.mod = result;
-          console.log(this.mod);
 
           // if the result is different process it
           if (this.mod !== this.last) {
@@ -31,7 +30,6 @@ class playlistProcessing {
               // move the item as needed
               this.moveOrDelete(this.list[i]);
             }
-            console.log(this);
             // add the new items to this.list
             this.add(this.getAddedInMod());
           }
@@ -134,19 +132,6 @@ class playlistProcessing {
       }
       i++;
     }
-
-    // for (var i = 0; i < this.mod.length; i++) {
-    //   let j = 0;
-    //   // while not at the end of the list and current list item and current mod item differents
-    //   while (j < this.list.length && this.list[j] != this.mod[i]) {
-    //     j ++;
-    //   }
-    //   // if we didn't find the mod item in list it's new
-    //   if (j === this.list.length) {
-    //     added.push([i, this.mod[i]]);
-    //   }
-    // }
-    console.log(this.mod, this.list, added);
     return added;
   }
 
