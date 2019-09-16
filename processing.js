@@ -91,11 +91,7 @@ class playlistProcessing {
    * @return {int}      index in the new list
    */
   getIndexInMod(item) {
-    let i = this.list.length;
-    while (i >=0 && item.id != this.mod[i].id) {
-      i --;
-    }
-    return i;
+    return this.mod.indexOf(item);
   }
 
   /**
