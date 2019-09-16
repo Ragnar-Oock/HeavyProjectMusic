@@ -370,7 +370,7 @@ main{
   }
   .playlist_item{
     transition: 300ms ease-in-out;
-    transition-property: background-color, color, opacity, height, padding, margin
+    transition-property: background-color, color, opacity, height, padding, margin, transform
   }
   .playlist_item.VIP{
     animation: vip linear infinite 20s;
