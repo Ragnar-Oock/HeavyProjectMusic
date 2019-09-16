@@ -86,12 +86,12 @@ class Music {
         list.prepend(html);
         console.log('2');
       }
-      else if (this.index < length){
-        list.children[this.index - 1].after(html);
+      else if (this.index = length){
+        list.append(html);
         console.log('3');
       }
       else {
-        list.append(html);
+        list.children[this.index].after(html);
         console.log('4');
       }
     }
