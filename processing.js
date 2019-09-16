@@ -121,7 +121,7 @@ class playlistProcessing {
     while (i < this.mod.length) {
       let j = 0;
       // while j is less than list length and the comparated items are differents
-      while (j <= this.list.length && this.list[j].id != this.mod[i].id) {
+      while (j < this.list.length && this.list[j].id != this.mod[i].id) {
         j++;
       }
       // if j is egal or more than list length, the current item is new
