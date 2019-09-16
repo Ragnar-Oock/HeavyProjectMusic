@@ -33,7 +33,7 @@ class playlistProcessing {
 
     for (var i = 0; i < this.list.length; i++) {
       // get the index of the current item in the new list
-      dest = this.getIndexInMod(this.list[i]);
+      let dest = this.getIndexInMod(this.list[i]);
       // move the item as needed
       this.moveAndDelete(this.list[i], dest);
     }
@@ -59,11 +59,11 @@ class playlistProcessing {
    */
   moveAndDelete(item, dest) {
     // isolate the item id
-    id = this.list[item].id;
+    let id = this.list[item].id;
     // delete the item if the dest index is -1
     if (dest === -1) {
       // get the item index
-      index = this.getIndexInList(item);
+      let index = this.getIndexInList(item);
       // delete the item
       this.list.splice(index, 1);
       // remove the dom item
@@ -74,7 +74,7 @@ class playlistProcessing {
       // move the item from its current position to its new position
       this.list.splice(dest, 0, this.list.splice(item, 1));
       // get the target dom item style
-      targetStyle = $('#id' + id).first()[0].style;
+      let targetStyle = $('#id' + id).first()[0].style;
       // edit the item position on screen
       targetStyle.top = (dest * 8.5) + 'em';
     }
@@ -112,7 +112,7 @@ class playlistProcessing {
    * @return {array} list inex of the added items
    */
   getAddedInMod() {
-    added = {};
+    let added = {};
     for (var i = 0; i < this.mod.length; i++) {
       let j = 0;
       while (j<this.orig.length && this.orig[j] != this.mod[i]) {
