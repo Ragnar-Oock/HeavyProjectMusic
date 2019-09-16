@@ -23,6 +23,7 @@ class playlistProcessing {
         success: function(result){
           this.last = this.mod;
           this.mod = result;
+          console.log(this.mod);
         },
         error: function(error){
           console.error(error);
