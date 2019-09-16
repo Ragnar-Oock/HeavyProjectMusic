@@ -105,6 +105,8 @@ class Music {
    * remove the item
    */
   remove() {
-    $('#id' + this.id).first()[0].remove();
+    let item = $('#id' + this.id);
+    item.toggleClass('playlist_item_hidden', true);
+    item.remove();
   }
 }
