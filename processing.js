@@ -28,10 +28,8 @@ class playlistProcessing {
           // if the result is different process it
           if (this.mod !== this.last) {
             for (var i = 0; i < this.list.length; i++) {
-              // get the index of the current item in the new list
-              let dest = this.getIndexInMod(this.list[i]);
               // move the item as needed
-              this.moveOrDelete(this.list[i], dest);
+              this.moveOrDelete(this.list[i]);
             }
             console.log(this);
             // add the new items to this.list
@@ -57,13 +55,14 @@ class playlistProcessing {
   }
 
   /**
-   * move an item in the map and on screen or delete it
-   * @param  {int} item index of the item in this.list
-   * @param  {int} dest destination index
+   * move an item in the list and on screen or delete it
+   * @param  {int} item item to work with
    */
-  moveOrDelete(item, dest) {
+  moveOrDelete(item) {
+    // get the index of the current item in the new list
+    let dest = this.getIndexInMod(this.list[i]);
     // isolate the item id
-    let id = this.list[item].id;
+    let id = item.id;
     // delete the item if the dest index is -1
     if (dest === -1) {
       // get the item index
@@ -71,12 +70,14 @@ class playlistProcessing {
       // delete the item
       this.list.splice(index, 1);
       // remove the dom item
-      $('#id' + id).first()[0].remove();
+      item.remove();
     }
     // move the item otherwise
     else {
+      // get the current index of the item
+      index = this.getIndexInList(item);
       // move the item from its current position to its new position
-      this.list.splice(dest, 0, this.list.splice(item, 1));
+      this.list.splice(dest, 0, this.list.splice(index, 1));
       // get the target dom item style
       let targetStyle = $('#id' + id).first()[0].style;
       // edit the item position on screen
@@ -91,7 +92,7 @@ class playlistProcessing {
    */
   getIndexInMod(item) {
     let i = this.list.length;
-    while (this.list[item].id != this.mod[i].id) {
+    while (i >=0 && this.list[item].id != this.mod[i].id) {
       i --;
     }
     return i;
