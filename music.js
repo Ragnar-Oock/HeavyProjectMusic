@@ -78,21 +78,17 @@ class Music {
       </div>`;
     if (length === 0) {
       list.append(html);
-      console.log('1', list);
     }
     else {
       console.log(list, this);
       if (this.index === 0) {
         list.prepend(html);
-        console.log('2');
       }
       else if (this.index = length){
         list.append(html);
-        console.log('3');
       }
       else {
         list.children[this.index].after(html);
-        console.log('4');
       }
     }
 
