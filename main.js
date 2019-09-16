@@ -35,15 +35,15 @@ $(document).ready(() => {
   // if autoRefresh was deactiveted on previous visite get it down and show refresh button
   let locAutoRefresh = window.localStorage.getItem("autoRefresh")
   if (locAutoRefresh == "true" || locAutoRefresh == null || locAutoRefresh == undefined) {
-    // disable autoRefresh
-    autoRefresh = true;
+    // enable autoRefresh
+    playlist.setAutoRefresh(true);
     // hide refresh button
     $('#refresh').toggleClass('hidden', true);
     // ckeck option checkbox
     $('#autoRefresh').prop('checked', true);
   }
   else {
-    autoRefresh = false;
+    playlist.setAutoRefresh(false);
   }
   // if the ids was shown on previous visite get it up
   if (window.localStorage.getItem('show_id') == "true" || $('#show_id').prop('checked')) {
