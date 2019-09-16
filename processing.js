@@ -58,7 +58,7 @@ class playlistProcessing {
    */
   moveOrDelete(item) {
     // get the index of the current item in the new list
-    let dest = this.getIndexInMod(this.list[i]);
+    let dest = this.getIndexInMod(item);
     // isolate the item id
     let id = item.id;
 
