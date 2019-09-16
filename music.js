@@ -4,7 +4,6 @@ class Music {
    * @param {object} obj anonymous object from parsed JSON
    */
   constructor(obj, index) {
-    console.log('debut instance music', obj);
     this.id = obj.id;
     this.title = obj.title;
     this.artist = obj.artist;
@@ -14,12 +13,10 @@ class Music {
     else {
       this.tags = {};
     }
-    console.log(obj.requester);
     this.requester = new Requester(obj.requester);
     this.index = index;
 
     this.htmlPrint();
-    console.log('fin instance music');
   }
 
   /**
@@ -53,7 +50,6 @@ class Music {
    * append the object to the wrapper
    */
   htmlPrint() {
-    console.log('debut print');
     let vip = "";
     for (var i = 0; i < this.tags.length; i++) {
       if (this.tags[i].text === "VIP") {
@@ -62,6 +58,7 @@ class Music {
     }
 
     let list = $('.playlist_list');
+    let length = list.children.length;
     let html = `<div id="id${this.id}" class="playlist_item${vip} playlist_item_hidden" style="transform: translateY(${this.index * 8.5}em)">
         <div class="playlist_item__tags">
           ${this.htmlTags()}
@@ -79,28 +76,28 @@ class Music {
           ${this.requester.toHTML()}
         </div>
       </div>`;
-    console.log('debut tests');
-    if (list.children.length === 0) {
+    if (length === 0) {
       list.append(html);
-      console.log('1');
+      console.log('1', list);
     }
     else {
       if (this.index === 0) {
         list.prepend(html);
-        console.log('2');
+        console.log('2', list);
+      }
+      else if (this.index <= length){
+        list.children[this.index].after(html);
+        console.log('3', list);
       }
       else {
-        list.eq(this.index).after(html);
-        console.log('3');
+        list.append(html);
+        console.log('4', list);
       }
     }
 
-    console.log('timeout');
     setTimeout(function(item) {
       $('#id'+item.id).removeClass('playlist_item_hidden');
     }, 10, this);
-
-    console.log('fin');
   }
 
   /**
