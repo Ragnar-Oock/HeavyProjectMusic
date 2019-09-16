@@ -80,13 +80,13 @@ class Music {
         </div>
       </div>`;
     console.log('debut tests');
-    if (list.length = 0) {
-      list.html(html);
+    if (list.children.length === 0) {
+      list.append(html);
       console.log('1');
     }
     else {
-      if (this.index = 0) {
-        list.eq(this.index).before(html);
+      if (this.index === 0) {
+        list.prepend(html);
         console.log('2');
       }
       else {
