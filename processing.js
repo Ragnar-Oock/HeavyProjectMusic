@@ -112,21 +112,36 @@ class playlistProcessing {
 
   /**
    * search for newly added item in the list
-   * @return {array} list inex of the added items
+   * @return {array} list of [index, item] to add
    */
   getAddedInMod() {
     let added = [];
-    for (var i = 0; i < this.mod.length; i++) {
+    let i = 0;
+    while (i < this.mod.length) {
       let j = 0;
-      // while not at the end of the list and current list item and current mod item differents
-      while (j<this.list.length && this.list[j] != this.mod[i]) {
-        j ++;
+      // while j is less than list length and the comparated items are differents
+      while (j <= this.list.length && this.list[j].id != this.mod[i].id) {
+        j++;
       }
-      // if we didn't find the mod item in list it's new
-      if (j === this.list.length) {
+      // if j is egal or more than list length, the current item is new
+      if (j >= this.list.length) {
+        // add the item to the list
         added.push([i, this.mod[i]]);
       }
+      i++;
     }
+
+    // for (var i = 0; i < this.mod.length; i++) {
+    //   let j = 0;
+    //   // while not at the end of the list and current list item and current mod item differents
+    //   while (j < this.list.length && this.list[j] != this.mod[i]) {
+    //     j ++;
+    //   }
+    //   // if we didn't find the mod item in list it's new
+    //   if (j === this.list.length) {
+    //     added.push([i, this.mod[i]]);
+    //   }
+    // }
     console.log(this.mod, this.list, added);
     return added;
   }
