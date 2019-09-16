@@ -38,6 +38,7 @@ class playlistProcessing {
           // move the item as needed
           this.moveOrDelete(this.list[i], dest);
         }
+        console.log(this);
         // add the new items to this.list
         this.add(this.getAddedInMod());
       }
