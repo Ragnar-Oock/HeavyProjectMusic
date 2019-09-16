@@ -29,6 +29,7 @@ class playlistProcessing {
           console.error(error);
         }
       });
+      console.log(this.url);
     }
 
     for (var i = 0; i < this.list.length; i++) {
