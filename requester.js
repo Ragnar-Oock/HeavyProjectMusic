@@ -4,6 +4,7 @@ class Requester {
   * @param {object} obj anonymous object from parsed JSON
   */
   constructor(obj) {
+    console.log(obj);
     this.displayName = obj.displayName;
     this.color = obj.color;
     this.badges = obj.badges;

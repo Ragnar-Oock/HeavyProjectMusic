@@ -14,6 +14,7 @@ class Music {
     else {
       this.tags = {};
     }
+    console.log(obj.requester);
     this.requester = new Requester(obj.requester);
     this.index = index;
 
