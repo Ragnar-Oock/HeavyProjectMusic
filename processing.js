@@ -7,6 +7,8 @@ class playlistProcessing {
     this.delay = delay;
     this.url = url;
 
+    console.log(this.list, this.url, this.delay);
+
     // first API call
     setTimeout(this.process(true), 1000);
     // set API call delay to the configurated delay
