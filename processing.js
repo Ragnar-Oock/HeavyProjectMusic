@@ -1,6 +1,6 @@
 class playlistProcessing {
   constructor(delay = 10000, url = 'sampleMusique.json') {
-    this.orig = orig;
+    this.orig = {};
     this.mod = mod;
     this.list = [];
     this.autoRefresh = true;
