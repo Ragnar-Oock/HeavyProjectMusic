@@ -132,6 +132,7 @@ class playlistProcessing {
       }
       i++;
     }
+    console.log(added);
     return added;
   }
 
