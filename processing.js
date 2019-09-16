@@ -124,10 +124,7 @@ class playlistProcessing {
       }
       // if we didn't find the mod item in list it's new
       if (j === this.list.length) {
-        added.push({
-          key: i,
-          value: this.mod[i]
-        });
+        added.push([i, this.mod[i]]);
       }
     }
     console.log(added);
