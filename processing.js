@@ -30,16 +30,15 @@ class playlistProcessing {
         }
       });
       console.log(this.url);
+      for (var i = 0; i < this.list.length; i++) {
+        // get the index of the current item in the new list
+        let dest = this.getIndexInMod(this.list[i]);
+        // move the item as needed
+        this.moveAndDelete(this.list[i], dest);
+      }
+      // add the new items to this.list
+      this.add(this.getAddedInMod());
     }
-
-    for (var i = 0; i < this.list.length; i++) {
-      // get the index of the current item in the new list
-      let dest = this.getIndexInMod(this.list[i]);
-      // move the item as needed
-      this.moveAndDelete(this.list[i], dest);
-    }
-    // add the new items to this.list
-    this.add(this.getAddedInMod());
   }
 
   /**

@@ -56,8 +56,9 @@ class Music {
         vip = " VIP";
       }
     }
-    $('.playlist_list').eq(this.index).after(`
-      <div id="id${this.id}" class="playlist_item${vip} playlist_item_hidden" style="transform: translateY(${this.index * 8.5}em)">
+
+    let list = $('.playlist_list');
+    let html = `<div id="id${this.id}" class="playlist_item${vip} playlist_item_hidden" style="transform: translateY(${this.index * 8.5}em)">
         <div class="playlist_item__tags">
           ${this.htmlTags()}
         </div>
@@ -73,10 +74,23 @@ class Music {
         <div class="playlist_item__requester">
           ${this.requester.toHTML()}
         </div>
-      </div>`);
-      setTimeout(function(item) {
-        $('#id'+item.id).removeClass('playlist_item_hidden');
-      }, 10, this);
+      </div>`;
+
+    if (list.length = 0) {
+      list.html(html);
+    }
+    else {
+      if (this.index = 0) {
+        list.eq(this.index).before(html);
+      }
+      else {
+        list.eq(this.index).after(html);
+      }
+    }
+
+    setTimeout(function(item) {
+      $('#id'+item.id).removeClass('playlist_item_hidden');
+    }, 10, this);
   }
 
   /**
