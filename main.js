@@ -70,7 +70,7 @@ $(document).ready(() => {
   });
 
   // force the refresh
-  $('#refresh').click(() ={
+  $('#refresh').click(() => {
     playlist.process(true);
   })
 
