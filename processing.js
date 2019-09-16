@@ -51,7 +51,7 @@ class playlistProcessing {
    */
   add(added) {
     for (var i = 0; i < added.length; i++) {
-      let item = new Music(added[i], i);
+      let item = new Music(added[i][1], added[i][0]);
       this.list.splice(item);
     }
   }
