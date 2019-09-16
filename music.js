@@ -80,7 +80,6 @@ class Music {
       list.append(html);
     }
     else {
-      console.log(list, this);
       if (this.index === 0) {
         list.prepend(html);
       }
