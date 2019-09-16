@@ -85,7 +85,7 @@ class Music {
         list.prepend(html);
         console.log('2', list);
       }
-      else if (this.index <= length){
+      else if (this.index < length){
         list.children[this.index].after(html);
         console.log('3', list);
       }
