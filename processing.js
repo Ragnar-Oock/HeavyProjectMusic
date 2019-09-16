@@ -24,7 +24,7 @@ class playlistProcessing {
           this.last = this.mod;
           this.mod = result;
           console.log(this.mod);
-          
+
           // if the result is different process it
           if (this.mod !== this.last) {
             for (var i = 0; i < this.list.length; i++) {
@@ -37,7 +37,7 @@ class playlistProcessing {
             // add the new items to this.list
             this.add(this.getAddedInMod());
           }
-        },
+        }.bind(this),
         error: function(error){
           console.error(error);
         }
