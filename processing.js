@@ -127,7 +127,7 @@ class playlistProcessing {
         added.push([i, this.mod[i]]);
       }
     }
-    console.log(added);
+    console.log(this.mod, this.list, added);
     return added;
   }
 
