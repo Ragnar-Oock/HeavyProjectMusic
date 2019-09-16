@@ -24,24 +24,24 @@ class playlistProcessing {
           this.last = this.mod;
           this.mod = result;
           console.log(this.mod);
+          
+          // if the result is different process it
+          if (this.mod !== this.last) {
+            for (var i = 0; i < this.list.length; i++) {
+              // get the index of the current item in the new list
+              let dest = this.getIndexInMod(this.list[i]);
+              // move the item as needed
+              this.moveOrDelete(this.list[i], dest);
+            }
+            console.log(this);
+            // add the new items to this.list
+            this.add(this.getAddedInMod());
+          }
         },
         error: function(error){
           console.error(error);
         }
       });
-
-      // if the result is different process it
-      if (this.mod !== this.last) {
-        for (var i = 0; i < this.list.length; i++) {
-          // get the index of the current item in the new list
-          let dest = this.getIndexInMod(this.list[i]);
-          // move the item as needed
-          this.moveOrDelete(this.list[i], dest);
-        }
-        console.log(this);
-        // add the new items to this.list
-        this.add(this.getAddedInMod());
-      }
     }
   }
 
