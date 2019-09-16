@@ -87,7 +87,7 @@ class Music {
         console.log('2');
       }
       else if (this.index < length){
-        list.children[this.index].after(html);
+        list.children[this.index - 1].after(html);
         console.log('3');
       }
       else {
