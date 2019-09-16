@@ -50,6 +50,7 @@ class Music {
    * append the object to the wrapper
    */
   htmlPrint() {
+    console.log('debut print');
     let vip = "";
     for (var i = 0; i < this.tags.length; i++) {
       if (this.tags[i].text === "VIP") {
@@ -75,22 +76,28 @@ class Music {
           ${this.requester.toHTML()}
         </div>
       </div>`;
-
+    console.log('debut tests');
     if (list.length = 0) {
       list.html(html);
+      console.log('1');
     }
     else {
       if (this.index = 0) {
         list.eq(this.index).before(html);
+        console.log('2');
       }
       else {
         list.eq(this.index).after(html);
+        console.log('3');
       }
     }
 
+    console.log('timeout');
     setTimeout(function(item) {
       $('#id'+item.id).removeClass('playlist_item_hidden');
     }, 10, this);
+
+    console.log('fin');
   }
 
   /**
