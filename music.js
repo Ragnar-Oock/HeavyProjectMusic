@@ -81,17 +81,18 @@ class Music {
       console.log('1', list);
     }
     else {
+      console.log(list, this);
       if (this.index === 0) {
         list.prepend(html);
-        console.log('2', list);
+        console.log('2');
       }
       else if (this.index < length){
         list.children[this.index].after(html);
-        console.log('3', list);
+        console.log('3');
       }
       else {
         list.append(html);
-        console.log('4', list);
+        console.log('4');
       }
     }
 
