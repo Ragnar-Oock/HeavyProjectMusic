@@ -10,12 +10,12 @@ class playlistProcessing {
     console.log(this.list, this.url, this.delay);
 
     // first API call
-    setTimeout(this.process(true), 1000);
+    setTimeout(this.process(true), 1000, this);
     // set API call delay to the configurated delay
-    setInterval(this.process, this.delay);
+    setInterval(this.process, this.delay, this);
   }
 
-  process(force) {
+  process(force = false) {
     if (this.autoRefresh || force) {
       $.ajax({
         url: this.url,
