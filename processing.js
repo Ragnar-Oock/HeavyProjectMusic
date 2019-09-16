@@ -109,19 +109,26 @@ class playlistProcessing {
    */
   getAddedInMod() {
     let added = [];
-    let i = 0;
-    while (i < this.mod.length) {
-      let j = 0;
-      // while j is less than list length and the comparated items are differents
-      while (j < this.list.length && this.list[j].id != this.mod[i].id) {
-        j++;
+    // let i = 0;
+    // while (i < this.mod.length) {
+    //   let j = 0;
+    //   // while j is less than list length and the comparated items are differents
+    //   while (j < this.list.length && this.list[j].id != this.mod[i].id) {
+    //     j++;
+    //   }
+    //   // if j is egal or more than list length, the current item is new
+    //   if (j >= this.list.length) {
+    //     // add the item to the list
+    //     added.push([i, this.mod[i]]);
+    //   }
+    //   i++;
+    // }
+    for (var i = 0; i < this.mod.length; i++) {
+      let current = this.mod[i];
+      let index = this.getIndexInList(current);
+      if (index === -1) {
+        added.push([i, current])
       }
-      // if j is egal or more than list length, the current item is new
-      if (j >= this.list.length) {
-        // add the item to the list
-        added.push([i, this.mod[i]]);
-      }
-      i++;
     }
     console.log(added);
     return added;
