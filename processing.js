@@ -126,7 +126,7 @@ class playlistProcessing {
         j++;
       }
       // if j is egal or more than list length, the current item is new
-      if (j >= this.list.length) {
+      if (j < this.list.length) {
         // add the item to the list
         added.push([i, this.mod[i]]);
       }
