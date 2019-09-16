@@ -8,7 +8,7 @@ class playlistProcessing {
     this.url = url;
 
     // first API call
-    process(true);
+    this.process(true);
     // set API call delay to the configurated delay
     setInterval(this.process, this.delay);
   }
