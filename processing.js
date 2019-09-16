@@ -1,7 +1,7 @@
 class playlistProcessing {
   constructor(delay = 10000, url = 'sampleMusique.json') {
-    this.orig = {};
-    this.mod = {};
+    this.last = []
+    this.mod = [];
     this.list = [];
     this.autoRefresh = true;
     this.delay = delay;
@@ -21,23 +21,26 @@ class playlistProcessing {
         cache: false,
         crossDomain: true,
         success: function(result){
-          this.orig = this.mod;
+          this.last = this.mod;
           this.mod = result;
-          console.log(result);
         },
         error: function(error){
           console.error(error);
         }
       });
-      console.log(this.url);
-      for (var i = 0; i < this.list.length; i++) {
-        // get the index of the current item in the new list
-        let dest = this.getIndexInMod(this.list[i]);
-        // move the item as needed
-        this.moveAndDelete(this.list[i], dest);
+
+      // if the result is different process it
+      if (this.mod !== this.last) {
+        for (var i = 0; i < this.list.length; i++) {
+          // get the index of the current item in the new list
+          let dest = this.getIndexInMod(this.list[i]);
+          // move the item as needed
+          this.moveAndDelete(this.list[i], dest);
+        }
+        // add the new items to this.list
+        this.add(this.getAddedInMod());
       }
-      // add the new items to this.list
-      this.add(this.getAddedInMod());
+
     }
   }
 
@@ -112,19 +115,22 @@ class playlistProcessing {
    * @return {array} list inex of the added items
    */
   getAddedInMod() {
-    let added = {};
+    let added = [];
     for (var i = 0; i < this.mod.length; i++) {
       let j = 0;
-      while (j<this.orig.length && this.orig[j] != this.mod[i]) {
+      // while not at the end of the list and current list item and current mod item differents
+      while (j<this.list.length && this.list[j] != this.mod[i]) {
         j ++;
       }
-      if (j === this.orig.length) {
+      // if we didn't find the mod item in list it's new
+      if (j === this.list.length) {
         added.push({
           key: i,
           value: this.mod[i]
         });
       }
     }
+    console.log(added);
     return added;
   }
 
