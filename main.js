@@ -69,6 +69,11 @@ $(document).ready(() => {
     }
   });
 
+  // force the refresh
+  $('#refresh').click(() ={
+    playlist.process(true);
+  })
+
   // toggle dark mode
   $('#dark_mode').change(() => {
     // toggle dark mode
