@@ -36,12 +36,11 @@ class playlistProcessing {
           // get the index of the current item in the new list
           let dest = this.getIndexInMod(this.list[i]);
           // move the item as needed
-          this.moveAndDelete(this.list[i], dest);
+          this.moveOrDelete(this.list[i], dest);
         }
         // add the new items to this.list
         this.add(this.getAddedInMod());
       }
-
     }
   }
 
@@ -61,7 +60,7 @@ class playlistProcessing {
    * @param  {int} item index of the item in this.list
    * @param  {int} dest destination index
    */
-  moveAndDelete(item, dest) {
+  moveOrDelete(item, dest) {
     // isolate the item id
     let id = this.list[item].id;
     // delete the item if the dest index is -1
