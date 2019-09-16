@@ -100,11 +100,7 @@ class playlistProcessing {
    * @return {int}      index in the list
    */
   getIndexInList(item) {
-    let i = this.list.length;
-    while (this.list[i].id != item.id) {
-      i --;
-    }
-    return i;
+    return this.list.indexOf(item)
   }
 
   /**
