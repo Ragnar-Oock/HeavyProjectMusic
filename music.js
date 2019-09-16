@@ -4,6 +4,7 @@ class Music {
    * @param {object} obj anonymous object from parsed JSON
    */
   constructor(obj, index) {
+    console.log('debut instance music');
     this.id = obj.id;
     this.title = obj.title;
     this.artist = obj.artist;
@@ -17,6 +18,7 @@ class Music {
     this.index = index;
 
     this.htmlPrint();
+    console.log('fin instance music');
   }
 
   /**
