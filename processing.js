@@ -67,6 +67,8 @@ class playlistProcessing {
     // isolate the item id
     let id = item.id;
 
+    console.log(pos, dest);
+
     // delete the item if the dest index is -1
     if (dest === -1) {
       // get the item index
@@ -76,14 +78,12 @@ class playlistProcessing {
       // remove the dom item
       item.remove();
     }
-    // move the item otherwise
+    // move the item if needed
     else if (pos != dest) {
-      // move the item from its current position to its new position
+      // move the item from its current position to its new position in the list
       this.list.splice(dest, 0, this.list.splice(pos, 1));
-      // get the target dom item style
-      let targetStyle = $('#id' + id)[0].style.transform;
-      // edit the item position on screen
-      targetStyle = 'translateY(' + (dest * 8.5) + 'em);';
+      // edit the target position
+      $('#id' + id)[0].style.transform = 'translateY(' + (dest * 8.5) + 'em);';
     }
     // else do nothing
   }
