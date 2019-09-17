@@ -103,7 +103,13 @@ class playlistProcessing {
    * @return {int}      index in the list
    */
   getIndexInList(item) {
-    return this.list.indexOf(item)
+    // return this.list.indexOf(item)
+    for (var i = 0; i < this.list.length; i++) {
+      if (this.list[i].id === item.id) {
+        return i;
+      }
+    }
+    return -1;
   }
 
   /**
