@@ -32,6 +32,7 @@ class playlistProcessing {
             }
             // add the new items to this.list
             this.add(this.getAddedInMod());
+            this.updateLength();
           }
         }.bind(this),
         error: function(error){
@@ -132,6 +133,17 @@ class playlistProcessing {
     }
     console.log(added);
     return added;
+  }
+
+  /**
+   * update the playlist length display at the top and the height of the wrapper
+   */
+  updateLength() {
+    let length = this.list.length;
+    // display the length
+    $('#playlist_length_total').html(length);
+    // update the height
+    $('.playlist_list').height((length * 8.5) + 'em');
   }
 
   /**
