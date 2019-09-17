@@ -94,7 +94,13 @@ class playlistProcessing {
    * @return {int}      index in the new list
    */
   getIndexInMod(item) {
-    return this.mod.indexOf(item);
+    // return this.mod.indexOf(item);
+    for (var i = 0; i < this.mod.length; i++) {
+      if (this.list[i].id === item.id) {
+        return i;
+      }
+    }
+    return -1;
   }
 
   /**
