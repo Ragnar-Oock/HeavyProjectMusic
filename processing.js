@@ -60,6 +60,8 @@ class playlistProcessing {
    * @param  {int} item item to work with
    */
   moveOrDelete(item) {
+    // get the current index of the item
+    let pos = this.getIndexInList(item);
     // get the index of the current item in the new list
     let dest = this.getIndexInMod(item);
     // isolate the item id
@@ -75,17 +77,15 @@ class playlistProcessing {
       item.remove();
     }
     // move the item otherwise
-    else {
-      // get the current index of the item
-      let index = this.getIndexInList(item);
-
+    else if (pos != dest) {
       // move the item from its current position to its new position
-      this.list.splice(dest, 0, this.list.splice(index, 1));
+      this.list.splice(dest, 0, this.list.splice(pos, 1));
       // get the target dom item style
       let targetStyle = $('#id' + id)[0].style.transform;
       // edit the item position on screen
       targetStyle = 'translateY(' + (dest * 8.5) + 'em);';
     }
+    // else do nothing
   }
 
   /**
