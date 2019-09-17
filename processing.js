@@ -33,6 +33,8 @@ class playlistProcessing {
             // add the new items to this.list
             this.add(this.getAddedInMod());
             this.updateLength();
+
+            console.log(this.list);
           }
         }.bind(this),
         error: function(error){
@@ -132,7 +134,6 @@ class playlistProcessing {
       }
       console.log(current, index, added);
     }
-    console.log(added);
     return added;
   }
 
