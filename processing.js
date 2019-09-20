@@ -13,6 +13,10 @@ class playlistProcessing {
     setInterval(function(){this.process()}.bind(this), this.delay);
   }
 
+  /**
+   * process loop
+   * @param  {Boolean} [force=false] either or not to force the processing of the playlist (for manual refresh)
+   */
   process(force = false) {
     if (this.autoRefresh || force) {
       $.ajax({
