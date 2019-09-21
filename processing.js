@@ -98,19 +98,19 @@ class playlistProcessing {
    * @return {int}      index in the new list
    */
   getIndexInMod(item) {
-    // return this.mod.indexOf(item);
-    let i = this.mod.length;
-    while (this.mod[i].id !== item.id && i >= 0) {
-      i --;
-    }
-    return i;
-    //
-    for (var i = 0; i < this.mod.length; i++) {
-      if (this.list[i].id === item.id) {
-        return i;
-      }
-    }
-    return -1;
+    // // return this.mod.indexOf(item);
+    // let i = this.mod.length;
+    // while (this.mod[i].id !== item.id && i >= 0) {
+    //   i --;
+    // }
+    // return i;
+    // //
+    // for (var i = 0; i < this.mod.length; i++) {
+    //   if (this.list[i].id === item.id) {
+    //     return i;
+    //   }
+    // }
+    // return -1;
   }
 
   /**
@@ -199,12 +199,3 @@ class playlistProcessing {
     this.autoRefresh = !this.autoRefresh;
   }
 }
-
-
-for (var i = list.length; i >= 0; i--) {
-  if (list[i] === target) {
-        console.log(i);
-        break;
-    }
-}
-console.log(i)
