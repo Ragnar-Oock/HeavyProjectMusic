@@ -149,11 +149,7 @@ class playlistProcessing {
         i--;
       }
       // return the index
-      console.log(list);
-      console.log(i, item);
-      if (-1 < i && i < list.length) {
-        console.log(list[i].id);
-      }
+      console.log(i, list, item);
       return i;
     }
   }
