@@ -129,18 +129,24 @@ class playlistProcessing {
   }
 
   getIndexIn(item, list) {
-    console.log(list);
-    // isolate the target id
-    let target = item.id;
-    // run throught the list and compare all ids
-    for (var i = list.length; i >= 0; i--) {
-      // if the ids matchs, stop the loop
-      if (list[i].id === target) {
-        break;
-      }
+    // if list is empty the item cna't be in it, return -1
+    if (list.length === 0) {
+      return -1;
     }
-    // return the index
-    return i;
+    // otherwise search for the item
+    else {
+      // isolate the target id
+      let target = item.id;
+      // run throught the list and compare all ids
+      for (var i = list.length; i >= 0; i--) {
+        // if the ids matchs, stop the loop
+        if (list[i].id === target) {
+          break;
+        }
+      }
+      // return the index
+      return i;
+    }
   }
 
   /**
