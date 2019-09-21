@@ -135,7 +135,7 @@ class playlistProcessing {
     }
     // otherwise search for the item
     else {
-      console.log(list);
+      console.log(list, i);
       // isolate the target id
       let target = item.id;
       // run throught the list and compare all ids
