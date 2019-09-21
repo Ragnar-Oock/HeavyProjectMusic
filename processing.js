@@ -147,7 +147,7 @@ class playlistProcessing {
       // return the index
       console.log(list);
       console.log(i, target);
-      console.log(list[i].id)
+      console.log(list[i+1].id)
       return i;
     }
   }
