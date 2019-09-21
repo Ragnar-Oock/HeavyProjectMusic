@@ -129,6 +129,7 @@ class playlistProcessing {
   }
 
   getIndexIn(item, list) {
+    console.log(list);
     // isolate the target id
     let target = item.id;
     // run throught the list and compare all ids
