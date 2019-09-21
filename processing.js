@@ -135,7 +135,6 @@ class playlistProcessing {
     }
     // otherwise search for the item
     else {
-      console.log(list, i);
       // isolate the target id
       let target = item.id;
       // run throught the list and compare all ids
@@ -146,7 +145,9 @@ class playlistProcessing {
         }
       }
       // return the index
-      console.log(i, target, list[i].id);
+      console.log(list);
+      console.log(i, target);
+      console.log(list[i].id)
       return i;
     }
   }
