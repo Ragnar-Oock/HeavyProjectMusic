@@ -65,9 +65,9 @@ class playlistProcessing {
    */
   moveOrDelete(item) {
     // get the current index of the item
-    let pos = this.getIndexInList(item);
+    let pos = this.getIndexIn(item, this.list);
     // get the index of the current item in the new list
-    let dest = this.getIndexInMod(item);
+    let dest = this.getIndexIn(item, this.mod);
     // isolate the item id
     let id = item.id;
 
@@ -76,7 +76,7 @@ class playlistProcessing {
     // delete the item if the dest index is -1
     if (dest === -1) {
       // get the item index
-      let index = this.getIndexInList(item);
+      let index = this.getIndexIn(item, this.list);
       // delete the item
       this.list.splice(index, 1);
       // remove the dom item
@@ -99,6 +99,12 @@ class playlistProcessing {
    */
   getIndexInMod(item) {
     // return this.mod.indexOf(item);
+    let i = this.mod.length;
+    while (this.mod[i].id !== item.id && i >= 0) {
+      i --;
+    }
+    return i;
+    //
     for (var i = 0; i < this.mod.length; i++) {
       if (this.list[i].id === item.id) {
         return i;
@@ -120,6 +126,20 @@ class playlistProcessing {
       }
     }
     return -1;
+  }
+
+  getIndexIn(item, list) {
+    // isolate the target id
+    let target = item.id;
+    // run throught the list and compare all ids
+    for (var i = list.length; i >= 0; i--) {
+      // if the ids matchs, stop the loop
+      if (list[i].id === target) {
+        break;
+      }
+    }
+    // return the index
+    return i;
   }
 
   /**
@@ -144,7 +164,7 @@ class playlistProcessing {
     // }
     for (var i = 0; i < this.mod.length; i++) {
       let current = this.mod[i];
-      let index = this.getIndexInList(current);
+      let index = this.getIndexIn(current, this.list);
       if (index === -1) {
         added.push([i, current])
       }
@@ -179,3 +199,12 @@ class playlistProcessing {
     this.autoRefresh = !this.autoRefresh;
   }
 }
+
+
+for (var i = list.length; i >= 0; i--) {
+  if (list[i] === target) {
+        console.log(i);
+        break;
+    }
+}
+console.log(i)
