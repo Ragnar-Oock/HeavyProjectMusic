@@ -148,7 +148,7 @@ class playlistProcessing {
       console.log(list);
       console.log(i, target);
       if (-1 < i < list.length) {
-        console.log(list[i+1].id);
+        console.log(list[i].id);
       }
       return i;
     }
