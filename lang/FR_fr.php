@@ -8,5 +8,5 @@
   define("PLAYLIST_LENGTH_TOTAL_PRE", "il y a ");
   define("PLAYLIST_LENGTH_TOTAL_POST", " musique(s) dans la playlist");
   define("FOOTER_AUTOR", "Fait avec ❤️, par ");
-  define("FOOTER_ISSUE", "Une erreur ou un bug? Rapportes le sur <a href='https://github.com/Ragnar-Oock/HeavyProjectMusic/issues'>Github</a>");
+  define("FOOTER_ISSUE", "Une erreur ou un bug? <a href='https://github.com/Ragnar-Oock/HeavyProjectMusic/issues'>Rapportes le sur Github</a>");
 ?>
