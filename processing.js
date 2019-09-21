@@ -138,7 +138,7 @@ class playlistProcessing {
       // isolate the target id
       let target = item.id;
       // run throught the list and compare all ids
-      for (var i = list.length; i >= 0; i--) {
+      for (var i = list.length - 1; i >= 0; i--) {
         // if the ids matchs, stop the loop
         if (list[i].id === target) {
           break;
