@@ -138,16 +138,20 @@ class playlistProcessing {
       // isolate the target id
       let target = item.id;
       // run throught the list and compare all ids
-      for (var i = list.length - 1; i >= 0; i--) {
-        // if the ids matchs, stop the loop
-        if (list[i].id === target) {
-          break;
-        }
+      // for (var i = list.length - 1; i >= 0; i--) {
+      //   // if the ids matchs, stop the loop
+      //   if (list[i].id === target) {
+      //     break;
+      //   }
+      // }
+      let i = list.length - 1;
+      while (i > -1 && list[i].id != target) {
+        i--;
       }
       // return the index
       console.log(list);
       console.log(i, item);
-      if (-1 < i < list.length) {
+      if (-1 < i && i < list.length) {
         console.log(list[i].id);
       }
       return i;
