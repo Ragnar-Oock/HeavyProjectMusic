@@ -145,6 +145,7 @@ class playlistProcessing {
         }
       }
       // return the index
+      console.log(i, target, list[i].id);
       return i;
     }
   }
