@@ -176,7 +176,7 @@ class playlistProcessing {
       if (index === -1) {
         added.push([i, current])
       }
-      console.log(current, index, added);
+      console.log(current.id, index, added);
     }
     return added;
   }
