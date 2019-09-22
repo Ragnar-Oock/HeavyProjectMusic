@@ -101,7 +101,7 @@ class Music {
    * remove the item
    */
   delete() {
-    $('#id' + this.id).toggleClass('playlist_item_hidden', true);
+    this.dom.toggleClass('playlist_item_hidden', true);
     setTimeout(function(){$('#id' + this.id).remove()}.bind(this), 300);
   }
 
@@ -110,7 +110,6 @@ class Music {
    * @param  {int} index index to move the item to visualy
    */
   move(index) {
-    console.log(this.id, $('#id' + this.id));
-    $('#id' + this.id)[0].style.transform = 'translateY(' + (index * 8.5) + 'em);';
+    this.dom.style.transform = 'translateY(' + (index * 8.5) + 'em);';
   }
 }
