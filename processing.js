@@ -107,6 +107,7 @@ class playlistProcessing {
     for (var i = 0; i < this.mod.length; i++) {
       let current = this.mod[i];
       let index = this.getIndexIn(current, this.list);
+      console.log(current, index);
       if (index === -1) {
         // add the "Music" item at "index" in he list
         this.list.splice(index, 0, new Music(current, index));
