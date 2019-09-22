@@ -49,17 +49,6 @@ class playlistProcessing {
   }
 
   /**
-   * add new item to the map and on screen
-   * @param  {dict} added dictinary of all added items with their index
-   */
-  add(added) {
-    for (var i = 0; i < added.length; i++) {
-      let item = new Music(added[i][1], added[i][0]);
-      this.list.splice(added[i][0], 0, item);
-    }
-  }
-
-  /**
    * move an item in the list and on screen or delete it
    * @param  {int} item item to work with
    */
@@ -155,34 +144,18 @@ class playlistProcessing {
   }
 
   /**
-   * search for newly added item in the list
-   * @return {array} list of [index, item] to add
+   * add all new item at the correct location in this.list
    */
-  getAddedInMod() {
-    let added = [];
-    // let i = 0;
-    // while (i < this.mod.length) {
-    //   let j = 0;
-    //   // while j is less than list length and the comparated items are differents
-    //   while (j < this.list.length && this.list[j].id != this.mod[i].id) {
-    //     j++;
-    //   }
-    //   // if j is egal or more than list length, the current item is new
-    //   if (j >= this.list.length) {
-    //     // add the item to the list
-    //     added.push([i, this.mod[i]]);
-    //   }
-    //   i++;
-    // }
+  addNew() {
     for (var i = 0; i < this.mod.length; i++) {
       let current = this.mod[i];
       let index = this.getIndexIn(current, this.list);
       if (index === -1) {
-        added.push([i, current])
+        // add the "Music" item at "index" in he list
+        this.list.splice(index, 0, new Music(current, index));
+        // added.push([i, current])
       }
-      console.log(current.id, index, added);
     }
-    return added;
   }
 
   /**
