@@ -60,23 +60,20 @@ class playlistProcessing {
     // isolate the item id
     let id = item.id;
 
-    console.log(pos, dest);
-
     // delete the item if the dest index is -1
     if (dest === -1) {
-      // get the item index
-      let index = this.getIndexIn(item, this.list);
-      // delete the item
-      this.list.splice(index, 1);
       // remove the dom item
       item.remove();
+      // delete the item from the list
+      this.list.splice(pos, 1);
     }
-    // move the item if needed
+
+    // move the item if the destination doesn't match the current position
     else if (pos != dest) {
       // move the item from its current position to its new position in the list
       this.list.splice(dest, 0, this.list.splice(pos, 1));
       // edit the target position
-      $('#id' + id)[0].style.transform = 'translateY(' + (dest * 8.5) + 'em);';
+      item.move(dest)
     }
     // else do nothing
   }
