@@ -36,14 +36,14 @@ $(document).ready(() => {
   let locAutoRefresh = window.localStorage.getItem("autoRefresh")
   if (locAutoRefresh == "true" || locAutoRefresh == null || locAutoRefresh == undefined) {
     // enable autoRefresh
-    playlist.setAutoRefresh(true);
+    playlist.autoRefresh(true);
     // hide refresh button
     $('#refresh').toggleClass('hidden', true);
     // ckeck option checkbox
     $('#autoRefresh').prop('checked', true);
   }
   else {
-    playlist.setAutoRefresh(false);
+    playlist.autoRefresh(false);
   }
   // if the ids was shown on previous visite get it up
   if (window.localStorage.getItem('show_id') == "true" || $('#show_id').prop('checked')) {

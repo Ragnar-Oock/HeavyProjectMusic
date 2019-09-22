@@ -131,7 +131,7 @@ class playlistProcessing {
    * set the autoRefresh value
    * @param {Boolean} [status=true] target value
    */
-  setAutoRefresh(status = true) {
+  autoRefresh(status = true) {
     this.autoRefresh = status;
   }
 
