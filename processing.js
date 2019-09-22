@@ -63,7 +63,7 @@ class playlistProcessing {
     // delete the item if the dest index is -1
     if (dest === -1) {
       // remove the dom item
-      item.remove();
+      item.delete();
       // delete the item from the list
       this.list.splice(pos, 1);
     }

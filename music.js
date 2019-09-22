@@ -93,16 +93,16 @@ class Music {
     }
 
     setTimeout(function() {
-      this.dom.removeClass('playlist_item_hidden');
+      $('#id' + this.id).removeClass('playlist_item_hidden');
     }.bind(this), 10);
   }
 
   /**
    * remove the item
    */
-  remove() {
-    this.dom.toggleClass('playlist_item_hidden', true);
-    setTimeout(function(){this.dom.remove()}.bind(this), 300)
+  delete() {
+    $('#id' + this.id).toggleClass('playlist_item_hidden', true);
+    setTimeout(function(){$('#id' + this.id).remove()}.bind(this), 300)
   }
 
   /**
@@ -110,6 +110,6 @@ class Music {
    * @param  {int} index index to move the item to visualy
    */
   move(index) {
-    this.dom.style.transform = 'translateY(' + (index * 8.5) + 'em);';
+    $('#id' + this.id).style.transform = 'translateY(' + (index * 8.5) + 'em);';
   }
 }
