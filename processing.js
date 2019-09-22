@@ -30,12 +30,12 @@ class playlistProcessing {
 
           // if the result is different process it
           if (this.mod !== this.last) {
+            // add the new items to this.list
+            this.addNew();
             for (var i = 0; i < this.list.length; i++) {
               // move the item as needed
               this.moveOrDelete(this.list[i]);
             }
-            // add the new items to this.list
-            this.add(this.getAddedInMod());
             this.updateLength();
 
             console.log(this.list);
