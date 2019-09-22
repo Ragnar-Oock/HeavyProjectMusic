@@ -61,6 +61,7 @@ class playlistProcessing {
     // isolate the item id
     let id = item.id;
 
+    console.log(dest);
     // delete the item if the dest index is -1
     if (dest === -1) {
       console.log(item);
