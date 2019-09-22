@@ -82,65 +82,23 @@ class playlistProcessing {
   }
 
   /**
-   * search for the index of the designited item in the new list
-   * @param  {int} item index in this.list of item to search for
-   * @return {int}      index in the new list
+   * return the index of the passed item in the passed list
+   * @param  {Music} item music item to find
+   * @param  {array} list array of Music object to search in
+   * @return {int}        index of the item in the list (-1 if not found)
    */
-  getIndexInMod(item) {
-    // // return this.mod.indexOf(item);
-    // let i = this.mod.length;
-    // while (this.mod[i].id !== item.id && i >= 0) {
-    //   i --;
-    // }
-    // return i;
-    // //
-    // for (var i = 0; i < this.mod.length; i++) {
-    //   if (this.list[i].id === item.id) {
-    //     return i;
-    //   }
-    // }
-    // return -1;
-  }
-
-  /**
-   * search for the index of the designited item in this.list
-   * @param  {obj} item item to search for
-   * @return {int}      index in the list
-   */
-  getIndexInList(item) {
-    // return this.list.indexOf(item)
-    for (var i = 0; i < this.list.length; i++) {
-      if (this.list[i].id === item.id) {
+  getIndexIn(item, list) {
+    // isolate the target id
+    let target = item.id;
+    // run throught the list and compare all ids
+    for (var i = 0; i < list.length; i++) {
+      // if the ids matchs return the indiex
+      if (list[i].id === target) {
         return i;
       }
     }
+    // if the id is not in the list, return -1
     return -1;
-  }
-
-  getIndexIn(item, list) {
-    // if list is empty the item cna't be in it, return -1
-    if (list.length === 0) {
-      return -1;
-    }
-    // otherwise search for the item
-    else {
-      // isolate the target id
-      let target = item.id;
-      // run throught the list and compare all ids
-      // for (var i = list.length - 1; i >= 0; i--) {
-      //   // if the ids matchs, stop the loop
-      //   if (list[i].id === target) {
-      //     break;
-      //   }
-      // }
-      let i = list.length - 1;
-      while (i > -1 && list[i].id != target) {
-        i--;
-      }
-      // return the index
-      console.log(i, list, item);
-      return i;
-    }
   }
 
   /**
