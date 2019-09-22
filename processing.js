@@ -34,7 +34,7 @@ class playlistProcessing {
             this.addNew();
             let list = this.list;
             for (var i = 0; i < list.length; i++) {
-              console.log(this.list, list, this.list[i]);
+              console.log(this.list, list, list[i]);
               // move the item as needed
               this.moveOrDelete(list[i]);
             }
