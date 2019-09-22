@@ -17,7 +17,7 @@ class Music {
     this.index = index;
 
     this.htmlPrint();
-    this.dom = $('#id' + this.id);
+    this.dom = $('#id' + this.id)[0];
   }
 
   /**
@@ -101,7 +101,6 @@ class Music {
    * remove the item
    */
   delete() {
-    console.log(this.id);
     $('#id' + this.id).toggleClass('playlist_item_hidden', true);
     setTimeout(function(){$('#id' + this.id).remove()}.bind(this), 300);
   }
@@ -112,6 +111,6 @@ class Music {
    */
   move(index) {
     console.log(this.id, $('#id' + this.id));
-    $('#id' + this.id).style.transform = 'translateY(' + (index * 8.5) + 'em);';
+    $('#id' + this.id)[0].style.transform = 'translateY(' + (index * 8.5) + 'em);';
   }
 }
