@@ -17,6 +17,7 @@ class Music {
     this.index = index;
 
     this.htmlPrint();
+    this.dom = $('#id' + this.id);
   }
 
   /**
@@ -91,17 +92,24 @@ class Music {
       }
     }
 
-    setTimeout(function(item) {
-      $('#id'+item.id).removeClass('playlist_item_hidden');
-    }, 10, this);
+    setTimeout(function() {
+      this.dom.removeClass('playlist_item_hidden');
+    }.bind(this), 10);
   }
 
   /**
    * remove the item
    */
   remove() {
-    let item = $('#id' + this.id);
-    item.toggleClass('playlist_item_hidden', true);
-    setTimeout(function(){item.remove()}, 300, item)
+    this.dom.toggleClass('playlist_item_hidden', true);
+    setTimeout(function(){this.dom.remove()}.bind(this), 300)
+  }
+
+  /**
+   * move the item to the desired location
+   * @param  {int} index index to move the item to visualy
+   */
+  move(index) {
+    this.dom.style.transform = 'translateY(' + (index * 8.5) + 'em);';
   }
 }
