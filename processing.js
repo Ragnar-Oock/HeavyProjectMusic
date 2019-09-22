@@ -62,6 +62,7 @@ class playlistProcessing {
 
     // delete the item if the dest index is -1
     if (dest === -1) {
+      console.log(item);
       // remove the dom item
       item.delete();
       // delete the item from the list
