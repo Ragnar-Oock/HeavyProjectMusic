@@ -32,7 +32,7 @@ class playlistProcessing {
           if (this.mod !== this.last) {
             // add the new items to this.list
             this.addNew();
-            list = this.list;
+            let list = this.list;
             for (var i = 0; i < list.length; i++) {
               console.log(this.list, list, this.list[i]);
               // move the item as needed
