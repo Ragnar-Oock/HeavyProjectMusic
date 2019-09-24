@@ -54,8 +54,8 @@ class playlistProcessing {
     for (var i = 0; i < buffer.length; i++) {
       // isoalte the current item
       let item = buffer[i];
-      // get the current index of the item
-      let pos = this.getIndexIn(item, buffer);
+      // get the index of the current item in the list
+      let pos = this.getIndexIn(item, this.list);
       // get the index of the current item in the new list
       let dest = this.getIndexIn(item, this.mod);
       // isolate the item id
@@ -69,7 +69,7 @@ class playlistProcessing {
         this.list.splice(pos, 1);
       }
       // move the item if the destination doesn't match the current position
-      else if (pos !== dest) {
+      else {
         // move the item from its current position to its new position in the list
         this.list.splice(dest, 0, this.list.splice(pos, 1)[0]);
         // edit the target position
