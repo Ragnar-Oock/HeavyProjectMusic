@@ -75,7 +75,7 @@ class playlistProcessing {
         // edit the target position
         item.move(dest)
       }
-      console.debug('item: ' + item.id, 'pos: ' + pos, 'dest: ' + dest, 'buffer: ', buffer, 'mod :' + this.mod);
+      console.debug('item: ' + item.id, 'pos: ' + pos, 'dest: ' + dest, 'buffer: ', buffer, 'mod :' , this.mod);
       // else do nothing
     }
   }
