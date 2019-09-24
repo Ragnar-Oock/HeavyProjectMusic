@@ -50,7 +50,7 @@ class playlistProcessing {
    * @param  {int} item item to work with
    */
   moveOrDelete() {
-    let buffer = this.list;
+    let buffer = Array.from(this.list);
     console.debug(buffer, this.list);
     for (var i = 0; i < buffer.length; i++) {
       // isoalte the current item
