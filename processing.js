@@ -3,7 +3,6 @@ class playlistProcessing {
     this.last = []
     this.mod = [];
     this.list = [];
-    this.buffer = [];
     this.autoRefresh = true;
     this.delay = delay;
     this.url = url;
@@ -33,15 +32,10 @@ class playlistProcessing {
           if (this.mod !== this.last) {
             // add the new items to this.list
             this.addNew();
-            this.buffer = this.list;
-            for (var i = 0; i < this.buffer.length; i++) {
-              console.log(this.list, this.buffer, this.buffer[i]);
-              // move the item as needed
-              this.moveOrDelete(this.buffer[i]);
-            }
+            // move the item as needed
+            this.moveOrDelete();
+            // update the length displayed
             this.updateLength();
-
-            console.log(this.list);
           }
         }.bind(this),
         error: function(error){
@@ -55,33 +49,37 @@ class playlistProcessing {
    * move an item in the list and on screen or delete it
    * @param  {int} item item to work with
    */
-  moveOrDelete(item) {
-    // get the current index of the item
-    let pos = this.getIndexIn(item, this.list);
-    // get the index of the current item in the new list
-    let dest = this.getIndexIn(item, this.mod);
-    // isolate the item id
-    let id = item.id;
+  moveOrDelete() {
+    let buffer = this.list;
+    for (var i = 0; i < buffer.length; i++) {
+      // isoalte the current item
+      let item = buffer[i];
+      // get the current index of the item
+      let pos = this.getIndexIn(item, buffer);
+      // get the index of the current item in the new list
+      let dest = this.getIndexIn(item, this.mod);
+      // isolate the item id
+      let id = item.id;
 
-    console.log(dest);
-    // delete the item if the dest index is -1
-    if (dest === -1) {
-      console.log(item);
-      // remove the dom item
-      item.delete();
-      // delete the item from the list
-      this.list.splice(pos, 1);
-    }
+      // delete the item if the dest index is -1
+      if (dest === -1) {
+        // remove the dom item
+        item.delete();
+        // delete the item from the list
+        this.list.splice(pos, 1);
+      }
 
-    // move the item if the destination doesn't match the current position
-    else if (pos != dest) {
-      // move the item from its current position to its new position in the list
-      this.list.splice(dest, 0, this.list.splice(pos, 1)[0]);
-      // edit the target position
-      item.move(dest)
+      // move the item if the destination doesn't match the current position
+      else if (pos != dest) {
+        // move the item from its current position to its new position in the list
+        this.list.splice(dest, 0, this.list.splice(pos, 1)[0]);
+        // edit the target position
+        item.move(dest)
+      }
+      // else do nothing
     }
-    // else do nothing
   }
+
 
   /**
    * return the index of the passed item in the passed list
