@@ -68,14 +68,14 @@ class playlistProcessing {
         // delete the item from the list
         this.list.splice(pos, 1);
       }
-
       // move the item if the destination doesn't match the current position
-      else if (pos != dest) {
+      else if (pos !== dest) {
         // move the item from its current position to its new position in the list
         this.list.splice(dest, 0, this.list.splice(pos, 1)[0]);
         // edit the target position
         item.move(dest)
       }
+      console.debug('item:' + item, 'pos:' + pos, 'dest' + dest);
       // else do nothing
     }
   }
