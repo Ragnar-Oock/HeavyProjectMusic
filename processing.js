@@ -110,10 +110,11 @@ class playlistProcessing {
     for (var i = 0; i < this.mod.length; i++) {
       let current = this.mod[i];
       let index = this.getIndexIn(current, this.list);
-      console.log(current, index);
+      let indexOf = this.list.indexOf(current);
+      console.log(current, index, indexOf);
       if (index === -1) {
-        // add the "Music" item at "index" in he list
-        this.list.splice(index, 0, new Music(current, index));
+        // add the "Music" item at the mod index (i) in the list
+        this.list.splice(i, 0, new Music(current, i));
         // added.push([i, current])
       }
     }
