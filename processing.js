@@ -3,7 +3,6 @@ class playlistProcessing {
     this.last = []
     this.mod = [];
     this.list = [];
-    this.buffer = [];
     this.autoRefresh = true;
     this.delay = delay;
     this.url = url;
@@ -31,17 +30,18 @@ class playlistProcessing {
 
           // if the result is different process it
           if (this.mod !== this.last) {
+            console.log(this.list);
             // add the new items to this.list
             this.addNew();
-            this.buffer = this.list;
-            for (var i = 0; i < this.buffer.length; i++) {
-              console.log(this.list, this.buffer, this.buffer[i]);
+            let buffer = this.list;
+            for (var i = 0; i < buffer.length; i++) {
+              console.log(this.list, buffer, buffer[i]);
               // move the item as needed
-              this.moveOrDelete(this.buffer[i]);
+              this.moveOrDelete(buffer[i]);
             }
             this.updateLength();
 
-            console.log(this.list);
+            console.log(this.list, buffer);
           }
         }.bind(this),
         error: function(error){
