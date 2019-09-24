@@ -17,7 +17,7 @@ class Music {
     this.index = index;
 
     this.htmlPrint();
-    this.dom = $('#id' + this.id)[0];
+    this.dom = $('#id' + this.id);
   }
 
   /**
@@ -102,7 +102,7 @@ class Music {
    */
   delete() {
     this.dom.toggleClass('playlist_item_hidden', true);
-    setTimeout(function(){$('#id' + this.id).remove()}.bind(this), 300);
+    setTimeout(function(){this.dom[0].remove()}.bind(this), 300);
   }
 
   /**
@@ -110,6 +110,6 @@ class Music {
    * @param  {int} index index to move the item to visualy
    */
   move(index) {
-    this.dom.style.transform = 'translateY(' + (index * 8.5) + 'em);';
+    this.dom[0].style.transform = 'translateY(' + (index * 8.5) + 'em);';
   }
 }
