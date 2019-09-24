@@ -63,10 +63,8 @@ class playlistProcessing {
     // isolate the item id
     let id = item.id;
 
-    console.log(dest);
     // delete the item if the dest index is -1
     if (dest === -1) {
-      console.log(item);
       // remove the dom item
       item.delete();
       // delete the item from the list
@@ -110,7 +108,6 @@ class playlistProcessing {
     for (var i = 0; i < this.mod.length; i++) {
       let current = this.mod[i];
       let index = this.getIndexIn(current, this.list);
-      console.log(current, index);
       if (index === -1) {
         // add the "Music" item at the mod index (i) in the list
         this.list.splice(i, 0, new Music(current, i));
