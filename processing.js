@@ -30,6 +30,7 @@ class playlistProcessing {
 
           // if the result is different process it
           if (this.mod !== this.last) {
+            console.log(this.list.toString());
             // add the new items to this.list
             this.addNew();
             // move the item as needed
@@ -108,7 +109,6 @@ class playlistProcessing {
     for (var i = 0; i < this.mod.length; i++) {
       let current = this.mod[i];
       let index = this.getIndexIn(current, this.list);
-      console.log(current, index);
       if (index === -1) {
         // add the "Music" item at the mod index (i) in the list
         this.list.splice(i, 0, new Music(current, i));
