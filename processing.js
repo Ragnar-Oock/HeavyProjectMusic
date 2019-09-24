@@ -30,18 +30,18 @@ class playlistProcessing {
 
           // if the result is different process it
           if (this.mod !== this.last) {
-            console.log(this.list);
+            console.log(this.list.toString());
             // add the new items to this.list
             this.addNew();
             let buffer = this.list;
             for (var i = 0; i < buffer.length; i++) {
-              console.log(this.list, buffer, buffer[i]);
+              console.log(this.list.toString(), buffer.toString(), buffer[i].toString());
               // move the item as needed
               this.moveOrDelete(buffer[i]);
             }
             this.updateLength();
 
-            console.log(this.list, buffer);
+            console.log(this.list.toString(), buffer.toString());
           }
         }.bind(this),
         error: function(error){
