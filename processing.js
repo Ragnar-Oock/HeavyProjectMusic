@@ -30,7 +30,6 @@ class playlistProcessing {
 
           // if the result is different process it
           if (this.mod !== this.last) {
-            console.log(this.list.toString());
             // add the new items to this.list
             this.addNew();
             // move the item as needed
