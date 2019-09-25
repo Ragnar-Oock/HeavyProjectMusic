@@ -1,7 +1,7 @@
 // variable declaration
 // AJAX parameters
-const url = 'sampleMusique.json';
 const pingDelay = 10000; //default : 10000
+const url = 'sampleMusique.json';
 
 // define the AJAX result storage
 let lastResult = [];
@@ -16,7 +16,7 @@ let target;
 $(document).ready(() => {
   // init
   // initiate the processing
-  let playlist = new playlistProcessing();
+  let playlist = new playlistProcessing(pingDelay, url);
 
   // if dark mode was activated on previous visite get it up
   if (window.localStorage.getItem('dark') == "true") {
