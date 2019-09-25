@@ -94,6 +94,7 @@ class Music {
 
     setTimeout(function() {
       $('#id' + this.id).removeClass('playlist_item_hidden');
+      console.debug('show ' + this.id);
     }.bind(this), 10);
   }
 
