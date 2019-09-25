@@ -94,7 +94,6 @@ class Music {
 
     setTimeout(function() {
       $('#id' + this.id).removeClass('playlist_item_hidden');
-      console.debug('show ' + this.id);
     }.bind(this), 10);
   }
 
@@ -103,7 +102,6 @@ class Music {
    */
   delete() {
     this.dom.toggleClass('playlist_item_hidden', true);
-    setTimeout(function(){this.dom[0].remove()}.bind(this), 300);
   }
 
   /**
@@ -112,6 +110,5 @@ class Music {
    */
   move(index) {
     this.dom[0].style.transform = 'translateY(' + (index * 8.5) + 'em)';
-    console.debug('moved ' + this.id + ' to ' + index);
   }
 }

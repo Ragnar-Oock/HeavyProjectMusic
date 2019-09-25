@@ -51,7 +51,6 @@ class playlistProcessing {
    */
   moveOrDelete() {
     let buffer = Array.from(this.list);
-    console.debug(Array.from(buffer), Array.from(this.list));
     for (var i = 0; i < buffer.length; i++) {
       // isoalte the current item
       let item = buffer[i];
@@ -76,7 +75,6 @@ class playlistProcessing {
         // edit the target position
         item.move(dest)
       }
-      console.debug('item: ' + item.id, 'pos: ' + pos, 'dest: ' + dest, 'buffer: ', Array.from(buffer), 'mod :' , Array.from(this.mod));
       // else do nothing
     }
   }
