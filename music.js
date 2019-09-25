@@ -117,6 +117,7 @@ class Music {
    * @param  {object} obj anonymous object from parsed JSON
    */
   update(obj){
+    console.log(this.title, obj.title, this.artist, obj.artist);
     if (this.title !== obj.title) {
       this.title = obj.title;
       $('#id' + this.id +' playlist_item__title>p').html(this.title);
