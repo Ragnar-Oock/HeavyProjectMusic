@@ -1,7 +1,7 @@
 # HeavyProjectMusic
 Dynamically display a playlist from a JSON file.
 
-If your using this tool with a custom lang file, please add it to the repo for everyone to enjoy using it in this language.
+If your using this tool with a custom lang file, please add it to the repo for everyone to enjoy using it in your language.
 
 ## Currents functionalities
 - parse and display the playlist from the specified JSON files (default: sampleMusique.json)
@@ -13,9 +13,9 @@ If your using this tool with a custom lang file, please add it to the repo for e
 - preload settings using PHP args (available only for stream mode and id display)
 
 ## External ressources used (included)
-anime.js for the slide animation  
-- [github page](https://github.com/juliangarnier/anime/)
-- [web site](https://animejs.com/)
 
 Roboto font from Google  
 - [Google font page](https://fonts.google.com/specimen/Roboto)
+
+Font Awesome 5.10 free
+- [Visit site](https://fontawesome.com/)
