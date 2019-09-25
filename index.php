@@ -76,6 +76,7 @@
         <div class="warning_body">
           <?php echo constant("NOSCRIPT_BODY") ?>
         </div>
+      </div>
     </noscript>
     <div id="playlist">
       <div class="playlist_head">
