@@ -4,7 +4,8 @@
   define('STREAM_MODE', 'Mode streamer');
   define('SHOW_ID', 'Afficher les ID de request');
   define('REFRESH_BUTTON', 'Rafraîchir la liste');
-  define('NOSCRIPT', 'Merci d\'activer JavaScript');
+  define('NOSCRIPT_TITLE', 'Merci d\'activer JavaScript');
+  define('NOSCRIPT_BODY', 'Cette application nécessite l\'utilisation de JavaScript pour fonctionner. L\'applicationne collecte aucun informations et est optiomisée pour fonctionner sur les machine de faibles puissance.');
   define("PLAYLIST_LENGTH_TOTAL_PRE", "il y a ");
   define("PLAYLIST_LENGTH_TOTAL_POST", " musique(s) dans la playlist");
   define("FOOTER_AUTOR", "Fait avec ❤️, par ");

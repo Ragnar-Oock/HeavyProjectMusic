@@ -69,9 +69,13 @@
   </nav>
   <main>
     <noscript>
-      <div class="warning"><i class="fas fa-exclamation-triangle"></i><?php
-      echo constant("NOSCRIPT");
-      ?>
+      <div class="warning">
+        <div class="warning_title">
+          <i class="fas fa-exclamation-triangle"></i><?php echo constant("NOSCRIPT_TITLE"); ?>
+        </div>
+        <div class="warning_body">
+          <?php echo constant("NOSCRIPT_BODY") ?>
+        </div>
     </noscript>
     <div id="playlist">
       <div class="playlist_head">
