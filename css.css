@@ -193,8 +193,16 @@ main{
   padding: .5em 1em;
   border-radius: .5em;
   padding-left: .5em;
+}
+.warning_title{
   font-weight: bold;
   letter-spacing: 0.025em;
+}
+.warning_title__icon{
+  margin: 0 .5em 0 .2em;
+}
+.warning_body{
+  margin: .5em 0 0;
 }
 
 /* style de la playlist */

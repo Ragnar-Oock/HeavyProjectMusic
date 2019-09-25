@@ -71,7 +71,7 @@
     <noscript>
       <div class="warning">
         <div class="warning_title">
-          <i class="fas fa-exclamation-triangle"></i><?php echo constant("NOSCRIPT_TITLE"); ?>
+          <i class="fas fa-exclamation-triangle warning_title__icon"></i><span class="warning_title__text"><?php echo constant("NOSCRIPT_TITLE"); ?></span>
         </div>
         <div class="warning_body">
           <?php echo constant("NOSCRIPT_BODY") ?>
