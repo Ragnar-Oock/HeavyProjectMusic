@@ -5,7 +5,7 @@
   define('SHOW_ID', 'Show IDs');
   define('REFRESH_BUTTON', 'Refresh the list');
   define('NOSCRIPT_TITLE', 'Please turn JavaScript on');
-  define('NOSCRIPT_BODY', 'This application need the use of JavaScript to work. It  won\'t collect any information of any kind and is optimised to works on low end devices');
+  define('NOSCRIPT_BODY', 'This application needs the use of JavaScript to work. It won\'t collect any information of any kind and is optimized to works on low-end devices.');
   define("PLAYLIST_LENGTH_TOTAL_PRE", "there is ");
   define("PLAYLIST_LENGTH_TOTAL_POST", " music(s) in the playlist");
   define("FOOTER_AUTOR", "Made with ❤️, by ");
