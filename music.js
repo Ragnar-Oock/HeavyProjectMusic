@@ -111,4 +111,19 @@ class Music {
   move(index) {
     this.dom[0].style.transform = 'translateY(' + (index * 8.5) + 'em)';
   }
+
+  /**
+   * edit the music item with the information from the new parsed json
+   * @param  {object} obj anonymous object from parsed JSON
+   */
+  update(obj){
+    if (this.title !== obj.title) {
+      this.title = obj.title;
+      $('#id' + this.id +' playlist_item__title>p').html(this.title);
+    }
+    if (this.artist !== obj.artist) {
+      this.artist = obj.artist;
+      $('#id' + this.id +' playlist_item__artiste>p').html(this.artist);
+    }
+  }
 }

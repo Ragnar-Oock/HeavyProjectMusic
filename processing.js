@@ -76,6 +76,8 @@ class playlistProcessing {
         item.move(dest)
       }
       // else do nothing
+      // update the title and/or artist if needed
+      item.update(this.mod[i]);
     }
   }
 
