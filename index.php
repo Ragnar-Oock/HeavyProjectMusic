@@ -69,7 +69,7 @@
   </nav>
   <main>
     <noscript>
-      <?php
+      <div class="warning"><i class="fas fa-exclamation-triangle"></i><?php
       echo constant("NOSCRIPT");
       ?>
     </noscript>

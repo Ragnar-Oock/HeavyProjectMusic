@@ -188,6 +188,14 @@ main{
   max-width: 75ch;
   width: 100%;
 }
+.warning{
+  background-color: #ffa50069;
+  padding: .5em 1em;
+  border-radius: .5em;
+  padding-left: .5em;
+  font-weight: bold;
+  letter-spacing: 0.025em;
+}
 
 /* style de la playlist */
 #playlist{
@@ -367,6 +375,9 @@ main{
   }
   .checkbox_icon::after{
     transition: opacity 300ms ease-in-out
+  }
+  .playlist_list{
+    transition: height 300ms ease-in-out;
   }
   .playlist_item{
     transition: 300ms ease-in-out;
