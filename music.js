@@ -120,11 +120,11 @@ class Music {
     console.log(this.title, obj.title, this.artist, obj.artist);
     if (this.title !== obj.title) {
       this.title = obj.title;
-      $('#id' + this.id +' playlist_item__title>p').html(this.title);
+      $('#id' + this.id +' .playlist_item__title>p').html(this.title);
     }
     if (this.artist !== obj.artist) {
       this.artist = obj.artist;
-      $('#id' + this.id +' playlist_item__artiste>p').html(this.artist);
+      $('#id' + this.id +' .playlist_item__artiste>p').html(this.artist);
     }
   }
 }
