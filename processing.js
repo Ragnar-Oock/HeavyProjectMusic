@@ -76,8 +76,10 @@ class playlistProcessing {
         item.move(dest)
       }
       // else do nothing
+    }
+    for (var i = 0; i < this.list.length; i++) {
       // update the title and/or artist if needed
-      item.update(this.mod[i]);
+      this.list[i].update(this.mod[i]);
     }
   }
 
