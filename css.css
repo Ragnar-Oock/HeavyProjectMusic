@@ -50,7 +50,8 @@ button{
   color: white;
   font-weight: bold;
   font-size: 1em;
-  letter-spacing: 0.5px;
+  font-family: Roboto;
+  letter-spacing: 0.04em;
 }
 button>span {
   margin-left: 0.5em;
