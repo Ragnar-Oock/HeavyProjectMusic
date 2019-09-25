@@ -111,6 +111,7 @@ class Music {
    * @param  {int} index index to move the item to visualy
    */
   move(index) {
-    this.dom[0].style.transform = 'translateY(' + (index * 8.5) + 'em);';
+    this.dom[0].style.transform = 'translateY(' + (index * 8.5) + 'em)';
+    console.debug('moved ' + this.id + ' to ' + index);
   }
 }
