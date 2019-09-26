@@ -22,6 +22,7 @@ body{
   font-family: Roboto;
   width: 100%;
   min-height: 100vh;
+  font-size: 1em
 }
 body{
   position: relative;
@@ -350,9 +351,25 @@ main{
   border-color: var(--secondary);
 }
 /* stream mode */
+.stream{
+  font-size: 2em
+}
 .stream .playlist_item{
   background-color: var(--screen50);
   color: white
+}
+.stream .playlist_list{
+  /* force animation on stream mode (webkit compatibility issue) */
+  transition: height 300ms ease-in-out;
+}
+.stream .playlist_item{
+  /* force animation on stream mode (webkit compatibility issue) */
+  transition: 300ms ease-in-out;
+  transition-property: background-color, color, opacity, height, padding, margin, transform
+}
+.stream .playlist_item__requester{
+	font-size: 1.3em;
+	text-shadow: 2px 2px #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
 }
 .stream .playlist_item.VIP{
   /* force animation on stream mode (webkit compatibility issue) */
