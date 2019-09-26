@@ -77,11 +77,11 @@ class Music {
           ${this.requester.toHTML()}
         </div>
       </div>`;
-    if (0 <= this.index && this.index < length) {
-      list.children[this.index].before(html);
-    }
-    else {
+    if (length === 0 || this.index === length) {
       list.append(html);
+    }
+    else if (0 <= this.index && this.index < length) {
+      list.children[this.index].before(html);
     }
 
     setTimeout(function() {
