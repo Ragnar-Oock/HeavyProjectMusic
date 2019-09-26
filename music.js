@@ -95,7 +95,9 @@ class Music {
    */
   delete() {
     this.dom.toggleClass('playlist_item_hidden', true);
-    this.dom[0].remove();
+    setTimeout(function() {
+      this.dom[0].remove();
+    }.bind(this), 300);
   }
 
   /**
