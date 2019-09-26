@@ -102,7 +102,7 @@ class Music {
    */
   delete() {
     this.dom.toggleClass('playlist_item_hidden', true);
-    this.dom[0].remove)()
+    this.dom[0].remove();
   }
 
   /**
