@@ -59,33 +59,34 @@ class Music {
     }
 
     let list = $('.playlist_list');
-    let length = list.children.length;
+    let length = list.eq(0).children().length;
     let html = `<div id="id${this.id}" class="playlist_item${vip} playlist_item_hidden" style="transform: translateY(${this.index * 8.5}em)">
-        <div class="playlist_item__tags">
-          ${this.htmlTags()}
-        </div>
-        <div class="playlist_item__title">
-          <p>${this.title}</p>
-        </div>
-        <div class="playlist_item__artiste">
-          <p>${this.artist}</p>
-        </div>
-        <div class="playlist_item__id">
-          <p>${this.id}</p>
-        </div>
-        <div class="playlist_item__requester">
-          ${this.requester.toHTML()}
-        </div>
-      </div>`;
-    if (length === 0 || this.index === length) {
-      list.append(html);
+      <div class="playlist_item__tags">
+        ${this.htmlTags()}
+      </div>
+      <div class="playlist_item__title">
+        <p>${this.title}</p>
+      </div>
+      <div class="playlist_item__artiste">
+        <p>${this.artist}</p>
+      </div>
+      <div class="playlist_item__id">
+        <p>${this.id}</p>
+      </div>
+      <div class="playlist_item__requester">
+        ${this.requester.toHTML()}
+      </div>
+    </div>`;
+
+    if (0 <= this.index && this.index < length) {
+      list.children().eq(this.index).before(html);
     }
-    else if (0 <= this.index && this.index < length) {
-      $('.playlist_list>div').eq(this.index).before(html);
+    else {
+      list.append(html);
     }
 
     setTimeout(function() {
-      this.dom.removeClass('playlist_item_hidden');
+      $('#id' + this.id).removeClass('playlist_item_hidden');
     }.bind(this), 10);
   }
 
