@@ -81,11 +81,11 @@ class Music {
       list.append(html);
     }
     else if (0 <= this.index && this.index < length) {
-      list.children[this.index].before(html);
+      list.eq(this.index).before(html);
     }
 
     setTimeout(function() {
-      $('#id' + this.id).removeClass('playlist_item_hidden');
+      this.dom.removeClass('playlist_item_hidden');
     }.bind(this), 10);
   }
 
