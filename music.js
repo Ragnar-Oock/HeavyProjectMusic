@@ -58,7 +58,7 @@ class Music {
       }
     }
 
-    let list = document.getElementsByClassName('playlist_list')[0];
+    let list = $('.playlist_list');
     let length = list.children.length;
     let html = `<div id="id${this.id}" class="playlist_item${vip} playlist_item_hidden" style="transform: translateY(${this.index * 8.5}em)">
         <div class="playlist_item__tags">
@@ -81,7 +81,7 @@ class Music {
       list.append(html);
     }
     else if (0 <= this.index && this.index < length) {
-      list.eq(this.index).before(html);
+      $('.playlist_list>div').eq(this.index).before(html);
     }
 
     setTimeout(function() {
