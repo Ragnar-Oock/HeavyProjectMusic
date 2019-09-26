@@ -58,7 +58,7 @@ class Music {
       }
     }
 
-    let list = $('.playlist_list');
+    let list = document.getElementsByClassName('playlist_list')[0];
     let length = list.children.length;
     let html = `<div id="id${this.id}" class="playlist_item${vip} playlist_item_hidden" style="transform: translateY(${this.index * 8.5}em)">
         <div class="playlist_item__tags">
