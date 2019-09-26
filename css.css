@@ -56,12 +56,19 @@ button{
   font-size: 1em;
   font-family: Roboto;
   letter-spacing: 0.04em;
+  overflow: hidden;
+  max-width: 15em;
+  white-space: nowrap;
 }
 button>span {
   margin-left: 0.5em;
 }
 .hidden{
   opacity: 0;
+  max-width: 0;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
 }
 /*header style*/
 .screen{
@@ -138,7 +145,7 @@ button>span {
   right: 0;
   z-index: 10;
   top: 0;
-  padding: 0 1em
+  padding: 0.1em 1em;
 }
 .menu__item_label{
   position: relative;
@@ -386,10 +393,14 @@ main{
 @media only screen and (prefers-reduced-motion:no-preference){
   .dark,
   body,
-  .menu__item_label,
-  button{
+  .menu__item_label{
     transition: 300ms ease-in-out;
     transition-property: background-color, color
+  }
+  button{
+    transition-property: max-width, padding, opacity;
+    transition-timing-function: ease-out;
+    transition-duration: 300ms;
   }
   .screen{
     transition: opacity 300ms ease-in-out, z-index 0s 300ms;
