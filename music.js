@@ -124,8 +124,7 @@ class Music {
       $('#id' + this.id +' .playlist_item__artiste>p').html(this.artist);
     }
     // compare tags list
-    if (!this.tags.equals(obj.tags)) {
-      console.debug(this.tags, obj.tags, !this.tags.equals(obj.tags));
+    if (!this.areTagsSame(obj.tags)) {
       this.tags = obj.tags;
       let tags_list = $('#id' + this.id + ' .playlist_item__tags');
       // fade the list out
@@ -137,5 +136,25 @@ class Music {
         tags_list.toggleClass('fade', false);
       }, 300, tags_list);
     }
+  }
+
+  /**
+   * evaluate either or not the tag list is the same between this and the passed object
+   * @param  {object} obj JSON parsed object
+   * @return {Boolean}    
+   */
+  areTagsSame(obj){
+    for (var i = 0; i < this.tags.length; i++) {
+      if (this.tags[i].text !== obj.tags[i].text) {
+        return false;
+      }
+      if (this.tags[i].icon !== obj.tags[i].icon) {
+        return false;
+      }
+      if (this.tags[i].color !== obj.tags[i].color) {
+        return false;
+      }
+    }
+    return true;
   }
 }
