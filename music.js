@@ -125,6 +125,7 @@ class Music {
     }
     // compare tags list
     if (!this.tags.equals(obj.tags)) {
+      console.debug(this.tags, obj.tags, !this.tags.equals(obj.tags));
       this.tags = obj.tags;
       let tags_list = $('#id' + this.id + ' .playlist_item__tags');
       // fade the list out
