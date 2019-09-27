@@ -27,16 +27,12 @@ class playlistProcessing {
         success: function(result){
           this.last = this.mod;
           this.mod = result;
-
-          // if the result is different process it
-          if (this.mod !== this.last) {
-            // add the new items to this.list
-            this.addNew();
-            // move the item as needed
-            this.moveOrDelete();
-            // update the length displayed
-            this.updateLength();
-          }
+          // add the new items to this.list
+          this.addNew();
+          // move the item as needed
+          this.moveOrDelete();
+          // update the length displayed
+          this.updateLength();
         }.bind(this),
         error: function(error){
           console.error(error);
