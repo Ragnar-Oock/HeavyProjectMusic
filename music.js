@@ -61,7 +61,7 @@ class Music {
     let list = $('.playlist_list');
     let length = list.eq(0).children().length;
     let html = `<div id="id${this.id}" class="playlist_item${vip} playlist_item_hidden" style="transform: translateY(${this.index * 8.5}em)">
-      <div class="playlist_item__tags">
+      <div class="playlist_item__tags fadable">
         ${this.htmlTags()}
       </div>
       <div class="playlist_item__title">
@@ -113,15 +113,18 @@ class Music {
    * @param  {object} obj anonymous object from parsed JSON
    */
   update(obj){
+    // compare title
     if (this.title !== obj.title) {
       this.title = obj.title;
       $('#id' + this.id +' .playlist_item__title>p').html(this.title);
     }
+    // compare artist name
     if (this.artist !== obj.artist) {
       this.artist = obj.artist;
       $('#id' + this.id +' .playlist_item__artiste>p').html(this.artist);
     }
-    if (this.tags !== obj.tags) {
+    // compare tags list
+    if (!this.tags.equals(obj.tags)) {
       this.tags = obj.tags;
       let tags_list = $('#id' + this.id + ' .playlist_item__tags');
       // fade the list out
@@ -131,7 +134,7 @@ class Music {
         tags_list.html(this.htmlTags());
         // fade the list in
         tags_list.toggleClass('fade', false);
-      }, 150, tags_list);
+      }, 300, tags_list);
     }
   }
 }
