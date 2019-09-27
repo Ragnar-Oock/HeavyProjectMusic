@@ -121,5 +121,17 @@ class Music {
       this.artist = obj.artist;
       $('#id' + this.id +' .playlist_item__artiste>p').html(this.artist);
     }
+    if (this.tags !== obj.tags) {
+      this.tags = obj.tags;
+      let tags_list = $('#id' + this.id + ' .playlist_item__tags');
+      // fade the list out
+      tags_list.toggleClass('fade', true);
+      setTimeout((tags_list) => {
+        // when the animation end, update the list
+        tags_list.html(this.htmlTags());
+        // fade the list in
+        tags_list.toggleClass('fade', false);
+      }, 150, tags_list);
+    }
   }
 }

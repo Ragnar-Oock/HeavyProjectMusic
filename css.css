@@ -70,6 +70,9 @@ button>span {
   overflow: hidden;
   white-space: nowrap;
 }
+.fade{
+  opacity: 0;
+}
 /*header style*/
 .screen{
   display: block;
@@ -364,6 +367,10 @@ main{
 .stream{
   font-size: 2em
 }
+.stream .fadable{
+  /* force animation on stream mode (webkit compatibility issue) */
+  transition: opacity 150ms ease-in-out;
+}
 .stream .playlist_item{
   background-color: var(--screen50);
   color: white
@@ -401,6 +408,9 @@ main{
     transition-property: max-width, padding, opacity;
     transition-timing-function: ease-out;
     transition-duration: 300ms;
+  }
+  .fadable{
+    transition: opacity 150ms ease-in-out;
   }
   .screen{
     transition: opacity 300ms ease-in-out, z-index 0s 300ms;
