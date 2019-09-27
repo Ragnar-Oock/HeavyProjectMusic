@@ -144,6 +144,9 @@ class Music {
    * @return {Boolean}    
    */
   areTagsSame(obj){
+    if (this.tags.length != obj.tags.length) {
+      return false;
+    }
     for (var i = 0; i < this.tags.length; i++) {
       if (this.tags[i].text !== obj.tags[i].text) {
         return false;
