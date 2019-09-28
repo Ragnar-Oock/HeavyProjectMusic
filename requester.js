@@ -28,4 +28,25 @@ class Requester {
   toHTML() {
     return `<span style="color:#${this.color}">${this.displayName}</span>${this.htmlBadges()}`;
   }
+
+  isSame(obj) {
+    if (this.color !== obj.color) {
+      return false;
+    }
+    if (this.displayName !== obj.displayName) {
+      return false;
+    }
+    if (this.badges.length !== obj.badges.length) {
+      return false;
+    }
+    for (var i = 0; i < this.badges.length; i++) {
+      if (this.badges[i].alttext !== obj.badges[i].alttext) {
+        return false;
+      }
+      if (this.badges[i].icon !== obj.badges[i].icon) {
+        return false;
+      }
+    }
+    return true;
+  }
 }

@@ -73,7 +73,7 @@ class Music {
       <div class="playlist_item__id">
         <p>${this.id}</p>
       </div>
-      <div class="playlist_item__requester">
+      <div class="playlist_item__requester fadable">
         ${this.requester.toHTML()}
       </div>
     </div>`;
@@ -135,6 +135,19 @@ class Music {
         // fade the list in
         tags_list.toggleClass('fade', false);
       }, 300, tags_list);
+    }
+    // compare the requester
+    if (!this.requester.isSame(obj.requester)) {
+      this.requester = obj.requester;
+      let requester = $('#id' + this.id + ' .playlist_item__requester');
+      // fade the requester out
+      requester.toggleClass('fade', true);
+      setTimeout((tags_list) => {
+        // when the animation end, update the requester displayed
+        requester.html(this.requester.toHTML());
+        // fade the requester in
+        requester.toggleClass('fade', false);
+      }, 300, requester);
     }
   }
 
