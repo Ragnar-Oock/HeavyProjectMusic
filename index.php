@@ -7,7 +7,6 @@
   <meta charset="utf-8">
   <title>HeavyChatMusic</title>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="lib/anime.min.js"></script>
   <script src="requester.js"></script>
   <script src="music.js"></script>
   <script src="processing.js"></script>
