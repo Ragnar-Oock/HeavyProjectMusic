@@ -142,7 +142,7 @@ class Music {
       let requester = $('#id' + this.id + ' .playlist_item__requester');
       // fade the requester out
       requester.toggleClass('fade', true);
-      setTimeout((tags_list) => {
+      setTimeout((requester) => {
         // when the animation end, update the requester displayed
         requester.html(this.requester.toHTML());
         // fade the requester in
