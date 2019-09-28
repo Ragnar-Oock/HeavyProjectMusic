@@ -39,7 +39,7 @@ class Music {
         img = `<img class="badge" src="${this.tags[i].icon}">`
       }
       html += `
-      <figure class="playlist_item__tag" style="background:#${this.tags[i].color};color:#fff">
+      <figure class="playlist_item__tag" style="background:#${this.tags[i].color};color:#${this.tags[i].fontColor === undefined ? "fff" : this.tags[i].fontColor}">
         ${img}
         <figcaption>${this.tags[i].text}</figcaption>
       </figure>`
