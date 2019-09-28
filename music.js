@@ -134,11 +134,11 @@ class Music {
         tags_list.html(this.htmlTags());
         // fade the list in
         tags_list.toggleClass('fade', false);
-      }.bind(this), 300, tags_list);
+      }, 300, tags_list);
     }
     // compare the requester
     if (!this.requester.isSame(obj.requester)) {
-      this.requester = obj.requester;
+      this.requester = new Requester(obj.requester);
       let requester = $('#id' + this.id + ' .playlist_item__requester');
       // fade the requester out
       requester.toggleClass('fade', true);
@@ -147,14 +147,14 @@ class Music {
         requester.html(this.requester.toHTML());
         // fade the requester in
         requester.toggleClass('fade', false);
-      }.bind(this), 300, requester);
+      }, 300, requester);
     }
   }
 
   /**
    * evaluate either or not the tag list is the same between this and the passed object
    * @param  {object} obj JSON parsed object
-   * @return {Boolean}    
+   * @return {Boolean}
    */
   areTagsSame(obj){
     if (this.tags.length !== obj.tags.length) {
