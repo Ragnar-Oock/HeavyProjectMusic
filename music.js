@@ -134,7 +134,7 @@ class Music {
         tags_list.html(this.htmlTags());
         // fade the list in
         tags_list.toggleClass('fade', false);
-      }, 300, tags_list);
+      }.bind(this), 300, tags_list);
     }
     // compare the requester
     if (!this.requester.isSame(obj.requester)) {
@@ -147,7 +147,7 @@ class Music {
         requester.html(this.requester.toHTML());
         // fade the requester in
         requester.toggleClass('fade', false);
-      }, 300, requester);
+      }.bind(this), 300, requester);
     }
   }
 
