@@ -10,6 +10,7 @@
       {
         "text": "label of the tag, must be as short as possible : string",
         "icon": "URL of the icon to be displayed aside of the text, optional : string",
+        "ariaLabel": "description of the icon : string",
         "color": "background color of the tag in hex : string",
         "fontColor": "font color of the tag in hex : string"
       }

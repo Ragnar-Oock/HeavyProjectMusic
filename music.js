@@ -36,7 +36,7 @@ class Music {
     for (var i = 0; i < this.tags.length; i++) {
       let img = "";
       if (typeof(this.tags[i].icon) !== "undefined") {
-        img = `<img class="badge" src="${this.tags[i].icon}">`
+        img = `<img class="badge" src="${this.tags[i].icon}" aria-label="${this.tags[i].ariaLabel}">`
       }
       html += `
       <figure class="playlist_item__tag" style="background:#${this.tags[i].color};color:#${this.tags[i].fontColor === undefined ? "fff" : this.tags[i].fontColor}">
