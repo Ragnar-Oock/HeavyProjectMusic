@@ -10,7 +10,7 @@ class playlistProcessing {
     // first API call
     this.process();
     // set API call delay to the configurated delay
-    setInterval(function(){this.process()}.bind(this), this.delay);
+    setInterval(function () { this.process() }.bind(this), this.delay);
   }
 
   /**
@@ -24,17 +24,17 @@ class playlistProcessing {
         type: 'GET',
         cache: false,
         crossDomain: true,
-        success: function(result){
+        success: function (result) {
           this.last = this.mod;
           this.mod = result;
           // add the new items to this.list
           this.addNew();
           // move the item as needed
-          this.moveOrDelete();
+          this.updateAllItems();
           // update the length displayed
           this.updateLength();
         }.bind(this),
-        error: function(error){
+        error: function (error) {
           console.error(error);
         }
       });
@@ -45,7 +45,7 @@ class playlistProcessing {
    * move an item in the list and on screen or delete it
    * @param  {int} item item to work with
    */
-  moveOrDelete() {
+  updateAllItems() {
     let buffer = Array.from(this.list);
     for (var i = 0; i < buffer.length; i++) {
       // isoalte the current item

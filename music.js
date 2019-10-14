@@ -201,4 +201,29 @@ class Music {
     }
     return true;
   }
+
+  /**
+   * update all tags with timers
+   */
+  updateTimers() {
+    let update = false;
+    for (let i = 0, len = this.tags.length; i < len; i++) {
+      const tag = this.tags[i];
+      if (tag.type === 'timer') {
+        update = true;
+      }
+    }
+    if (update) {
+      let tags_list = $('#id' + this.id + ' .playlist_item__tags');
+      // fade the list out
+      tags_list.toggleClass('fade', true);
+
+      setTimeout((tags_list) => {
+        // when the animation end, update the list
+        tags_list.html(this.htmlTags());
+        // fade the list in
+        tags_list.toggleClass('fade', false);
+      }, 300, tags_list);
+    }
+  }
 }
