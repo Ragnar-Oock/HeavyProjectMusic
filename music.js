@@ -8,17 +8,21 @@ class Music {
     this.title = obj.title;
     this.artist = obj.artist;
     if (typeof (obj.tags) !== "undefined") {
-      this.tags = obj.tags;
+      this.tags = [];
+      for (let i = 0, len = obj.tags.length; i < len; i++) {
+        const tag = obj.tags[i];
+        this.tags.push(new Tag(tag));
+      }
     }
     else {
-      this.tags = {};
+      this.tags = [];
     }
     this.requester = new Requester(obj.requester);
     this.index = index;
 
     this.htmlPrint();
     this.dom = $('#id' + this.id);
-    this.lastTimerUpdate = Date.now();
+    this.lastUpdatedTime = '';
   }
 
   /**
@@ -35,34 +39,7 @@ class Music {
   htmlTags() {
     let html = "";
     for (var i = 0; i < this.tags.length; i++) {
-      let img = "",
-        currentTag = this.tags[i];
-      if (currentTag.type === 'timer') {
-        let delta = Math.round((Date.now() - currentTag.time) / 1000),
-          min = Math.round(delta / 60) % 60,
-          hours = Math.round(delta / 3600),
-          time = "erreur";
-        if (hours === 0) {
-          time = min + 'min';
-        }
-        else if (min === 0) {
-          time = hours + 'h';
-        }
-        else {
-          time = hours + 'h ' + min + 'min';
-        }
-        currentTag.text = currentTag.text.replace('%TIME%', time);
-        currentTag.ariaLabel = currentTag.ariaLabel.replace('%TIME%', time);
-      }
-      if (typeof (currentTag.icon) !== 'undefined') {
-        img = `<img class="badge" src="${currentTag.icon}" aria-label="${currentTag.ariaLabel}">`
-      }
-
-      html += `
-      <figure class="playlist_item__tag" style="background:#${currentTag.color};color:#${currentTag.fontColor === undefined ? "fff" : currentTag.fontColor}">
-        ${img}
-        <figcaption>${currentTag.text}</figcaption>
-      </figure>`
+      html += tag[i];
     }
     return html;
   }
@@ -153,19 +130,6 @@ class Music {
       this.artist = obj.artist;
       $('#id' + this.id + ' .playlist_item__artiste>p').html(this.artist);
     }
-    // compare tags list
-    if (!this.areTagsSame(obj)) {
-      this.tags = obj.tags;
-      let tags_list = $('#id' + this.id + ' .playlist_item__tags');
-      // fade the list out
-      tags_list.toggleClass('fade', true);
-      setTimeout((tags_list) => {
-        // when the animation end, update the list
-        tags_list.html(this.htmlTags());
-        // fade the list in
-        tags_list.toggleClass('fade', false);
-      }, 300, tags_list);
-    }
     // compare the requester
     if (!this.requester.isSame(obj.requester)) {
       this.requester = new Requester(obj.requester);
@@ -179,55 +143,35 @@ class Music {
         requester.toggleClass('fade', false);
       }, 300, requester);
     }
-    this.updateTimers();
+    // update tags list
+    this.updateTags();
   }
 
   /**
-   * evaluate either or not the tag list is the same between this and the passed object
+   * update the tag list if needed
    * @param  {object} obj JSON parsed object
    * @return {Boolean}
    */
-  areTagsSame(obj) {
-    if (this.tags.length !== obj.tags.length) {
-      return false;
-    }
-    for (var i = 0; i < this.tags.length; i++) {
-      if (this.tags[i].text !== obj.tags[i].text) {
-        return false;
-      }
-      if (this.tags[i].icon !== obj.tags[i].icon) {
-        return false;
-      }
-      if (this.tags[i].color !== obj.tags[i].color) {
-        return false;
-      }
-    }
-    return true;
-  }
-
-  /**
-   * update all tags with timers
-   */
-  updateTimers() {
-    let update = false;
+  updateTags(obj) {
+    let tagHtml = '';
     for (let i = 0, len = this.tags.length; i < len; i++) {
       const tag = this.tags[i];
-      if (tag.type === 'timer') {
-        update = true;
-      }
+      tagHtml += tag.update();
     }
-    if (update && Date.now() - this.lastTimerUpdate > 60000) {
-      this.lastTimerUpdate = Date.now;
+    if (this.dom[0].outerHTML != tagHtml) {
       let tags_list = $('#id' + this.id + ' .playlist_item__tags');
       // fade the list out
       tags_list.toggleClass('fade', true);
-
       setTimeout((tags_list) => {
         // when the animation end, update the list
         tags_list.html(this.htmlTags());
         // fade the list in
         tags_list.toggleClass('fade', false);
       }, 300, tags_list);
+      return true;
+    }
+    else {
+      return false;
     }
   }
 }
