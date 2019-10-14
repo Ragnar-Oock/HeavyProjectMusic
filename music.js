@@ -18,6 +18,7 @@ class Music {
 
     this.htmlPrint();
     this.dom = $('#id' + this.id);
+    this.lastTimerUpdate = Date.now();
   }
 
   /**
@@ -178,6 +179,7 @@ class Music {
         requester.toggleClass('fade', false);
       }, 300, requester);
     }
+    this.updateTimers();
   }
 
   /**
@@ -214,7 +216,8 @@ class Music {
         update = true;
       }
     }
-    if (update) {
+    if (update && Date.now() - this.lastTimerUpdate > 60000) {
+      this.lastTimerUpdate = Date.now;
       let tags_list = $('#id' + this.id + ' .playlist_item__tags');
       // fade the list out
       tags_list.toggleClass('fade', true);
