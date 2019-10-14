@@ -7,7 +7,7 @@ class Music {
     this.id = obj.id;
     this.title = obj.title;
     this.artist = obj.artist;
-    if (typeof(obj.tags) !== "undefined") {
+    if (typeof (obj.tags) !== "undefined") {
       this.tags = obj.tags;
     }
     else {
@@ -35,7 +35,7 @@ class Music {
     let html = "";
     for (var i = 0; i < this.tags.length; i++) {
       let img = "";
-      if (typeof(this.tags[i].icon) !== "undefined") {
+      if (typeof (this.tags[i].icon) !== "undefined") {
         img = `<img class="badge" src="${this.tags[i].icon}" aria-label="${this.tags[i].ariaLabel}">`
       }
       html += `
@@ -85,7 +85,7 @@ class Music {
       list.append(html);
     }
 
-    setTimeout(function() {
+    setTimeout(_ => {
       $('#id' + this.id).removeClass('playlist_item_hidden');
     }.bind(this), 10);
   }
@@ -95,7 +95,7 @@ class Music {
    */
   delete() {
     this.dom.toggleClass('playlist_item_hidden', true);
-    setTimeout(function() {
+    setTimeout(_ => {
       this.dom[0].remove();
     }.bind(this), 300);
   }
@@ -106,22 +106,30 @@ class Music {
    */
   move(index) {
     this.dom[0].style.transform = 'translateY(' + (index * 8.5) + 'em)';
+    // if the item move at the first position
+    if (index === 0) {
+      this.dom.prependTo('.playlist_list');
+    }
+    // if the item move anywhere else
+    else {
+      this.dom.inserAfter('.playlist_item:nth-child(' + index + ')')
+    }
   }
 
   /**
    * edit the music item with the information from the new parsed json
    * @param  {object} obj anonymous object from parsed JSON
    */
-  update(obj){
+  update(obj) {
     // compare title
     if (this.title !== obj.title) {
       this.title = obj.title;
-      $('#id' + this.id +' .playlist_item__title>p').html(this.title);
+      $('#id' + this.id + ' .playlist_item__title>p').html(this.title);
     }
     // compare artist name
     if (this.artist !== obj.artist) {
       this.artist = obj.artist;
-      $('#id' + this.id +' .playlist_item__artiste>p').html(this.artist);
+      $('#id' + this.id + ' .playlist_item__artiste>p').html(this.artist);
     }
     // compare tags list
     if (!this.areTagsSame(obj)) {
@@ -156,7 +164,7 @@ class Music {
    * @param  {object} obj JSON parsed object
    * @return {Boolean}
    */
-  areTagsSame(obj){
+  areTagsSame(obj) {
     if (this.tags.length !== obj.tags.length) {
       return false;
     }
