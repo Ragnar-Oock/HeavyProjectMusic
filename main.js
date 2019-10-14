@@ -7,9 +7,6 @@ const url = 'sampleMusique.json';
 let lastResult = [];
 let newResult = [];
 
-// instenciate the storage of the element to animate (for order change)
-let target;
-
 // end of variables declaration
 
 // on document ready
@@ -79,7 +76,7 @@ $(document).ready(() => {
     // toggle dark mode
     $('body').toggleClass('dark');
     // store the seting localy
-    if (window.localStorage.getItem('dark') == "true" ) {
+    if (window.localStorage.getItem('dark') == "true") {
       window.localStorage.setItem('dark', false);
     }
     else {
@@ -92,7 +89,7 @@ $(document).ready(() => {
     // toggle dark mode
     $('body').toggleClass('stream');
     // store the seting localy
-    if (window.localStorage.getItem('stream') == "true" ) {
+    if (window.localStorage.getItem('stream') == "true") {
       window.localStorage.setItem('stream', false);
     }
     else {
@@ -105,7 +102,7 @@ $(document).ready(() => {
     // toggle dark mode
     $('body').toggleClass('show_id');
     // store the seting localy
-    if (window.localStorage.getItem('show_id') == "true" ) {
+    if (window.localStorage.getItem('show_id') == "true") {
       window.localStorage.setItem('show_id', false);
     }
     else {
