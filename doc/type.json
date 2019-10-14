@@ -1,5 +1,5 @@
 [
-  "list of all the songs of the playlist : Song"
+  "list of all the songs of the playlist : Song",
   {
     "id": "id of the song : int",
     "title": "title of the song : string",
@@ -7,22 +7,22 @@
     "artist": "name of all the artistes  : string ",
     "infos": "further informations  about the song, must be less than 140ch : string ",
     "tags": [
-      "list of all the tag  for the song, optional : Tag"
+      "list of all the tag  for the song, optional : Tag",
       {
-        "type": "text / timer : string",
-        "time": "unix timestamp to start the timer at: int",
-        "text": "label of the tag, must be as short as possible : string",
+        "type": "text / timer (assumed text for retro compatibility): string",
+        "time": "unix timestamp to start the timer at, if type = timer: int",
+        "text": "label of the tag, must be as short as possible, use %TIME% to marque the timer location : string",
         "icon": "URL of the icon to be displayed aside of the text, optional : string",
-        "ariaLabel": "description of the icon : string",
-        "color": "background color of the tag in hex : string",
-        "fontColor": "font color of the tag in hex : string"
+        "ariaLabel": "description of the icon, option, must be set when using an icon (WCAG) : string",
+        "color": "background color of the tag in hex, optional : string",
+        "fontColor": "font color of the tag in hex, optional, must contrast enought to be read (WCAG) : string"
       }
     ],
     "requester": {
       "displayName": "name of the chatter who've requested the song : string",
       "color": "font color of the requester's name in hex : string",
       "badges": [
-        "list of all the badges to be displayed aside of the requester name, optional : Badges"
+        "list of all the badges to be displayed aside of the requester name, optional : Badges",
         {
           "icon": "URL of the badge : string",
           "alttext": "alternative text displayed if the image don't load or on hover : string"
