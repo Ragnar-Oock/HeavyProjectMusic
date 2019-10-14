@@ -43,7 +43,8 @@ class Music {
       if (currentTag.type === 'timer') {
         let delta = Date.now() - currentTag.time,
           min = Math.round(delta / 60),
-          hours = Math.round(delta / 3600);
+          hours = Math.round(delta / 3600),
+          time = "erreur";
         if (hours === 0) {
           time = min + 'min';
         }
