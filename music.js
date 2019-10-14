@@ -34,14 +34,32 @@ class Music {
   htmlTags() {
     let html = "";
     for (var i = 0; i < this.tags.length; i++) {
-      let img = "";
-      if (typeof (this.tags[i].icon) !== "undefined") {
-        img = `<img class="badge" src="${this.tags[i].icon}" aria-label="${this.tags[i].ariaLabel}">`
+      let img = "",
+        currentTag = this.tags[i];
+      if (typeof (currentTag.icon) !== 'undefined') {
+        img = `<img class="badge" src="${currentTag.icon}" aria-label="${currentTag.ariaLabel}">`
       }
+
+      if (currentTag.type === 'timer') {
+        let delta = Date.now() - currentTag.time,
+          min = Math.round(delta / 60),
+          hours = Math.round(delta / 3600);
+        if (hours === 0) {
+          time = min + 'min';
+        }
+        else if (min === 0) {
+          time = hours + 'h';
+        }
+        else {
+          time = hours + 'h ' + min + 'min';
+        }
+        currentTag.text.replace('%TIME%', time)
+      }
+
       html += `
-      <figure class="playlist_item__tag" style="background:#${this.tags[i].color};color:#${this.tags[i].fontColor === undefined ? "fff" : this.tags[i].fontColor}">
+      <figure class="playlist_item__tag" style="background:#${currentTag.color};color:#${currentTag.fontColor === undefined ? "fff" : currentTag.fontColor}">
         ${img}
-        <figcaption>${this.tags[i].text}</figcaption>
+        <figcaption>${currentTag.text}</figcaption>
       </figure>`
     }
     return html;
