@@ -37,8 +37,8 @@ class Music {
       let img = "",
         currentTag = this.tags[i];
       if (currentTag.type === 'timer') {
-        let delta = Date.now() - currentTag.time,
-          min = Math.round(delta / 60),
+        let delta = Math.round((Date.now() - currentTag.time) / 1000),
+          min = Math.round(delta % 60),
           hours = Math.round(delta / 3600),
           time = "erreur";
         if (hours === 0) {
