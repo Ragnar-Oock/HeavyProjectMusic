@@ -85,7 +85,7 @@ class Music {
       list.append(html);
     }
 
-    setTimeout(_ => {
+    setTimeout(function () {
       $('#id' + this.id).removeClass('playlist_item_hidden');
     }.bind(this), 10);
   }
@@ -95,7 +95,7 @@ class Music {
    */
   delete() {
     this.dom.toggleClass('playlist_item_hidden', true);
-    setTimeout(_ => {
+    setTimeout(function () {
       this.dom[0].remove();
     }.bind(this), 300);
   }
@@ -107,12 +107,14 @@ class Music {
   move(index) {
     this.dom[0].style.transform = 'translateY(' + (index * 8.5) + 'em)';
     // if the item move at the first position
-    if (index === 0) {
-      this.dom.prependTo('.playlist_list');
-    }
-    // if the item move anywhere else
-    else {
-      this.dom.inserAfter('.playlist_item:nth-child(' + index + ')')
+    if (index !== this.index) {
+      if (index === 0) {
+        this.dom.prependTo('.playlist_list');
+      }
+      // if the item move anywhere else
+      else {
+        this.dom.insertAfter('.playlist_item:nth-child(' + index + ')')
+      }
     }
   }
 
