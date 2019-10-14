@@ -36,10 +36,6 @@ class Music {
     for (var i = 0; i < this.tags.length; i++) {
       let img = "",
         currentTag = this.tags[i];
-      if (typeof (currentTag.icon) !== 'undefined') {
-        img = `<img class="badge" src="${currentTag.icon}" aria-label="${currentTag.ariaLabel}">`
-      }
-
       if (currentTag.type === 'timer') {
         let delta = Date.now() - currentTag.time,
           min = Math.round(delta / 60),
@@ -54,7 +50,11 @@ class Music {
         else {
           time = hours + 'h ' + min + 'min';
         }
-        currentTag.text.replace('%TIME%', time)
+        currentTag.text = currentTag.text.replace('%TIME%', time);
+        currentTag.ariaLabel = currentTag.ariaLabel.replace('%TIME%', time);
+      }
+      if (typeof (currentTag.icon) !== 'undefined') {
+        img = `<img class="badge" src="${currentTag.icon}" aria-label="${currentTag.ariaLabel}">`
       }
 
       html += `
