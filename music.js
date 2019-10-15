@@ -39,7 +39,7 @@ class Music {
   htmlTags() {
     let html = "";
     for (var i = 0; i < this.tags.length; i++) {
-      html += tag[i];
+      html += this.tags[i];
     }
     return html;
   }
