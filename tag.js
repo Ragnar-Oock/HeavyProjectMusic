@@ -54,7 +54,7 @@ class Tag {
   }
 
   getTimer() {
-    let delta = Math.round((Date.now() - currentTag.time) / 1000),
+    let delta = Math.round((Date.now() - this.time) / 1000),
       min = Math.round(delta / 60) % 60,
       hours = Math.round(delta / 3600),
       time = "error";
