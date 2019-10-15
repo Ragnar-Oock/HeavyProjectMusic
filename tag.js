@@ -3,8 +3,8 @@ class Tag {
     this.type = typeof obj.color !== 'undefined' ? obj.type : 'text';
     this.time = typeof this.type == 'time' && obj.time !== 'undefined' ? obj.time : Date.now();
     this.text = obj.text;
-    this.icon = typeof obj.icon !== 'undefined' ? obj.icon : undefined;
-    this.ariaLabel = typeof obj.ariaLabel !== 'undefined' ? obj.ariaLabel : undefined;
+    this.icon = typeof obj.icon !== 'undefined' ? obj.icon : '';
+    this.ariaLabel = typeof obj.ariaLabel !== 'undefined' ? obj.ariaLabel : '';
     this.color = typeof obj.color !== 'undefined' ? obj.color : 'c3c3c3';
     this.fontColor = typeof obj.fontColor !== 'undefined' ? obj.fontColor : 'fff';
 
@@ -15,7 +15,7 @@ class Tag {
   toHtml() {
     let text = this.text.replace('%TIME%', this.lastTimer),
       ariaLabel = this.ariaLabel.replace('%TIME%', this.lastTimer),
-      img = typeof (this.icon) !== 'undefined' ? `<img class="badge" src="${this.icon}" aria-label="${ariaLabel}">` : '';
+      img = this.icon === '' ? `<img class="badge" src="${this.icon}" aria-label="${ariaLabel}">` : '';
 
     return `
       <figure class="playlist_item__tag" style="background:#${this.color};color:#${this.fontColor}">
