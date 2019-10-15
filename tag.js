@@ -13,9 +13,9 @@ class Tag {
   }
 
   toHtml() {
-    let text = currentTag.text.replace('%TIME%', this.lastTimer),
-      ariaLabel = currentTag.ariaLabel.replace('%TIME%', this.lastTimer),
-      img = typeof (currentTag.icon) !== 'undefined' ? `<img class="badge" src="${currentTag.icon}" aria-label="${ariaLabel}">` : '';
+    let text = this.text.replace('%TIME%', this.lastTimer),
+      ariaLabel = this.ariaLabel.replace('%TIME%', this.lastTimer),
+      img = typeof (this.icon) !== 'undefined' ? `<img class="badge" src="${this.icon}" aria-label="${ariaLabel}">` : '';
 
     return `
       <figure class="playlist_item__tag" style="background:#${this.color};color:#${this.fontColor}">
