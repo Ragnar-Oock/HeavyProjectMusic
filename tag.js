@@ -4,7 +4,7 @@ class Tag {
     this.parentId = parentId;
     this.index = index;
     this.type = typeof obj.color !== 'undefined' ? obj.type : 'text';
-    this.time = typeof this.type == 'time' && obj.time !== 'undefined' ? obj.time : undefined;
+    this.time = typeof this.type === 'time' ? obj.time : undefined;
     this.text = obj.text;
     this.icon = typeof obj.icon !== 'undefined' ? obj.icon : '';
     this.ariaLabel = typeof obj.ariaLabel !== 'undefined' ? obj.ariaLabel : '';
