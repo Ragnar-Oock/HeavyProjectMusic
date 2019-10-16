@@ -141,7 +141,7 @@ class Music {
       }, 300, requester);
     }
     // update tags list
-    this.updateTags();
+    this.updateTags(obj);
   }
 
   /**
