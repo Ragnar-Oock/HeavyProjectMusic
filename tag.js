@@ -15,7 +15,7 @@ class Tag {
 
     if (this.type === 'timer') {
       this.timer = setInterval(() => {
-        $('#tag' + this.parentId + '-' + this.id).replace(this.toHtml())
+        $('#tag' + this.parentId + '-' + this.id).html(this.toHtml())
       }, 60000);
     }
 
