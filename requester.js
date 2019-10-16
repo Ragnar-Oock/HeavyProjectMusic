@@ -38,7 +38,7 @@ class Requester {
     if (this.displayName !== obj.displayName) {
       return false;
     }
-    if (this.badges.length !== obj.badges.length) {
+    if ((this.badges.length === 0 && typeof obj.badges === 'undefined') || this.badges.length !== obj.badges.length) {
       return false;
     }
     for (var i = 0; i < this.badges.length; i++) {
