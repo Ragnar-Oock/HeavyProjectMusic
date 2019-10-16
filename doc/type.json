@@ -9,6 +9,7 @@
     "tags": [
       "list of all the tag  for the song, optional : Tag",
       {
+        "id": "id of the tag: int",
         "type": "text / timer (assumed text for retro compatibility): string",
         "time": "unix timestamp to start the timer at, if type = timer: int",
         "text": "label of the tag, must be as short as possible, use %TIME% to marque the timer location : string",
