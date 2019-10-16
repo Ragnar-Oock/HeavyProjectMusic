@@ -5,8 +5,10 @@ class Requester {
   */
   constructor(obj) {
     this.displayName = obj.displayName;
-    this.color = obj.color;
-    this.badges = obj.badges;
+    // if no color is specified placeholder is twitch's purple
+    this.color = typeof obj.color !== 'undefined' ? obj.color : '8a2be2';
+    // if no badges are specified leave it empty
+    this.badges = typeof obj.badges !== 'undefined' ? obj.badges : [];
   }
 
   /**
