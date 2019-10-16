@@ -147,28 +147,33 @@ class Music {
   /**
    * update the tag list if needed
    * @param  {object} obj JSON parsed object
-   * @return {Boolean}
+   * @return {Boolean} either or not something changed
    */
   updateTags(obj) {
-    let tagHtml = '';
-    for (let i = 0, len = this.tags.length; i < len; i++) {
-      const tag = this.tags[i];
-      tagHtml += tag.update();
+    // loop througth all the tag of the received obj
+    for (let i = 0, len = obj.length; i < len; i++) {
+      const objTag = obj[i];
+      // find the index of the current tag in the current tag list
+      let tagIndex = this.tags.findIndex(function (tag) {
+        return tag.id === objTag.id;
+      }),
+        tag = this.tags[tagIndex];
+
+      // if the current tag is not present add it
+      if (tagIndex === -1) {
+        // add the new tag object to the list at the good index
+        this.tags.splice(i, 0, new Tag(objTag, this.id, i));
     }
-    if (this.dom[0].outerHTML != tagHtml) {
-      let tags_list = $('#id' + this.id + ' .playlist_item__tags');
-      // fade the list out
-      tags_list.toggleClass('fade', true);
-      setTimeout((tags_list) => {
-        // when the animation end, update the list
-        tags_list.html(this.htmlTags());
-        // fade the list in
-        tags_list.toggleClass('fade', false);
-      }, 300, tags_list);
-      return true;
+      // else if the tag index is not the same as the current one move it accordingly
+      else if (tagIndex !== i) {
+        // move the tag visualy
+        tag.move(i);
+        // move the tag form its current position (tagIndex) to its new one (i) in the list
+        this.tags.splice(i, 0, this.list.splice(tagIndex, 1)[0]);
     }
-    else {
-      return false;
+
+      // in all cases, trigger the tag update method
+      tag.update(objTag)
     }
   }
 }
