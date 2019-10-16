@@ -7,15 +7,12 @@ class Music {
     this.id = obj.id;
     this.title = obj.title;
     this.artist = obj.artist;
-    if (typeof (obj.tags) !== "undefined") {
       this.tags = [];
+    if (typeof (obj.tags) !== "undefined") {
       for (let i = 0, len = obj.tags.length; i < len; i++) {
         const tag = obj.tags[i];
-        this.tags.push(new Tag(tag));
+        this.tags.push(new Tag(tag, this.id, i));
       }
-    }
-    else {
-      this.tags = [];
     }
     this.requester = new Requester(obj.requester);
     this.index = index;
@@ -55,9 +52,9 @@ class Music {
       }
     }
 
-    let list = $('.playlist_list');
-    let length = list.eq(0).children().length;
-    let html = `<div id="id${this.id}" class="playlist_item${vip} playlist_item_hidden" style="transform: translateY(${this.index * 8.5}em)">
+    let list = $('.playlist_list'),
+      length = list.eq(0).children().length,
+      html = `<div id="id${this.id}" class="playlist_item${vip} playlist_item_hidden" style="transform: translateY(${this.index * 8.5}em)">
       <div class="playlist_item__tags fadable">
         ${this.htmlTags()}
       </div>
