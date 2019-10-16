@@ -26,8 +26,9 @@ class Tag {
    * @returns formated HTML for the tag
    */
   toHtml() {
-    let text = this.text.replace('%TIME%', this.lastTimer),
-      ariaLabel = this.ariaLabel.replace('%TIME%', this.lastTimer),
+    let timer = this.getTimer(),
+      text = this.text.replace('%TIME%', timer),
+      ariaLabel = this.ariaLabel.replace('%TIME%', timer),
       img = this.icon !== '' ? `<img class="badge" src="${this.icon}" aria-label="${ariaLabel}">` : '';
 
     return `
