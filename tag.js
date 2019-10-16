@@ -28,7 +28,7 @@ class Tag {
   toHtml() {
     let text = this.text.replace('%TIME%', this.lastTimer),
       ariaLabel = this.ariaLabel.replace('%TIME%', this.lastTimer),
-      img = this.icon === '' ? `<img class="badge" src="${this.icon}" aria-label="${ariaLabel}">` : '';
+      img = this.icon !== '' ? `<img class="badge" src="${this.icon}" aria-label="${ariaLabel}">` : '';
 
     return `
       <figure id="${'tag' + this.parentId + '-' + this.id}" class="playlist_item__tag" style="background:#${this.color};color:#${this.fontColor}">
