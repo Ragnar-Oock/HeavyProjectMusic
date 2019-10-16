@@ -1,14 +1,27 @@
 class Tag {
+  /**
+   * Tag constructor
+   * @param {object} obj JSON parsed object from AJAX
+   * @param {int} parentId id of the parent music item
+   * @param {int} index index of the tag in the list
+   */
   constructor(obj, parentId, index) {
+    // if no id is provided create one from current time + index
     this.id = typeof obj.id !== 'undefined' ? obj.id : Date.now() + '' + index;
     this.parentId = parentId;
     this.index = index;
-    this.type = typeof obj.color !== 'undefined' ? obj.type : 'text';
-    this.time = this.type === 'timer' ? obj.time : undefined;
+    // if no type is specified assume it to text
+    this.type = typeof obj.type !== 'undefined' ? obj.type : 'text';
+    // if the type is timer and the time specified store it, if not store now() otherwise undefined
+    this.time = this.type === 'timer' ? typeof obj.time !== 'undefined' ? obj.time : Date.now() : undefined;
     this.text = obj.text;
+    // if no icon is provided assume empty
     this.icon = typeof obj.icon !== 'undefined' ? obj.icon : '';
+    // if no ariaLabel is provided assume empty
     this.ariaLabel = typeof obj.ariaLabel !== 'undefined' ? obj.ariaLabel : '';
-    this.color = typeof obj.color !== 'undefined' ? obj.color : 'c3c3c3';
+    // if no color is provided assume dark grey
+    this.color = typeof obj.color !== 'undefined' ? obj.color : '333';
+    // if no font color is provided assume white
     this.fontColor = typeof obj.fontColor !== 'undefined' ? obj.fontColor : 'fff';
 
     this.lastTimer = this.getTimer();
