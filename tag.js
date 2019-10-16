@@ -1,6 +1,6 @@
 class Tag {
   constructor(obj, parentId, index) {
-    this.id = obj.id;
+    this.id = typeof obj.id !== 'undefined' ? obj.id : Date.now() + '' + index;
     this.parentId = parentId;
     this.index = index;
     this.type = typeof obj.color !== 'undefined' ? obj.type : 'text';
