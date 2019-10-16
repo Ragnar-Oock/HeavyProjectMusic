@@ -15,7 +15,7 @@ class Tag {
 
     if (this.type === 'timer') {
       this.timer = setInterval(() => {
-        $('#tag' + this.parentId + '-' + this.id).html(this.toHtml())
+        $('#tag' + this.parentId + '-' + this.id).replaceWith(this.toHtml())
       }, 60000);
     }
 
@@ -74,6 +74,14 @@ class Tag {
     }
     if (this.fontColor !== obj.fontColor && obj.fontColor !== 'undefined') {
       this.fontColor = obj.fontColor;
+      same = false;
+    }
+    if (this.time !== obj.time) {
+      this.time = obj.time;
+      same = false;
+    }
+    if (this.ariaLabel !== obj.ariaLabel && obj.ariaLabel !== 'undefined') {
+      this.ariaLabel = obj.ariaLabel;
       same = false;
     }
     return same;
