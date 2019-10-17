@@ -181,17 +181,19 @@ class Music {
           // add the new tag object to the list at the good index
           this.tags.splice(i, 0, new Tag(objTag, this.id, i));
         }
-        // else if the tag index is not the same as the current one move it accordingly
-        else if (tagIndex !== i) {
-          // move the tag visualy
-          tag.move(i);
-          // move the tag form its current position (tagIndex) to its new one (i) in the list
-          // this.tags.splice(i, 0, this.list.splice(tagIndex, 1)[0]);
-          this.tags.copyWithin(i, tagIndex);
-        }
+        else {
+          // else if the tag index is not the same as the current one move it accordingly
+          if (tagIndex !== i) {
+            // move the tag visualy
+            tag.move(i);
+            // move the tag form its current position (tagIndex) to its new one (i) in the list
+            // this.tags.splice(i, 0, this.list.splice(tagIndex, 1)[0]);
+            this.tags.copyWithin(i, tagIndex);
+          }
 
-        // in all cases, trigger the tag update method
-        tag.update(objTag)
+          // in all cases, trigger the tag update method
+          tag.update(objTag)
+        }
       }
     }
     else {
