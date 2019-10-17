@@ -68,6 +68,13 @@ class Tag {
   }
 
   /**
+   * remove the item from the dom
+   */
+  delete() {
+    $('#tag' + this.parentId + '-' + this.id).remove();
+  }
+
+  /**
    * compare the passed obj to this object, updatethe properties as needed and notify it
    * @param {object} obj parsed JSON from AJAX request
    * @returns {boolean}  the tag is the same / the tag as bein updated
