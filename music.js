@@ -117,31 +117,37 @@ class Music {
    * @param  {object} obj anonymous object from parsed JSON
    */
   update(obj) {
-    // compare title
-    if (this.title !== obj.title) {
-      this.title = obj.title;
-      $('#id' + this.id + ' .playlist_item__title>p').html(this.title);
+    if (typeof obj !== 'undefined') {
+      // compare title
+      if (this.title !== obj.title) {
+        this.title = obj.title;
+        $('#id' + this.id + ' .playlist_item__title>p').html(this.title);
+      }
+      // compare artist name
+      if (this.artist !== obj.artist) {
+        this.artist = obj.artist;
+        $('#id' + this.id + ' .playlist_item__artiste>p').html(this.artist);
+      }
+      // compare the requester
+      if (!this.requester.isSame(obj.requester)) {
+        this.requester = new Requester(obj.requester);
+        let requester = $('#id' + this.id + ' .playlist_item__requester');
+        // fade the requester out
+        requester.toggleClass('fade', true);
+        setTimeout((requester) => {
+          // when the animation end, update the requester displayed
+          requester.html(this.requester.toHTML());
+          // fade the requester in
+          requester.toggleClass('fade', false);
+        }, 300, requester);
+      }
+      // update tags list
+      this.updateTags(obj);
     }
-    // compare artist name
-    if (this.artist !== obj.artist) {
-      this.artist = obj.artist;
-      $('#id' + this.id + ' .playlist_item__artiste>p').html(this.artist);
+    else {
+      // throw error in the console
+      console.error('no argument provided to update music object', this);
     }
-    // compare the requester
-    if (!this.requester.isSame(obj.requester)) {
-      this.requester = new Requester(obj.requester);
-      let requester = $('#id' + this.id + ' .playlist_item__requester');
-      // fade the requester out
-      requester.toggleClass('fade', true);
-      setTimeout((requester) => {
-        // when the animation end, update the requester displayed
-        requester.html(this.requester.toHTML());
-        // fade the requester in
-        requester.toggleClass('fade', false);
-      }, 300, requester);
-    }
-    // update tags list
-    this.updateTags(obj);
   }
 
   /**
@@ -150,31 +156,37 @@ class Music {
    * @return {Boolean} either or not something changed
    */
   updateTags(obj) {
-    // loop througth all the tag of the received obj
-    for (let i = 0, len = obj.length; i < len; i++) {
-      const objTag = obj[i];
-      // find the index of the current tag in the current tag list
-      let tagIndex = this.tags.findIndex(function (tag) {
-        return tag.id === objTag.id;
-      }),
-        tag = this.tags[tagIndex];
+    if (typeof obj !== 'undefined') {
+      // loop througth all the tag of the received obj
+      for (let i = 0, len = obj.length; i < len; i++) {
+        const objTag = obj[i];
+        // find the index of the current tag in the current tag list
+        let tagIndex = this.tags.findIndex(function (tag) {
+          return tag.id === objTag.id;
+        }),
+          tag = this.tags[tagIndex];
 
-      // if the current tag is not present add it
-      if (tagIndex === -1) {
-        // add the new tag object to the list at the good index
-        this.tags.splice(i, 0, new Tag(objTag, this.id, i));
-      }
-      // else if the tag index is not the same as the current one move it accordingly
-      else if (tagIndex !== i) {
-        // move the tag visualy
-        tag.move(i);
-        // move the tag form its current position (tagIndex) to its new one (i) in the list
-        // this.tags.splice(i, 0, this.list.splice(tagIndex, 1)[0]);
-        this.tags.copyWithin(i, tagIndex);
-      }
+        // if the current tag is not present add it
+        if (tagIndex === -1) {
+          // add the new tag object to the list at the good index
+          this.tags.splice(i, 0, new Tag(objTag, this.id, i));
+        }
+        // else if the tag index is not the same as the current one move it accordingly
+        else if (tagIndex !== i) {
+          // move the tag visualy
+          tag.move(i);
+          // move the tag form its current position (tagIndex) to its new one (i) in the list
+          // this.tags.splice(i, 0, this.list.splice(tagIndex, 1)[0]);
+          this.tags.copyWithin(i, tagIndex);
+        }
 
-      // in all cases, trigger the tag update method
-      tag.update(objTag)
+        // in all cases, trigger the tag update method
+        tag.update(objTag)
+      }
+    }
+    else {
+      // throw error in the console
+      console.error('no argument provided to update tag list', this);
     }
   }
 }
