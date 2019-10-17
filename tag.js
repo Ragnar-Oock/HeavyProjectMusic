@@ -61,7 +61,7 @@ class Tag {
     if (timer != this.lastTimer || !this.isSameAs(obj)) {
       this.lastTimer = timer;
       this.html = this.toHtml();
-      $('#tag' + this.parentId + '-' + this.id).html(this.html);
+      $('#tag' + this.parentId + '-' + this.id).replaceWith(this.html);
       return true;
     }
     return false;
