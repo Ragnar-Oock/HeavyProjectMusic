@@ -156,44 +156,58 @@ class Music {
    * @return {Boolean} either or not something changed
    */
   updateTags(obj) {
+    // if obj is provided
     if (typeof obj !== 'undefined') {
-      // loop through the list and delete all tags that are not present anymore
-      for (let i = 0, len = this.tags.length; i < len; i++) {
-        const currentTag = this.tags[i];
-        let objTagIndex = obj.findIndex(function (tag) {
-          return tag.id === currentTag.id;
-        })
-        if (objTagIndex === -1) {
-          this.tags.splice(i, 1);
+      // if obj.tags is set
+      if (typeof obj.tags !== 'undefined') {
+        // loop through the list and delete all tags that are not present anymore
+        for (let i = 0, len = this.tags.length; i < len; i++) {
+          const currentTag = this.tags[i];
+          let objTagIndex = obj.findIndex(function (tag) {
+            return tag.id === currentTag.id;
+          })
+          if (objTagIndex === -1) {
+            this.tags.splice(i, 1);
+          }
+        }
+        // loop througth all the tag of the received obj
+        for (let i = 0, len = obj.length; i < len; i++) {
+          const objTag = obj[i];
+          // find the index of the current tag in the current tag list
+          let tagIndex = this.tags.findIndex(function (tag) {
+            return tag.id === objTag.id;
+          }),
+            tag = this.tags[tagIndex];
+
+          // if the current tag is not present add it
+          if (tagIndex === -1) {
+            // add the new tag object to the list at the good index
+            this.tags.splice(i, 0, new Tag(objTag, this.id, i));
+          }
+          else {
+            // else if the tag index is not the same as the current one move it accordingly
+            if (tagIndex !== i) {
+              // move the tag visualy
+              tag.move(i);
+              // move the tag form its current position (tagIndex) to its new one (i) in the list
+              // this.tags.splice(i, 0, this.list.splice(tagIndex, 1)[0]);
+              this.tags.copyWithin(i, tagIndex);
+            }
+
+            // in all cases, trigger the tag update method
+            tag.update(objTag)
+          }
         }
       }
-      // loop througth all the tag of the received obj
-      for (let i = 0, len = obj.length; i < len; i++) {
-        const objTag = obj[i];
-        // find the index of the current tag in the current tag list
-        let tagIndex = this.tags.findIndex(function (tag) {
-          return tag.id === objTag.id;
-        }),
-          tag = this.tags[tagIndex];
-
-        // if the current tag is not present add it
-        if (tagIndex === -1) {
-          // add the new tag object to the list at the good index
-          this.tags.splice(i, 0, new Tag(objTag, this.id, i));
+      // else, if obj.tags is not set
+      else {
+        // delete all tags from the dom
+        for (let i = 0, len = this.tags.length; i < len; i++) {
+          const tag = this.tags[i];
+          tag.delete();
         }
-        else {
-          // else if the tag index is not the same as the current one move it accordingly
-          if (tagIndex !== i) {
-            // move the tag visualy
-            tag.move(i);
-            // move the tag form its current position (tagIndex) to its new one (i) in the list
-            // this.tags.splice(i, 0, this.list.splice(tagIndex, 1)[0]);
-            this.tags.copyWithin(i, tagIndex);
-          }
-
-          // in all cases, trigger the tag update method
-          tag.update(objTag)
-        }
+        // clear the tags list
+        this.tags = [];
       }
     }
     else {
