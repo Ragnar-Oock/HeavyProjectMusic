@@ -6,8 +6,7 @@ class Tag {
    * @param {int} index index of the tag in the list
    */
   constructor(obj, parentId, index) {
-    // if no id is provided create one from current time + index
-    this.id = typeof obj.id !== 'undefined' ? obj.id : Date.now() + '' + index;
+    this.id = obj.id;
     this.parentId = parentId;
     this.index = index;
     // if no type is specified assume it to text
