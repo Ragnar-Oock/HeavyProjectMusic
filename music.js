@@ -157,6 +157,16 @@ class Music {
    */
   updateTags(obj) {
     if (typeof obj !== 'undefined') {
+      // loop through the list and delete all tags that are not present anymore
+      for (let i = 0, len = this.tags.length; i < len; i++) {
+        const currentTag = this.tags[i];
+        let objTagIndex = obj.findIndex(function (tag) {
+          return tag.id === currentTag.id;
+        })
+        if (objTagIndex === -1) {
+          this.tags.splice(i, 1);
+        }
+      }
       // loop througth all the tag of the received obj
       for (let i = 0, len = obj.length; i < len; i++) {
         const objTag = obj[i];
