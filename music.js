@@ -171,6 +171,7 @@ class Music {
       // loop througth all the tag of the received obj
       for (let i = 0, len = obj.length; i < len; i++) {
         const objTag = obj[i];
+
         // find the index of the current tag in the current tag list
         let tagIndex = this.tags.findIndex(function (tag) {
           return tag.id === objTag.id;
@@ -181,7 +182,16 @@ class Music {
         if (tagIndex === -1) {
           // add the new tag object to the list at the good index
           this.tags.splice(i, 0, new Tag(objTag, this.id, i));
+          if (0 <= i && i < length) {
+            // insert the tag before the i-th tag
+            this.dom.children().eq(0).children().eq(i).before(html);
+          }
+          else {
+            // insert the tag at the end of the list
+            this.dom.children().eq(0).append(html);
+          }
         }
+
         else {
           // else if the tag index is not the same as the current one move it accordingly
           if (tagIndex !== i) {
