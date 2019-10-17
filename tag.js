@@ -71,6 +71,9 @@ class Tag {
    */
   delete() {
     $('#tag' + this.parentId + '-' + this.id).remove();
+    if (typeof this.timer !== 'undefined') {
+      clearInterval(this.timer);
+    }
   }
 
   /**
