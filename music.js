@@ -114,7 +114,7 @@ class Music {
 
   /**
    * edit the music item with the information from the new parsed json
-   * @param  {object} obj anonymous object from parsed JSON
+   * @param  {object} obj anonymous object from parsed JSON - music
    */
   update(obj) {
     if (typeof obj !== 'undefined') {
@@ -142,7 +142,7 @@ class Music {
         }, 300, requester);
       }
       // update tags list
-      this.updateTags(obj);
+      this.updateTags(obj.tags);
     }
     else {
       // throw error in the console
@@ -152,7 +152,7 @@ class Music {
 
   /**
    * update the tag list if needed
-   * @param  {object} obj JSON parsed object
+   * @param  {object} obj JSON parsed object - tag list
    * @return {Boolean} either or not something changed
    */
   updateTags(obj) {
