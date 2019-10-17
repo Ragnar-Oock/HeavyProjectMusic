@@ -1,32 +1,32 @@
 [
   "list of all the songs of the playlist : Song",
   {
-    "id": "id of the song : int",
+    "id": "id of the song, must be unique across all music : int",
     "title": "title of the song : string",
     "album": "title of the album  : string",
-    "artist": "name of all the artistes  : string ",
-    "infos": "further informations  about the song, must be less than 140ch : string ",
+    "artist": "name of the artiste  : string ",
+    "infos": "further informations about the song, must be less than 140ch : string ",
     "tags": [
       "list of all the tag  for the song, optional : Tag",
       {
-        "id": "id of the tag: int",
-        "type": "text / timer (assumed text for retro compatibility): string",
-        "time": "unix timestamp to start the timer at, if type = timer: int",
+        "id": "id of the tag, tag id should be unique within a music: int",
+        "type": "text / timer (assumed text): string",
+        "time": "unix timestamp to start the timer at, mandatory if type = timer, unused otherwise: int",
         "text": "label of the tag, must be as short as possible, use %TIME% to marque the timer location : string",
         "icon": "URL of the icon to be displayed aside of the text, optional : string",
-        "ariaLabel": "description of the icon, option, must be set when using an icon (WCAG) : string",
-        "color": "background color of the tag in hex, optional : string",
-        "fontColor": "font color of the tag in hex, optional, must contrast enought to be read (WCAG) : string"
+        "ariaLabel": "description of the icon, optional, must be set when using an icon (WCAG) : string",
+        "color": "background color of the tag in hex, the contrast with fontColor must be above 4.5 (WCAG), optional : string",
+        "fontColor": "font color of the tag in hex, optional, the contrast with color must be above 4.5 (WCAG) : string"
       }
     ],
     "requester": {
       "displayName": "name of the chatter who've requested the song : string",
-      "color": "font color of the requester's name in hex : string",
+      "color": "font color of the requester's name in hex, optional, assumed at twitch purple : string",
       "badges": [
         "list of all the badges to be displayed aside of the requester name, optional : Badges",
         {
           "icon": "URL of the badge : string",
-          "alttext": "alternative text displayed if the image don't load or on hover : string"
+          "alttext": "alternative text displayed used for alt and title tags (WCAG) : string"
         }
       ]
     }
