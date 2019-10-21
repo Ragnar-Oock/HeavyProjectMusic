@@ -14,14 +14,10 @@ class Tag {
     // if the type is timer and the time specified store it, if not store now() otherwise undefined
     this.time = this.type === 'timer' ? typeof obj.time !== 'undefined' ? obj.time : Date.now() : undefined;
     this.text = obj.text;
-    // if no icon is provided assume empty
     this.icon = typeof obj.icon !== 'undefined' ? obj.icon : '';
-    // if no ariaLabel is provided assume empty
+    this.color = typeof obj.color !== 'undefined' ? obj.color : undefined;
     this.ariaLabel = typeof obj.ariaLabel !== 'undefined' ? obj.ariaLabel : '';
-    // if no color is provided assume dark grey
-    this.color = typeof obj.color !== 'undefined' ? obj.color : '333';
-    // if no font color is provided assume white
-    this.fontColor = typeof obj.fontColor !== 'undefined' ? obj.fontColor : 'fff';
+    this.fontColor = typeof obj.fontColor !== 'undefined' ? obj.fontColor : undefined;
 
     this.lastTimer = this.getTimer();
 
@@ -44,7 +40,7 @@ class Tag {
       img = this.icon !== '' ? `<img class="badge" src="${this.icon}" aria-label="${ariaLabel}">` : '';
 
     return `
-      <figure id="${'tag' + this.parentId + '-' + this.id}" class="playlist_item__tag" style="background:#${this.color};color:#${this.fontColor}">
+      <figure id="${'tag' + this.parentId + '-' + this.id}" class="playlist_item__tag" style="background:#${this.color === undefined ? '333' : this.color};color:#${this.fontColor === undefined ? 'fff' : this.fontColor}">
         ${img}
         <figcaption>${text}</figcaption>
       </figure>`;
@@ -95,16 +91,8 @@ class Tag {
       this.color = obj.color;
       same = false;
     }
-    else if (this.color !== '333' && typeof obj.color === 'undefined') {
-      this.color = '333';
-      same = false;
-    }
     if (this.fontColor !== obj.fontColor && obj.fontColor !== 'undefined') {
       this.fontColor = obj.fontColor;
-      same = false;
-    }
-    else if (this.fontColor !== 'fff' && typeof obj.fontColor === 'undefined') {
-      this.fontColor = 'fff';
       same = false;
     }
     if (this.time !== obj.time) {
