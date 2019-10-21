@@ -146,7 +146,8 @@ class Music {
     }
     else {
       // throw error in the console
-      console.error('no argument provided to update music object', this);
+      // console.error('no argument provided to update music object', this);
+      console.trace('no argument provided to update music object', this);
     }
   }
 
