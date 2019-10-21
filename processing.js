@@ -41,21 +41,24 @@ class playlistProcessing {
     }
   }
 
-  /**
-   * move an item in the list and on screen or delete it
-   * @param  {int} item item to work with
-   */
   updateAllItems() {
+    // create an image of the list
     let buffer = Array.from(this.list);
-    for (var i = 0; i < buffer.length; i++) {
-      // isoalte the current item
-      let item = buffer[i];
+    // run througth the image
+    for (var i = 0, len = buffer.length; i < len; i++) {
+      // isolate the current item
+      let item = buffer[i],
+        id = item.id;
       // get the index of the current item in the list
-      let pos = this.getIndexIn(item, this.list);
+      let pos = this.list.findIndex(function (current) {
+        return current.id === id;
+      })
+      // let pos = this.getIndexIn(item, this.list);
       // get the index of the current item in the new list
-      let dest = this.getIndexIn(item, this.mod);
-      // isolate the item id
-      let id = item.id;
+      let dest = this.mod.findIndex(function (current) {
+        return current.id === id;
+      })
+      // let dest = this.getIndexIn(item, this.mod);
 
       // delete the item if the dest index is -1
       if (dest === -1) {
