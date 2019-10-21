@@ -146,7 +146,7 @@ class Tag {
         }
         // if the item move anywhere else
         else {
-          dom.insertAfter('#id' + this.parentId + '>.playlist_item__tags>.playlist_item__tag:nth-child(' + index + ')')
+          dom.insertAfter('#id' + this.parentId + ' .playlist_item__tag:nth-child(' + index + ')')
         }
       }
     }
