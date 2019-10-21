@@ -137,15 +137,16 @@ class Tag {
    * @param  {int} index index to move the item to visualy
    */
   move(index) {
+    let dom = $('#tag' + this.parentId + '-' + this.id);
     if (typeof index !== 'undefined') {
       // if the tag move at the first position
       if (index !== this.index) {
         if (index === 0) {
-          this.dom.prependTo('#id' + this.parentId + '>.playlist_item__tags');
+          dom.prependTo('#id' + this.parentId + '>.playlist_item__tags');
         }
         // if the item move anywhere else
         else {
-          this.dom.insertAfter('#id' + this.parentId + '>.playlist_item__tags>.playlist_item__tag:nth-child(' + index + ')')
+          dom.insertAfter('#id' + this.parentId + '>.playlist_item__tags>.playlist_item__tag:nth-child(' + index + ')')
         }
       }
     }
