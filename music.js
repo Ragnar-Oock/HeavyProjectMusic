@@ -166,6 +166,7 @@ class Music {
           return tag.id === currentTag.id;
         })
         if (objTagIndex === -1) {
+          this.tags[i].delete();
           this.tags.splice(i, 1);
         }
       }
@@ -200,10 +201,8 @@ class Music {
             // move the tag visualy
             tag.move(i);
             // move the tag form its current position (tagIndex) to its new one (i) in the list
-            // this.tags.splice(i, 0, this.list.splice(tagIndex, 1)[0]);
             this.tags.copyWithin(i, tagIndex);
           }
-
           // in all cases, trigger the tag update method
           tag.update(objTag)
         }
