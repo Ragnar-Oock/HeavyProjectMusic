@@ -124,9 +124,9 @@ class Tag {
    */
   getTimer() {
     if (this.type === 'timer') {
-      let delta = Math.round((Date.now() - this.time) / 1000),
-        min = Math.round(delta / 60) % 60,
-        hours = Math.round(delta / 3600),
+      let delta = Math.trunc((Date.now() - this.time) / 1000),
+        min = Math.trunc(delta / 60) % 60,
+        hours = Math.trunc(delta / 3600),
         time = "error";
       if (hours === 0) {
         time = min + 'min';
