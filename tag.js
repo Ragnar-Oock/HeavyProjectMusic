@@ -77,7 +77,7 @@ class Tag {
   }
 
   /**
-   * compare the passed obj to this object, updatethe properties as needed and notify it
+   * compare the passed obj to this object, update the properties as needed and notify it
    * @param {object} obj parsed JSON from AJAX request
    * @returns {boolean}  the tag is the same / the tag as bein updated
    */
@@ -95,8 +95,16 @@ class Tag {
       this.color = obj.color;
       same = false;
     }
+    else if (this.color !== '333' && typeof obj.color === 'undefined') {
+      this.color = '333';
+      same = false;
+    }
     if (this.fontColor !== obj.fontColor && obj.fontColor !== 'undefined') {
       this.fontColor = obj.fontColor;
+      same = false;
+    }
+    else if (this.fontColor !== 'fff' && typeof obj.fontColor === 'undefined') {
+      this.fontColor = 'fff';
       same = false;
     }
     if (this.time !== obj.time) {
