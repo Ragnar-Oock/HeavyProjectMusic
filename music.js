@@ -159,9 +159,10 @@ class Music {
   updateTags(obj) {
     // if obj is provided
     if (typeof obj !== 'undefined') {
-      // loop through the list and delete all tags that are not present anymore
-      for (let i = 0, len = this.tags.length; i < len; i++) {
-        const currentTag = this.tags[i];
+      let tagList = Array.from(this.tags);
+      // loop through an image of the list and delete all tags that are not present anymore
+      for (let i = 0, len = tagList.length; i < len; i++) {
+        const currentTag = tagList[i];
         let objTagIndex = obj.findIndex(function (tag) {
           return tag.id === currentTag.id;
         })
@@ -194,7 +195,6 @@ class Music {
             this.dom.children().eq(0).append(tag.toHtml());
           }
         }
-
         else {
           // else if the tag index is not the same as the current one move it accordingly
           if (tagIndex !== i) {
