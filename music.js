@@ -178,24 +178,24 @@ class Music {
         // find the index of the current tag in the current tag list
         let tagIndex = this.tags.findIndex(function (tag) {
           return tag.id === objTag.id;
-        }),
-          tag = this.tags[tagIndex];
+        })
 
         // if the current tag is not present add it
         if (tagIndex === -1) {
-          let tag = new Tag(objTag, this.id, i)
+          let tag = new Tag(objTag, this.id, i),
+            tagList = this.dom.children().eq(0);
           // add the new tag object to the list at the good index
-          this.tags.splice(i, 0, tag);
           if (0 <= i && i < length) {
             // insert the tag before the i-th tag
-            this.dom.children().eq(0).children().eq(i).before(tag.toHtml());
+            tagList.children().eq(i).before(tag.toHtml());
           }
           else {
             // insert the tag at the end of the list
-            this.dom.children().eq(0).append(tag.toHtml());
+            tagList.append(tag.toHtml());
           }
         }
         else {
+          let tag = this.tags[tagIndex];
           // else if the tag index is not the same as the current one move it accordingly
           if (tagIndex !== i) {
             // move the tag visualy
