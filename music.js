@@ -184,6 +184,8 @@ class Music {
         if (tagIndex === -1) {
           let tag = new Tag(objTag, this.id, i),
             tagList = this.dom.children().eq(0);
+          // add the tag to this.tags
+          this.tags.splice(i, 0, tag);
           // add the new tag object to the list at the good index
           if (0 <= i && i < length) {
             // insert the tag before the i-th tag
