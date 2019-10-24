@@ -70,8 +70,7 @@ class playlistProcessing {
       // move the item if the destination doesn't match the current position
       else {
         // move the item from its current position to its new position in the list
-        // this.list.splice(dest, 0, this.list.splice(pos, 1)[0]);
-        this.list.copyWithin(dest, pos);
+        this.list.splice(dest, 0, this.list.splice(pos, 1)[0]);
         // edit the target position
         item.move(dest)
       }

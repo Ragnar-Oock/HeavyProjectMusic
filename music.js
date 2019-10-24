@@ -203,7 +203,7 @@ class Music {
             // move the tag visualy
             tag.move(i);
             // move the tag form its current position (tagIndex) to its new one (i) in the list
-            this.tags.copyWithin(i, tagIndex);
+            this.tags.splice(i, 0, this.tags.splice(tagIndex, 1)[0]);
           }
           // in all cases, trigger the tag update method
           tag.update(objTag)
