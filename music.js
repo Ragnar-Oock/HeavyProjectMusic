@@ -187,7 +187,7 @@ class Music {
           // add the tag to this.tags
           this.tags.splice(i, 0, tag);
           // add the new tag object to the list at the good index
-          if (0 <= i && i < length) {
+          if (0 <= i && i < len) {
             // insert the tag before the i-th tag
             tagList.children().eq(i).before(tag.toHtml());
           }
