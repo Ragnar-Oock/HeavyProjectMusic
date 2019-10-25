@@ -70,7 +70,7 @@ class Tag {
    */
   update(obj) {
     let timer = this.getTimer();
-    if (timer != this.lastTimer || !this.isSameAs(obj)) {
+    if (!this.isSameAs(obj) || timer != this.lastTimer) {
       this.lastTimer = timer;
       this.html = this.toHtml();
       $('#tag' + this.parentId + '-' + this.id).replaceWith(this.html);
