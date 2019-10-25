@@ -55,7 +55,7 @@ class Tag {
     let parent = $('#id' + this.parentId);
     if (typeof newClass !== 'undefined') {
       parent.toggleClass(this.class, false);
-      this.class = obj.class;
+      this.class = newClass;
       parent.toggleClass(this.class, true);
     }
     else {
