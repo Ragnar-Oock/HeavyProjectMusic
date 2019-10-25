@@ -466,15 +466,6 @@ main{
   .menu::before{
     content: none;
   }
-  .playlist_item{
-    grid-template: 1em 1.5em 1em 1em 1em / 100%;
-    grid-template-areas:
-    "tags"
-    "title"
-    "artist"
-    "requester"
-    "id";
-  }
 }
 
 @keyframes vip{
