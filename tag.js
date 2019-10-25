@@ -18,6 +18,7 @@ class Tag {
     this.color = typeof obj.color !== 'undefined' ? obj.color : undefined;
     this.ariaLabel = typeof obj.ariaLabel !== 'undefined' ? obj.ariaLabel : '';
     this.fontColor = typeof obj.fontColor !== 'undefined' ? obj.fontColor : undefined;
+    this.class = typeof obj.class !== 'undefined' ? obj.class : '';
 
     this.lastTimer = this.getTimer();
 
@@ -47,6 +48,17 @@ class Tag {
   }
 
   /**
+   * add custom class to parent music item
+   * @param {string} newClass new CSS class 
+   */
+  updateParentClass(newClass) {
+    let parent = $('#id' + this.parentId);
+    parent.toggleClass(this.class, false);
+    this.class = obj.class;
+    parent.toggleClass(this.class, true);
+  }
+
+  /**
    * update the tag if needed
    * @param {object} obj parsed JSON from AJAX request
    * @returns {boolean} either or not the tag updated itself
@@ -67,6 +79,7 @@ class Tag {
    */
   delete() {
     $('#tag' + this.parentId + '-' + this.id).remove();
+    $('#id' + this.parentId).toggleClass(this.class, false);
     if (typeof this.timer !== 'undefined') {
       clearInterval(this.timer);
     }
@@ -91,7 +104,7 @@ class Tag {
       this.color = obj.color;
       same = false;
     }
-    if (this.fontColor !== obj.fontColor && obj.fontColor !== 'undefined') {
+    if (this.fontColor !== obj.fontColor && typeof obj.fontColor !== 'undefined') {
       this.fontColor = obj.fontColor;
       same = false;
     }
@@ -99,9 +112,15 @@ class Tag {
       this.time = obj.time;
       same = false;
     }
-    if (this.ariaLabel !== obj.ariaLabel && obj.ariaLabel !== 'undefined') {
+    if (this.ariaLabel !== obj.ariaLabel && typeof obj.ariaLabel !== 'undefined') {
       this.ariaLabel = obj.ariaLabel;
       same = false;
+    }
+    if (this.class !== obj.class && typeof obj.class !== 'undefined') {
+      let parent = $('#id' + this.parentId);
+      parent.toggleClass(this.class, false);
+      this.class = obj.class;
+      parent.toggleClass(this.class, true);
     }
     return same;
   }

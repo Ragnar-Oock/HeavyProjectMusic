@@ -46,11 +46,11 @@ class Music {
    */
   htmlPrint() {
     let vip = "";
-    for (var i = 0; i < this.tags.length; i++) {
-      if (this.tags[i].text === "VIP") {
-        vip = " VIP";
-      }
-    }
+    // for (var i = 0; i < this.tags.length; i++) {
+    //   if (this.tags[i].text === "VIP") {
+    //     vip = " VIP";
+    //   }
+    // }
 
     let list = $('.playlist_list'),
       length = list.eq(0).children().length,
@@ -77,6 +77,11 @@ class Music {
     }
     else {
       list.append(html);
+    }
+
+    for (let i = 0, len = this.tags.length; i < len; i++) {
+      const tag = this.tags[i];
+      tag.updateParent()
     }
 
     setTimeout(function () {

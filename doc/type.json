@@ -16,7 +16,8 @@
         "icon": "URL of the icon to be displayed aside of the text, optional : string",
         "ariaLabel": "description of the icon, optional, must be set when using an icon (WCAG) : string",
         "color": "background color of the tag in hex, the contrast with fontColor must be above 4.5 (WCAG), optional : string",
-        "fontColor": "font color of the tag in hex, optional, the contrast with color must be above 4.5 (WCAG) : string"
+        "fontColor": "font color of the tag in hex, optional, the contrast with color must be above 4.5 (WCAG) : string",
+        "class": "custom class identifier to add to the parent music item, add the class to the CSS for visual effects"
       }
     ],
     "requester": {
