@@ -81,7 +81,7 @@ class Music {
 
     for (let i = 0, len = this.tags.length; i < len; i++) {
       const tag = this.tags[i];
-      tag.updateParent()
+      tag.updateParentClass()
     }
 
     setTimeout(function () {

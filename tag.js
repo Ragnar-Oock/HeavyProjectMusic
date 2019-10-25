@@ -48,14 +48,19 @@ class Tag {
   }
 
   /**
-   * add custom class to parent music item
-   * @param {string} newClass new CSS class 
+   * add custom class to parent music item or update it with new provided class
+   * @param {string} newClass new CSS class OPTIONAL
    */
   updateParentClass(newClass) {
     let parent = $('#id' + this.parentId);
-    parent.toggleClass(this.class, false);
-    this.class = obj.class;
-    parent.toggleClass(this.class, true);
+    if (typeof newClass !== 'undefined') {
+      parent.toggleClass(this.class, false);
+      this.class = obj.class;
+      parent.toggleClass(this.class, true);
+    }
+    else {
+      parent.toggleClass(this.class, true);
+    }
   }
 
   /**
@@ -117,10 +122,7 @@ class Tag {
       same = false;
     }
     if (this.class !== obj.class && typeof obj.class !== 'undefined') {
-      let parent = $('#id' + this.parentId);
-      parent.toggleClass(this.class, false);
-      this.class = obj.class;
-      parent.toggleClass(this.class, true);
+      this.updateParentClass(obj.class);
     }
     return same;
   }
