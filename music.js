@@ -99,9 +99,8 @@ class Music {
    * @param  {int} index index to move the item to visualy
    */
   move(index) {
-    this.dom[0].style.transform = 'translateY(' + (index * 8.5) + 'em)';
-    // if the item move at the first position
     if (index !== this.index) {
+      // if the item move at the first position
       if (index === 0) {
         this.dom.prependTo('.playlist_list');
       }
@@ -109,7 +108,11 @@ class Music {
       else {
         this.dom.insertAfter('.playlist_item:nth-child(' + index + ')')
       }
+      this.index = index;
     }
+    setTimeout(function () {
+      this.dom[0].style.transform = 'translateY(' + (index * 8.5) + 'em)';
+    }.bind(this), 10);
   }
 
   /**
