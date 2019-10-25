@@ -45,16 +45,9 @@ class Music {
    * append the object to the wrapper
    */
   htmlPrint() {
-    let vip = "";
-    // for (var i = 0; i < this.tags.length; i++) {
-    //   if (this.tags[i].text === "VIP") {
-    //     vip = " VIP";
-    //   }
-    // }
-
     let list = $('.playlist_list'),
       length = list.eq(0).children().length,
-      html = `<div id="id${this.id}" class="playlist_item${vip} playlist_item_hidden" style="transform: translateY(${this.index * 8.5}em)">
+      html = `<div id="id${this.id}" class="playlist_item playlist_item_hidden" style="transform: translateY(${this.index * 8.5}em)">
       <div class="playlist_item__tags fadable">
         ${this.htmlTags()}
       </div>
