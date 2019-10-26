@@ -198,6 +198,8 @@ class Music {
             // insert the tag at the end of the list
             tagList.append(tag.toHtml());
           }
+          // update the parent with the tag's custom class
+          tag.updateParentClass();
         }
         else {
           let tag = this.tags[tagIndex];
