@@ -41,6 +41,8 @@ $(document).ready(() => {
     $('#refresh').toggleClass('hidden', true);
     // ckeck option checkbox
     $('#autoRefresh').prop('checked', true);
+    // force refresh
+    playlist.process()
   }
   else {
     playlist.setAutoRefresh(false);
