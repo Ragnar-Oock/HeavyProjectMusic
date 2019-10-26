@@ -65,6 +65,7 @@ class Music {
       </div>
     </div>`;
 
+    // insert dom object at this.index
     if (0 <= this.index && this.index < length) {
       list.children().eq(this.index).before(html);
     }
@@ -72,11 +73,13 @@ class Music {
       list.append(html);
     }
 
+    // add tags' custom class
     for (let i = 0, len = this.tags.length; i < len; i++) {
       const tag = this.tags[i];
       tag.updateParentClass()
     }
 
+    // show up the item
     setTimeout(function () {
       $('#id' + this.id).removeClass('playlist_item_hidden');
     }.bind(this), 10);
@@ -147,7 +150,6 @@ class Music {
     }
     else {
       // throw error in the console
-      // console.error('no argument provided to update music object', this);
       console.trace('no argument provided to update music object', this);
     }
   }
