@@ -1,7 +1,8 @@
 // variable declaration
 // AJAX parameters
-const pingDelay = 10000; //default : 10000
-const url = 'sampleMusique.json';
+const pingDelay = 10000; // default : 10000
+const streamPingDelay = 1000 // default : 1000
+const url = 'sampleMusique.json'; // default : sampleMusique.json
 
 // define the AJAX result storage
 let lastResult = [];
@@ -28,6 +29,8 @@ $(document).ready(() => {
     $('body').toggleClass('stream', true);
     // check option checkbox
     $('#stream_mode').prop('checked', true);
+    // crank up updates to 1 every sec
+    playlist.updateInterval(1000);
   }
   // if autoRefresh was deactiveted on previous visite get it down and show refresh button
   let locAutoRefresh = window.localStorage.getItem("autoRefresh")
@@ -91,9 +94,11 @@ $(document).ready(() => {
     // store the seting localy
     if (window.localStorage.getItem('stream') == "true") {
       window.localStorage.setItem('stream', false);
+      playlist.updateInterval(pingDelay);
     }
     else {
       window.localStorage.setItem('stream', true);
+      playlist.updateInterval(streamPingDelay);
     }
   });
 

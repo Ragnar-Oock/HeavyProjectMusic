@@ -6,11 +6,12 @@ class playlistProcessing {
     this.autoRefresh = true;
     this.delay = delay;
     this.url = url;
+    this.interval;
 
     // first API call
     this.process();
-    // set API call delay to the configurated delay
-    setInterval(function () { this.process() }.bind(this), this.delay);
+    // start auto refresh
+    this.updateInterval(this.delay);
   }
 
   /**
@@ -143,5 +144,24 @@ class playlistProcessing {
    */
   toggleAutoRefresh() {
     this.autoRefresh = !this.autoRefresh;
+    if (this.autoRefresh) {
+      this.updateInterval(this.delay);
+    }
+    else {
+      this.updateInterval(-1);
+    }
+  }
+
+  updateInterval(interval) {
+    if (typeof interval !== 'undefined' && interval !== this.delay) {
+      if (interval === -1) {
+        clearInterval(this.interval);
+      }
+      else {
+        this.delay = interval;
+        clearInterval(this.interval);
+        this.interval = setInterval(function () { this.process() }.bind(this), this.delay);
+      }
+    }
   }
 }
