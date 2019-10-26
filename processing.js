@@ -136,7 +136,7 @@ class playlistProcessing {
    * @param {int} interval number of ms to update the request delay to (-1 to desable the autorefresh)
    */
   updateInterval(interval) {
-    if (typeof interval !== 'undefined' && interval !== this.delay) {
+    if (typeof interval !== 'undefined' && (interval !== this.delay || this.interval === undefined)) {
       if (interval === -1) {
         clearInterval(this.interval);
       }
