@@ -39,6 +39,9 @@ class playlistProcessing {
     });
   }
 
+  /**
+   * update all items one by one
+   */
   updateAllItems() {
     // create an image of the list
     let buffer = Array.from(this.list);
@@ -113,13 +116,6 @@ class playlistProcessing {
    */
   setAutoRefresh(status = true) {
     this.autoRefresh = status;
-  }
-
-  /**
-   * toggle the autoRefresh
-   */
-  toggleAutoRefresh() {
-    this.autoRefresh = !this.autoRefresh;
     if (this.autoRefresh) {
       this.updateInterval(this.delay);
     }
@@ -128,6 +124,12 @@ class playlistProcessing {
     }
   }
 
+  /**
+   * toggle the autoRefresh
+   */
+  toggleAutoRefresh() {
+    this.setAutoRefresh(!this.autoRefresh)
+  }
 
   /**
    * update the ping request delay
