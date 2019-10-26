@@ -82,27 +82,6 @@ class playlistProcessing {
     }
   }
 
-  // DEPRACATED
-  /**
-   * return the index of the passed item in the passed list
-   * @param  {Music} item music item to find
-   * @param  {array} list array of Music object to search in
-   * @return {int}        index of the item in the list (-1 if not found)
-   */
-  // getIndexIn(item, list) {
-  //   // isolate the target id
-  //   let target = item.id;
-  //   // run throught the list and compare all ids
-  //   for (var i = 0; i < list.length; i++) {
-  //     // if the ids matchs return the indiex
-  //     if (list[i].id === target) {
-  //       return i;
-  //     }
-  //   }
-  //   // if the id is not in the list, return -1
-  //   return -1;
-  // }
-
   /**
    * add all new item at the correct location in this.list
    */
