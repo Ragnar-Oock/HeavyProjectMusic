@@ -101,8 +101,8 @@ class Tag {
     obj.text = typeof obj.text !== 'undefined' ? obj.text : undefined;
     obj.icon = typeof obj.icon !== 'undefined' ? obj.icon : '';
     obj.color = typeof obj.color !== 'undefined' ? obj.color : undefined;
-    obj.fontColor = typeof obj.fontColor !== 'undefined' ? obj.color : undefined;
-    obj.time = typeof obj.time !== 'undefined' ? obj.color : undefined;
+    obj.fontColor = typeof obj.fontColor !== 'undefined' ? obj.fontColor : undefined;
+    obj.time = typeof obj.time !== 'undefined' ? obj.time : undefined;
     obj.ariaLabel = typeof obj.ariaLabel !== 'undefined' ? obj.ariaLabel : '';
     obj.class = typeof obj.class !== 'undefined' ? obj.class : '';
 
