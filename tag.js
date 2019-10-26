@@ -96,20 +96,28 @@ class Tag {
    * @returns {boolean}  the tag is the same / the tag as bein updated
    */
   isSameAs(obj) {
+    obj.text = typeof obj.text !== 'undefined' ? obj.text : undefined;
+    obj.icon = typeof obj.icon !== 'undefined' ? obj.icon : '';
+    obj.color = typeof obj.color !== 'undefined' ? obj.color : undefined;
+    obj.fontColor = typeof obj.fontColor !== 'undefined' ? obj.color : undefined;
+    obj.time = typeof obj.time !== 'undefined' ? obj.color : undefined;
+    obj.ariaLabel = typeof obj.ariaLabel !== 'undefined' ? obj.ariaLabel : '';
+    obj.class = typeof obj.class !== 'undefined' ? obj.class : '';
+
     let same = true;
     if (this.text !== obj.text) {
       this.text = obj.text;
       same = false;
     }
-    if (this.icon !== obj.icon && typeof obj.icon !== 'undefined') {
+    if (this.icon !== obj.icon) {
       this.icon = obj.icon;
       same = false;
     }
-    if (this.color !== obj.color && typeof obj.color !== 'undefined') {
+    if (this.color !== obj.color) {
       this.color = obj.color;
       same = false;
     }
-    if (this.fontColor !== obj.fontColor && typeof obj.fontColor !== 'undefined') {
+    if (this.fontColor !== obj.fontColor) {
       this.fontColor = obj.fontColor;
       same = false;
     }
@@ -117,11 +125,11 @@ class Tag {
       this.time = obj.time;
       same = false;
     }
-    if (this.ariaLabel !== obj.ariaLabel && typeof obj.ariaLabel !== 'undefined') {
+    if (this.ariaLabel !== obj.ariaLabel) {
       this.ariaLabel = obj.ariaLabel;
       same = false;
     }
-    if (this.class !== obj.class && typeof obj.class !== 'undefined') {
+    if (this.class !== obj.class) {
       this.updateParentClass(obj.class);
     }
     return same;
