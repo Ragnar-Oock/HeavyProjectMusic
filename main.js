@@ -71,7 +71,7 @@ $(document).ready(() => {
 
   // force the refresh
   $('#refresh').click(() => {
-    playlist.process(true);
+    playlist.process();
   })
 
   // toggle dark mode

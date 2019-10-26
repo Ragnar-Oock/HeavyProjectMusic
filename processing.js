@@ -15,31 +15,28 @@ class playlistProcessing {
   }
 
   /**
-   * process loop
-   * @param  {Boolean} [force=false] either or not to force the processing of the playlist (for manual refresh)
+   * request the playlist info and process it
    */
-  process(force = false) {
-    if (this.autoRefresh || force) {
-      $.ajax({
-        url: this.url,
-        type: 'GET',
-        cache: false,
-        crossDomain: true,
-        success: function (result) {
-          this.last = this.mod;
-          this.mod = result;
-          // add the new items to this.list
-          this.addNew();
-          // move the item as needed
-          this.updateAllItems();
-          // update the length displayed
-          this.updateLength();
-        }.bind(this),
-        error: function (error) {
-          console.error(error);
-        }
-      });
-    }
+  process() {
+    $.ajax({
+      url: this.url,
+      type: 'GET',
+      cache: false,
+      crossDomain: true,
+      success: function (result) {
+        this.last = this.mod;
+        this.mod = result;
+        // add the new items to this.list
+        this.addNew();
+        // move the item as needed
+        this.updateAllItems();
+        // update the length displayed
+        this.updateLength();
+      }.bind(this),
+      error: function (error) {
+        console.error(error);
+      }
+    });
   }
 
   updateAllItems() {
@@ -131,6 +128,11 @@ class playlistProcessing {
     }
   }
 
+
+  /**
+   * update the ping request delay
+   * @param {int} interval number of ms to update the request delay to (-1 to desable the autorefresh)
+   */
   updateInterval(interval) {
     if (typeof interval !== 'undefined' && interval !== this.delay) {
       if (interval === -1) {
