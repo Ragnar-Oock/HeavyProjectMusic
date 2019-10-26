@@ -53,12 +53,14 @@ class Tag {
    */
   updateParentClass(newClass) {
     let parent = $('#id' + this.parentId);
-    if (typeof newClass !== 'undefined') {
+    // if new class is set and different from this.class
+    if (typeof newClass !== 'undefined' && newClass !== this.class) {
       parent.toggleClass(this.class, false);
       this.class = newClass;
       parent.toggleClass(this.class, true);
     }
-    else {
+    // else if this.class is not empty
+    else if (this.class !== '') {
       parent.toggleClass(this.class, true);
     }
   }
