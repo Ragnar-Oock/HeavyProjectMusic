@@ -166,12 +166,19 @@ class Music {
       // loop through an image of the list and delete all tags that are not present anymore
       for (let i = 0, len = tagList.length; i < len; i++) {
         const currentTag = tagList[i];
+        // get the index of the tag in obj
         let objTagIndex = obj.findIndex(function (tag) {
           return tag.id === currentTag.id;
         })
         if (objTagIndex === -1) {
-          this.tags[i].delete();
-          this.tags.splice(i, 1);
+          // visualy delete the tag
+          currentTag.delete();
+          // get the index of the tag in the tag list
+          let index = this.tags.findIndex(function (tag) {
+            return tag.id === currentTag.id;
+          })
+          // pop the tag of the list
+          this.tags.splice(index, 1);
         }
       }
       // loop througth all the tag of the received obj
@@ -186,17 +193,19 @@ class Music {
         // if the current tag is not present add it
         if (tagIndex === -1) {
           let tag = new Tag(objTag, this.id, i),
-            tagList = this.dom.children().eq(0);
+            tagWrapper = this.dom.children().eq(0),
+            tagWrapperLen = tagWrapper.children().length;
+
           // add the tag to this.tags
           this.tags.splice(i, 0, tag);
           // add the new tag object to the list at the good index
-          if (0 <= i && i < len) {
+          if (0 <= i && i < tagWrapperLen) {
             // insert the tag before the i-th tag
-            tagList.children().eq(i).before(tag.toHtml());
+            tagWrapper.children().eq(i).before(tag.toHtml());
           }
           else {
             // insert the tag at the end of the list
-            tagList.append(tag.toHtml());
+            tagWrapper.append(tag.toHtml());
           }
           // update the parent with the tag's custom class
           tag.updateParentClass();
